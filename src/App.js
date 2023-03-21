@@ -9,11 +9,10 @@ function App() {
 		<div className="App">
 			<div className="container">
 				<AsideBar />
+				{/* <div id="detail">
+					<Outlet />
+				</div> */}
 			</div>
-			{/* 
-			<div id="detail">
-				<Outlet />
-			</div> */}
 		</div>
 	);
 }

@@ -6,11 +6,8 @@ import './Navigation.css'
 import NavItem from "./NavItem";
 import logo from '../../assets/logo.svg'
 
-
-
-
 const AsideBar = () => {
-	const navData = ['Home', 'Tasks', 'D', 'N','O', 'U', 'S', 'L']
+	const menuLinks = ['home','discount','dashboard','notifications','orders','account','settings','logout']
 	const [activeIndex, setActive] = useState(0)
 	return (
 		<div className="asidebar">
@@ -21,7 +18,7 @@ const AsideBar = () => {
 				</div>
 				<nav className="asidebar__nav nav">
 					<ul className="nav__list">
-						{navData.map((item, index) => <NavItem key={index} item={item} isSelected={index === activeIndex} handleClick={()=>{setActive(index)}} />)}
+						{menuLinks.map((item, index) => <NavItem key={index} item={item} isSelected={index === activeIndex} handleClick={()=>{setActive(index)}}/>)}
 					</ul>
 				</nav>
 			</div>

@@ -53,6 +53,17 @@
 	height: 56px;
 }
 
+.nav__icon {
+	fill: #EA736D;
+	transition: fill 0.5s ease;
+}
+
+.nav__icon-active {
+	fill: #fff;
+	transition: fill 0.5s ease;
+}
+
+
 .selected__item {
 	width: 100%;
 	height: 100%;
