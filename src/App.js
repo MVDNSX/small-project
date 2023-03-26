@@ -1,6 +1,8 @@
 import './App.css';
 import { Outlet } from 'react-router-dom'
-import AsideBar from './components/Navbar/AsideBar';
+import { Sidebar } from './components/SideBar/Sidebar';
+import { CardDish } from './components/CardDish/CardDish';
+import Home from './Pages/HomePage/HomePage';
 
 function App() {
 
@@ -8,10 +10,10 @@ function App() {
 	return (
 		<div className="App">
 			<div className="container">
-				<AsideBar />
-				{/* <div id="detail">
+				<Sidebar />
+				<div id="detail" className='children'>
 					<Outlet />
-				</div> */}
+				</div>
 			</div>
 		</div>
 	);

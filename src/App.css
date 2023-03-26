@@ -13,4 +13,12 @@
 	margin: 0 auto;
 	background-color: #fff;
 	border-radius: 16px;
+	display: flex;
+	background: #252836;
 }
+
+.children {
+	flex-grow: 1;
+}
+
+.title {}
