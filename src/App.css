@@ -18,7 +18,8 @@
 }
 
 .children {
-	flex-grow: 1;
+	overflow: scroll;
+	flex-grow: 0;
 }
 
 .title {}

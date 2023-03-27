@@ -1,8 +1,6 @@
 import './App.css';
 import { Outlet } from 'react-router-dom'
 import { Sidebar } from './components/SideBar/Sidebar';
-import { CardDish } from './components/CardDish/CardDish';
-import Home from './Pages/HomePage/HomePage';
 
 function App() {
 
