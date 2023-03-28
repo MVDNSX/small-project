@@ -7,40 +7,24 @@ import {CategoryDishes} from '../../components/CategoryDishes/CategoryDishes'
 
 const Home = () => {
 
-	// const objs = [{category: 'Hot Dishes',dishes: [
-	// 		{name: 'Spicy seasoned seafood noodles', price: 2.29, bowls: 20, discount: 20%},
-	// 		{name: 'Salted Pasta with mushroom sauce', price: 2.69, bowls: 11, discount: 30%},
-	// 		{name: 'Healthy noodle with spinach leaf', price: 2.99, bowls: 20, discount: 10%},
-	// 		{name: 'Hot spicy fried rice with omelet', price: 2.99, bowls: 20, discount: 5%},
-	// 		{name: 'Spicy instant noodle with special omelette', price: 3.29, bowls: 20, discount: 0%},
-	// 	]},
-	// 	{category: 'Cold Dishes',dishes: [
-	// 		{name: 'Spicy seasoned seafood noodles', price: 2.29, bowls: 20, discount: 20%},
-	// 		{name: 'Salted Pasta with mushroom sauce', price: 2.69, bowls: 11, discount: 30%},
-	// 		{name: 'Healthy noodle with spinach leaf', price: 2.99, bowls: 20, discount: 10%},
-	// 		{name: 'Hot spicy fried rice with omelet', price: 2.99, bowls: 20, discount: 5%},
-	// 		{name: 'Spicy instant noodle with special omelette', price: 3.29, bowls: 20, discount: 0%},
-	// 	]}
-	// ]
-
-	const [search, setSearch] = useState('')
-
-	const menuCategory = [{name: 'Hot Dishes'},{name:'Cold Dishes'}, {name:'Soup'}, {name:'Grill'}, {name:'Dessert'}]
-	const menu = [
-		{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 20},
-		{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 20},
-		{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 20},
-		{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 20},
-		{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 20},
-]
-	const [activeMenu, setActiveMenu] = useState(0)
 	
+	const data = {
+		menuCategory: [{Id: 1, name: 'Hot Dishes'},{Id: 2, name:'Cold Dishes'}, {Id: 3, name:'Soup'}, {Id: 4, name:'Grill'}, {Id: 5, name:'Dessert'}],
+		dishes:[
+			{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 10},
+			{categoryId: 2, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 0},
+			{categoryId: 3, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 0},
+			{categoryId: 4, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 20},
+			{categoryId: 5, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 0},
+			{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 1.89, bowls:21, discount: 60},
+		]
+	}
+	
+	const [search, setSearch] = useState('')
+	const [activeMenu, setActiveMenu] = useState(0)
 	const filterVariants = ['Cheapers', 'Expensive', 'Name']
 	const [currFilter, setCurrFilter] = useState(0)
 	const [isDrop, setIsDrop] = useState(false)
-
-
-
 	const handleClickVariant = (index) => {
 		if(index !== currFilter){
 			setCurrFilter(index);
@@ -65,7 +49,7 @@ const Home = () => {
 				<div className="home__main">
 					<nav className="home__menu menu">
 						<ul className="menu__list">
-							{menuCategory.map((item, index) => <MenuItem key={index} item={item.name} isSelected={index === activeMenu} handleClick={()=>{setActiveMenu(index)}}/>)}
+							{data.menuCategory.map((item, index) => <MenuItem key={index} item={item.name} isSelected={index === activeMenu} handleClick={()=>{setActiveMenu(index)}}/>)}
 						</ul>
 					</nav>
 					<div className="dishes__filter filter">
@@ -77,7 +61,7 @@ const Home = () => {
 				</div>
 
 				<div className="home__menu">
-					{menuCategory.map((el, index)=> <CategoryDishes key={index} name={el.name} />)}
+					{data.menuCategory.map((category, index)=> <CategoryDishes key={index} name={category.name} dishes={data.dishes.filter( el => el.categoryId === category.Id)}/> )}
 				</div>
 			</div>
 		</div>

@@ -19,7 +19,7 @@
 
 .children {
 	overflow: scroll;
-	flex-grow: 0;
+	flex-grow: 1;
 }
 
 .title {}
