@@ -1,25 +1,24 @@
 import './HomePage.css'
 import {BiSearch} from 'react-icons/bi'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
 import {SlArrowDown, SlArrowUp} from 'react-icons/sl'
 import {CategoryDishes} from '../../components/CategoryDishes/CategoryDishes'
 
 const Home = () => {
 
-	
-	const data = {
-		menuCategory: [{Id: 1, name: 'Hot Dishes'},{Id: 2, name:'Cold Dishes'}, {Id: 3, name:'Soup'}, {Id: 4, name:'Grill'}, {Id: 5, name:'Dessert'}],
-		dishes:[
-			{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 10},
-			{categoryId: 2, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 0},
-			{categoryId: 3, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 0},
-			{categoryId: 4, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 20},
-			{categoryId: 5, name: 'Spicy seasoned seafood noodles', price: 2.29, bowls:21, discount: 0},
-			{categoryId: 1, name: 'Spicy seasoned seafood noodles', price: 1.89, bowls:21, discount: 60},
-		]
-	}
-	
+	const menuCategory = [{Id: 1, name: 'Hot Dishes'},{Id: 2, name:'Cold Dishes'}, {Id: 3, name:'Soup'}, {Id: 4, name:'Grill'}, {Id: 5, name:'Dessert'}]
+	const [dishes, setDishes] = useState([])
+	const [isLoading, setIsLoading] = useState(true)
+		useEffect(()=> {
+			fetch('https://6420700f25cb657210497359.mockapi.io/api/dishes')
+			.then((res) => res.json())
+			.then((json) => {
+				setDishes(json)
+				setIsLoading(false)
+			})
+		}, [])
+
 	const [search, setSearch] = useState('')
 	const [activeMenu, setActiveMenu] = useState(0)
 	const filterVariants = ['Cheapers', 'Expensive', 'Name']
@@ -49,7 +48,7 @@ const Home = () => {
 				<div className="home__main">
 					<nav className="home__menu menu">
 						<ul className="menu__list">
-							{data.menuCategory.map((item, index) => <MenuItem key={index} item={item.name} isSelected={index === activeMenu} handleClick={()=>{setActiveMenu(index)}}/>)}
+							{menuCategory.map((item, index) => <MenuItem key={index} item={item.name} isSelected={index === activeMenu} handleClick={()=>{setActiveMenu(index)}}/>)}
 						</ul>
 					</nav>
 					<div className="dishes__filter filter">
@@ -61,7 +60,7 @@ const Home = () => {
 				</div>
 
 				<div className="home__menu">
-					{data.menuCategory.map((category, index)=> <CategoryDishes key={index} name={category.name} dishes={data.dishes.filter( el => el.categoryId === category.Id)}/> )}
+					{menuCategory.map((category, index)=> <CategoryDishes key={index} name={category.name} dishes={dishes.filter( el => el.categoryId === category.Id)}/> )}
 				</div>
 			</div>
 		</div>
