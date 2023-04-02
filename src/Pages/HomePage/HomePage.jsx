@@ -2,39 +2,40 @@ import './HomePage.css'
 import {BiSearch} from 'react-icons/bi'
 import {useEffect, useState} from 'react'
 import {motion, AnimatePresence} from 'framer-motion'
-import {SlArrowDown, SlArrowUp} from 'react-icons/sl'
 import {CategoryDishes} from '../../components/CategoryDishes/CategoryDishes'
+import {SvgIcon} from '../../components/Svg/SvgIcon'
+import { TopMenu } from '../../components/TopMenu/TopMenu'
+import { FilterDrop } from '../../components/FilterDrop/FilterDrop'
 
 const Home = () => {
 
-	const menuCategory = [{Id: 1, name: 'Hot Dishes'},{Id: 2, name:'Cold Dishes'}, {Id: 3, name:'Soup'}, {Id: 4, name:'Grill'}, {Id: 5, name:'Dessert'}]
+	const [activeCategory, setActiveCategory] = useState({id:0, name: 'All Dishes'})
+	const [sortType, setSortType] = useState({type: 'price', name: 'Cheapers'})
+	const [isDropSort, setIsDropSort] = useState(false)
 	const [dishes, setDishes] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
-		useEffect(()=> {
-			fetch('https://6420700f25cb657210497359.mockapi.io/api/dishes')
+	
+	useEffect(()=> {
+			const filtering = activeCategory.id > 0 ? `categoryId=${activeCategory.id}` : '';
+			const order = sortType.type.includes('-') ? '&order=desc' : '&order=asc'
+			const sorting = `&sortBy=${sortType.type.replace('-','')}`
+
+			setIsLoading(true)
+			fetch(`https://6420700f25cb657210497359.mockapi.io/api/dishes?${filtering}${sorting}${order}`)
 			.then((res) => res.json())
 			.then((json) => {
 				setDishes(json)
 				setIsLoading(false)
 			})
-		}, [])
+		}, [activeCategory, sortType])
 
 	const [search, setSearch] = useState('')
-	const [activeMenu, setActiveMenu] = useState(0)
-	const filterVariants = ['Cheapers', 'Expensive', 'Name']
-	const [currFilter, setCurrFilter] = useState(0)
-	const [isDrop, setIsDrop] = useState(false)
-	const handleClickVariant = (index) => {
-		if(index !== currFilter){
-			setCurrFilter(index);
-		}
-		setIsDrop(!isDrop)
-	}
-
+	const [isOpenOrder, setIsOpenOrder] = useState(false)
 
 	return (
-		<div className="home">
-			<div className="home-container">
+		<div className="homepage">
+			<div className="main-content">
+				<div className="main-content__container">
 				<div className="home__header">
 					<div className="home__info info">
 						<div className="info__name title">Riverside Flamez</div>
@@ -45,37 +46,30 @@ const Home = () => {
 						<input onChange={(e) => {setSearch(e.target.value)}} type="text" placeholder='Search for food, coffe, etc..' value={search} />
 					</div>
 				</div>
-				<div className="home__main">
-					<nav className="home__menu menu">
-						<ul className="menu__list">
-							{menuCategory.map((item, index) => <MenuItem key={index} item={item.name} isSelected={index === activeMenu} handleClick={()=>{setActiveMenu(index)}}/>)}
-						</ul>
-					</nav>
-					<div className="dishes__filter filter">
-						<div className="filter__current" onClick={()=>{setIsDrop(!isDrop)}}>{filterVariants[currFilter]}</div>
-							<AnimatePresence>
-							{isDrop ? <motion.div initial={{y: '-30px', opacity: 0}} animate={{y: 0, opacity:1}} exit={{y: '20px', opacity: 0}} className="filter__variants">{filterVariants.map((item, index) => <div key={index} onClick={() => {handleClickVariant(index)}} className="filter__variant">{item}</div>)}</motion.div> : null}
-							</AnimatePresence>
-						</div>
+				<div className="home__top">
+					<TopMenu active={activeCategory} onClickMenu={(obj)=>setActiveCategory(obj)}/>
+					<FilterDrop current={sortType} setCurrent={(id)=> {setSortType(id)}} drop={isDropSort} setDrop={(drop)=>setIsDropSort(drop)}/>
 				</div>
-
 				<div className="home__menu">
-					{menuCategory.map((category, index)=> <CategoryDishes key={index} name={category.name} dishes={dishes.filter( el => el.categoryId === category.Id)}/> )}
+					{<CategoryDishes name={activeCategory.name} dishes={dishes} isLoading={isLoading}/>}
+				</div>
 				</div>
 			</div>
+			<div className="order">
+				<div className="order-container">
+					<div className="order__btn" onClick={()=>{setIsOpenOrder(true)}}>
+						<SvgIcon id={'basket'}/>
+					</div>
+				</div>
+			</div>
+			<AnimatePresence>
+				{isOpenOrder 
+				? <motion.div initial={{x: '100%'}} animate={{x: '70%'}} exit={{x: '100%'}} className="modal"><div className="modal__container"><button onClick={()=>{setIsOpenOrder(false)}}>click</button></div></motion.div> 
+				: null }
+				</AnimatePresence>
 		</div>
+		
 	)
 }
 
 export default Home
-
-const MenuItem = ({item, isSelected, handleClick}) => {
- return (
-	<>
-	<motion.li initial={{color: '#fff'}} animate={isSelected ? {color: '#EA736D'} : {color: '#FFF'}} onClick={handleClick} className='menu__item'>{item}
-		{isSelected ? <motion.div layoutId='dishes' className='menu__indecator'></motion.div>: null}
-	</motion.li>
-	</>
-	
- )
-}

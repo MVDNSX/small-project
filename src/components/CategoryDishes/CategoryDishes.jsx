@@ -5,21 +5,24 @@ import { useState } from 'react';
 import SkeletonCard from '../DishesCard/SkeletonCard';
 
 
-export const CategoryDishes = ({name, dishes}) => {
+export const CategoryDishes = ({name, dishes, isLoading}) => {
 	return (
 		<div className="category-block">
 			<div className="category__name">{name}</div>
-			{dishes.length !== 0 
+			{ isLoading
 			? <div className="category__dishes">
-				{ dishes.map((el, index) => 
-					<DishesCard 
-					key={index} 
-					name={el.name} price={el.price} bowls={el.bowls} discount={el.discount} />)}
-			</div> 
+					{[...new Array(8)].map((_, index) => <SkeletonCard key={index}/>)}
+				</div> 
 			: <div className="category__dishes">
-				{ [...new Array(8)].map((_, index) => 
-					<SkeletonCard key={index}/>)}
-			</div>}
+					{dishes.map((el, index) =>
+						<DishesCard 
+							key={index} 
+							name={el.name} 
+							price={el.price} 
+							bowls={el.bowls} 
+							discount={el.discount} 
+					/>)}
+				</div> }
 		</div>
 	)
 }

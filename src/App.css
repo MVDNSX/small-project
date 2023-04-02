@@ -15,10 +15,12 @@
 	border-radius: 16px;
 	display: flex;
 	background: #252836;
+	position: relative;
+	overflow: hidden;
 }
 
 .children {
-	overflow: scroll;
+
 	flex-grow: 1;
 }
 
