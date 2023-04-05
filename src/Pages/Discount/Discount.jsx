@@ -1,7 +1,10 @@
+import { Basket } from "../../components/Basket/Basket"
 
 const Discount = () => {
 	return (
-		<div className="">Discount</div>
+		<div className="">
+			<Basket />
+		</div>
 	)
 }
 

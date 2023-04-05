@@ -1,0 +1,146 @@
+.basket {
+	width: 409px;
+	padding: 24px;
+
+	.number_order {
+		font-weight: 600;
+		font-size: 20px;
+		color: #FFFFFF;
+		margin-bottom: 24px;
+	}
+
+	.content {
+		.dishes {
+			flex-grow: 1;
+		}
+
+		.quantity {
+			text-align: center;
+			min-width: 48px;
+			flex-grow: 0;
+		}
+
+		.price {
+			text-align: center;
+			min-width: 48px;
+		}
+
+		.header {
+			display: flex;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 1.4;
+			color: #FFFFFF;
+			gap: 8px;
+			padding-bottom: 24px;
+			border-bottom: 1px solid #393C49;
+		}
+
+		.main {
+			padding: 24px 0;
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+		}
+	}
+}
+
+
+.item {
+	.top {
+		display: flex;
+		gap: 8px;
+		margin-bottom: 10px;
+		align-items: center;
+
+		.dishes {
+			display: flex;
+			gap: 8px;
+
+			.image {
+				width: 40px;
+				height: 40px;
+			}
+
+			.info {
+				font-weight: 500;
+				flex-grow: 1;
+
+				.name {
+					font-size: 14px;
+					line-height: 1.3;
+					color: #3B5162;
+				}
+
+				.price_one {
+					font-size: 12px;
+					line-height: 1.4;
+					color: #889898;
+				}
+			}
+		}
+
+		.count {
+			input {
+				text-align: center;
+				padding: 0 14px;
+				width: 48px;
+				font-size: 16px;
+				line-height: 46px;
+				color: #889898;
+				background: #2D303E;
+				border: 1px solid #393C49;
+				border-radius: 8px;
+			}
+		}
+
+		.price_all {
+			text-align: center;
+			width: 48px;
+			line-height: 48px;
+			font-weight: 500;
+			font-size: 16px;
+			color: #3B5162;
+		}
+	}
+
+	.bot {
+		display: flex;
+		gap: 8px;
+
+
+		input {
+			flex-grow: 1;
+			line-height: 46px;
+			padding: 0 14px;
+			background: #2D303E;
+			border: 1px solid #393C49;
+			border-radius: 8px;
+			color: #E0E6E9;
+
+			::placeholder {
+				font-size: 14px;
+				color: #889898;
+			}
+		}
+
+		button {
+			width: 48px;
+			height: 48px;
+			border: 1px solid #EA736D;
+			border-radius: 8px;
+
+			.btn_icon {
+				stroke: #EA736D;
+			}
+		}
+
+		button:hover {
+			background-color: #EA736D;
+
+			.btn_icon {
+				stroke: #fff;
+			}
+		}
+	}
+}

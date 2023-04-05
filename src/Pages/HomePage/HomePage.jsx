@@ -6,6 +6,7 @@ import {CategoryDishes} from '../../components/CategoryDishes/CategoryDishes'
 import {SvgIcon} from '../../components/Svg/SvgIcon'
 import { TopMenu } from '../../components/TopMenu/TopMenu'
 import { FilterDrop } from '../../components/FilterDrop/FilterDrop'
+import { Basket } from '../../components/Basket/Basket'
 
 const Home = () => {
 
@@ -62,11 +63,11 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			<AnimatePresence>
-				{isOpenOrder 
-				? <motion.div initial={{x: '100%'}} animate={{x: '70%'}} exit={{x: '100%'}} className="modal"><div className="modal__container"><button onClick={()=>{setIsOpenOrder(false)}}>click</button></div></motion.div> 
-				: null }
-				</AnimatePresence>
+			<div className="basket">
+				<div className="basket-container">
+					
+				</div>
+			</div>
 		</div>
 		
 	)

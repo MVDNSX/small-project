@@ -1,7 +1,7 @@
-const Orders = () => {
+const Basket = () => {
 	return (
-		<div className="">Orders</div>
+		<div className=""></div>
 	)
 }
 
-export default Orders
+export default Basket
