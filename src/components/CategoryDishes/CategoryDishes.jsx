@@ -17,10 +17,8 @@ export const CategoryDishes = ({name, dishes, isLoading}) => {
 					{dishes.map((el, index) =>
 						<DishesCard 
 							key={index} 
-							name={el.name} 
-							price={el.price} 
-							bowls={el.bowls} 
-							discount={el.discount} 
+							dishesInfo={el}
+							id={index}
 					/>)}
 				</div> }
 		</div>

@@ -60,14 +60,18 @@ const Home = () => {
 				<div className="order-container">
 					<div className="order__btn" onClick={()=>{setIsOpenOrder(true)}}>
 						<SvgIcon id={'basket'}/>
+						{/* <span>{1}</span> */}
 					</div>
 				</div>
 			</div>
-			<div className="basket">
-				<div className="basket-container">
-					
+			
+				<div className="basket">
+					<AnimatePresence>
+						{isOpenOrder ? <motion.div initial={{x: '100%'}} animate={{x:0}} exit={{x:'100%'}} transition={{ type: "Tween", duration: 0.25}} className="basket-container">
+							<Basket isOpen={() => {setIsOpenOrder(false)}}/>
+						</motion.div> : null}
+					</AnimatePresence>
 				</div>
-			</div>
 		</div>
 		
 	)
