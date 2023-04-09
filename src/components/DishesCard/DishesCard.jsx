@@ -3,7 +3,7 @@ import dinner from '../../assets/cards/Image 1.png'
 import {useDispatch} from 'react-redux'
 import { addDishes } from '../../store/Slices/basketSlice'
 export const DishesCard = ({dishesInfo}) => {
-	const {id, name, price, bowls, discount} = dishesInfo
+	const {id, name, price, bowls, discount, finalPrice} = dishesInfo
 	const dispatch = useDispatch()
 	const handleAddBasket = () => {
 		dispatch(addDishes({...dishesInfo, count: 1}))
@@ -17,7 +17,7 @@ export const DishesCard = ({dishesInfo}) => {
 				</div>
 				<div className="card__info">
 					<div className="card__name">{name}</div>
-					<div className="card__price">{discount !==0 ? <span className='card__discount-price'><s>{(price * (100 + discount) / 100).toFixed(2)}</s>${price}</span> :  `$ ${price}` }</div>
+					<div className="card__price">{discount !== 0 ? <span className='card__discount-price'><s>$ {price}</s>$ {finalPrice}</span> :  `$ ${finalPrice}` }</div>
 					<div className="card__count">{bowls} Bowls available</div>
 				</div>
 				<div className="btn-wrapper">

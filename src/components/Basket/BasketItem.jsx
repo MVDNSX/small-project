@@ -6,12 +6,17 @@ import { deleteDishes, changeCount } from '../../store/Slices/basketSlice'
 
 export const BasketItem = ({dishesData, setTotal}) => {
 	const dispatch = useDispatch();
-	const {dishesId, price, name, discount, count} = dishesData
-	const overPrice = count * price;
-
-	useEffect(()=> {
-		setTotal((prev) => prev + overPrice)
-	}, [overPrice, count])
+	const {dishesId, price, name, discount, count, finalPrice} = dishesData
+	const overPrice = +(count * finalPrice).toFixed(2);
+	// const z = {
+	// 	price: 2.89,
+	// 	discount:60,
+	// 	get finalPrice() {
+	// 		return +(this.price * (100 - this.discount) / 100).toFixed(2)
+	// 	},
+	// }
+	// const b = JSON.stringify(z)
+	// console.log(b)
 
 
 	return (<>
@@ -24,7 +29,7 @@ export const BasketItem = ({dishesData, setTotal}) => {
 					</div>
 					<div className={styles.info}>
 						<div className={styles.name}>{name}</div>
-						<div className={styles.price_one}>{price}</div>
+						<div className={styles.price_one}>{discount ? <div><s>$ {price}</s>$ {finalPrice}</div> : `${finalPrice}`}</div>
 					</div>
 				</div>
 				<div className={styles.count}>

@@ -1,7 +1,6 @@
 
 import './CategoryDiahes.css'
 import { DishesCard } from "../DishesCard/DishesCard";
-import { useState } from 'react';
 import SkeletonCard from '../DishesCard/SkeletonCard';
 
 

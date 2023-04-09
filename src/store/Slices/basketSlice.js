@@ -21,7 +21,6 @@ export const basketSlice = createSlice({
 			state.order = state.order.filter(item => item.dishesId !== action.payload.dishesId)
 		},
 		changeCount: (state, action) => {
-			console.log(action.payload)
 			const existingItemIndex = state.order.findIndex(item => item.dishesId === action.payload.dishesId)
 			if (existingItemIndex >= 0) {
 				state.order[existingItemIndex].count = +action.payload.count;

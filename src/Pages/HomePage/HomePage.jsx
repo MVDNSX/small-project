@@ -64,14 +64,13 @@ const Home = () => {
 					</div>
 				</div>
 			</div>
-			
-				<div className="basket">
+			<div className="basket">
 					<AnimatePresence>
 						{isOpenOrder ? <motion.div initial={{x: '100%'}} animate={{x:0}} exit={{x:'100%'}} transition={{ type: "Tween", duration: 0.25}} className="basket-container">
 							<Basket isOpen={() => {setIsOpenOrder(false)}}/>
 						</motion.div> : null}
 					</AnimatePresence>
-				</div>
+			</div>
 		</div>
 		
 	)
