@@ -1,0 +1,41 @@
+.main-greeting {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.greeting {
+	text-align: center;
+}
+
+.greeting__title {
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 1.4;
+	color: #fff;
+	margin-bottom: 30px;
+}
+
+.greeting__suptitle {
+	text-align: center;
+	padding: 0 10px;
+}
+
+.greeting__btn {
+	margin-top: 35px;
+	width: 150px;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 14px;
+	color: #fff;
+	border: 2px solid #201d2b;
+	padding: 12px 20px;
+	border-radius: 20px;
+}
+
+.greeting__btn:hover {
+	background-color: #ee8c87;
+	border: 2px solid #201a1b;
+}
