@@ -28,11 +28,17 @@
 	padding: 12px;
 	background-color: #262836;
 	border-radius: 2px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
+	margin-top: 5px;
 	caret-color: #ea736d;
 	font-size: 16px;
 	color: #fff;
 }
+
+.input-error {
+	color: #ea736d;
+}
+
 .login__btn,
 .register__btn {
 	width: 150px;
@@ -49,4 +55,10 @@
 .login__btn:hover,
 .register__btn:hover {
 	background-color: #ee8c87;
+}
+
+.login__btn:disabled,
+.register__btn:disabled {
+	background-color: #a7524e;
+	cursor: not-allowed;
 }
