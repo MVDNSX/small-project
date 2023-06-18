@@ -1,7 +1,7 @@
-const Account = () => {
+const Logout = () => {
 	return (
-		<div className="">Account</div>
+		<div className="">logout</div>
 	)
 }
 
-export default Account
+export default Logout

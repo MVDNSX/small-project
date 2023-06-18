@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/store';
 import './index.css';
@@ -11,52 +11,32 @@ import Discount from './Pages/Discount/Discount';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Notifications from './Pages/Notifications/Notifications';
 import Orders from './Pages/Orders/Orders';
-import Account from './Pages/Account/Account';
+import AccountLayout from './Pages/Account/AccountLayout';
 import Settings from './Pages/Settings/Settings';
 import Logout from './Pages/Logout/Logout';
+import Profile from './components/Profile/Profile'
+import Form from './components/Form/Form'
+import RequireAuth from './components/RequireAuth/RequireAuth'
 
-
-const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <App />,
-		errorElement: <ErrorPage />,
-		children: [
-			{
-				path: 'home',
-				element: <Home />,
-			},
-			{
-				path: 'discount',
-				element: <Discount />
-			},
-			{
-				path: 'dashboard',
-				element: <Dashboard />
-			},
-			{
-				path: 'notifications',
-				element: <Notifications />
-			},
-			{
-				path: 'orders',
-				element: <Orders />
-			},
-			{
-				path: 'account',
-				element: <Account />
-			},
-			{
-				path: 'settings',
-				element: <Settings />
-			},
-			{
-				path: 'logout',
-				element: <Logout />
-			},
-		],
-	},
-])
+let auth = false;
+const router = createBrowserRouter(createRoutesFromElements
+	(
+		<Route path='/' element={<App/>} errorElement={<ErrorPage/>}>
+			<Route path='home' element={<Home/>}/>
+			<Route path='discount' element={<Discount/>}/>
+			<Route path='dashboard' element={<Dashboard/>}/>
+			<Route path='notifications' element={<Notifications/>}/>
+			<Route path='orders' element={<Orders/>}/>
+			<Route path='account' element={<AccountLayout/>}>
+				<Route path='profile' element={
+				<RequireAuth><Profile/></RequireAuth>}/> 
+				<Route path='login' element={<Form/>}/> 
+			</Route>
+			<Route path='settings' element={<Settings/>}/>
+			<Route path='logout' element={<Logout/>}/>
+		</Route>
+	)
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
