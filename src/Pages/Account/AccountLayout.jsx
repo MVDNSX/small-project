@@ -1,17 +1,18 @@
-
+import { useSelector } from 'react-redux'
 import {BiSearch} from 'react-icons/bi'
+import {Outlet, useNavigate, useLocation} from 'react-router-dom'
 import {useEffect, useState } from 'react'
 import './AccountLayout.css'
-import {Outlet, useNavigate, useLocation} from 'react-router-dom'
 
 
 const AccountLayout = (props) => {
 	const [search, setSearch] = useState('')
 	const location = useLocation()
 	const navigate = useNavigate()
+	const auth = useSelector((state) => state.auth.auth)
 	useEffect(() => {
       navigate("/account/profile");
-  }, []);
+  }, [auth]);
 
 	return (
 		<div className="account-page">

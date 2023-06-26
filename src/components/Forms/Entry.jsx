@@ -1,12 +1,17 @@
 import './Entry.css'
 import { AnimatePresence, motion } from "framer-motion"
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux'
+import { isAuth } from '../../store/Slices/authSlice';
 
 const Entry = (props) => {
+  const dispatch = useDispatch()
+  
   const {side} = props
   const { register, handleSubmit,reset, watch, formState: { errors, isValid } } = useForm({mode: 'onBlur'});
   const onSubmit = data => {
     alert(JSON.stringify(data));
+    dispatch(isAuth(true))
     reset();
   }
   return (

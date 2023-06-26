@@ -1,5 +1,5 @@
 .account-page {
-	padding: 24px 24px 0 24px;
+	padding: 24px;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -9,11 +9,11 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	align-items:center;
+	align-items: center;
 	margin-bottom: 24px;
 }
 
-.form__container{
+.form__container {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
@@ -26,7 +26,6 @@
 	background-color: #1f1d2b;
 	border-radius: 12px;
 	display: flex;
-	overflow: hidden;
 }
 
 .form-reverse {

@@ -1,11 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { SidebarItem } from "./SidebarItem";
 import './Sidebar.css'
 import logo from '../../assets/logo.svg'
+import {useLocation} from 'react-router-dom'
 
 export const Sidebar = () => {
 	const menuLinks = ['home','discount','dashboard','notifications','orders','account','settings','logout'];
-	const [isActiveIndex, setIsActiveIndex] = useState(0)
+
+	const location = useLocation()
+	const [isActiveIndex, setIsActiveIndex] = useState()
+
+	useEffect(()=>{
+		for(let i = 0; i < menuLinks.length; i++){
+			if( location.pathname.includes(menuLinks[i]) === true ) {
+				setIsActiveIndex(i)
+			}
+		}
+	},[location.pathname])
+
 	return (
 		<div className="sidebar">
 			<div className="sidebar__logo">

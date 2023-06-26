@@ -1,10 +1,10 @@
 
+import { useSelector } from 'react-redux'
 import {Navigate, useLocation, useNavigate} from 'react-router-dom'
 
 const RequireAuth = ({children}) => {
   const location = useLocation();
-  const auth = false;
-  console.log(location.pathname)
+  const auth = useSelector((state) => state.auth.auth)
   if(!auth){
     return (
     <Navigate 
