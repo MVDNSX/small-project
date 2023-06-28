@@ -35,11 +35,10 @@
 }
 
 .user-data__info {
-
 }
 
 .user-data__name {
-	color: #FFF;
+	color: #fff;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 1.4;
@@ -47,35 +46,52 @@
 }
 
 .user-data__creation {
-	color: #ABBBC2;
+	color: #abbbc2;
 	font-size: 14px;
 	font-weight: 600;
 	line-height: 1.4;
 }
 
-.user-data__form{
+.user-data__form {
 	display: flex;
 	flex-direction: column;
 }
 
-.user-data__label{
-	color: #FFF;
+.user-data__label {
+	color: #fff;
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 1.3;
 	margin-bottom: 8px;
 }
 
-.user-data__input{
+.user-data__input {
 	padding: 14px;
 	border-radius: 8px;
-	border: 1px solid #393C49;
-	background: #2D303E;
-	color: #E0E6E9;
+	border: 1px solid #393c49;
+	background: #2d303e;
+	color: #e0e6e9;
 	margin-bottom: 16px;
 }
-.user-data__input:last-child{
+.user-data__input:last-child {
 	margin-bottom: 0;
+}
+
+.not-valid {
+	border: 1px solid red;
+}
+.user-data__save {
+	margin-top: 18px;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 14px;
+	background-color: #50d1aa;
+	border-radius: 8px;
+	color: white;
+}
+
+.user-data__save:disabled {
+	background-color: rgba(107, 226, 190, 0.24);
 }
 
 .most-order {
@@ -84,6 +100,53 @@
 	background-color: #1f1d2b;
 	border-radius: 8px;
 }
+
+.most-order__title {
+	margin-top: 10px;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.4;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #393c49;
+}
+
+.most-order__top{
+	display: flex;
+	margin-top: 20px;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.top__item {
+	display: flex;
+	gap: 16px;
+}
+
+.top__image-dish {
+	width: 60px;
+	height: 60px;
+}
+
+.top__image-dish img {
+	width: 100%;
+	height: 100%;
+}
+
+.top__name-dish{
+	color:#E0E6E9;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.3;
+	margin-bottom: 4px;
+}
+
+.top__order-val{
+	color: #ABBBC2;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
 .order-report {
 	grid-area: or;
 	background-color: #1f1d2b;
@@ -123,38 +186,4 @@
 	display: grid;
 	gap: 10px;
 	padding: 16px 24px 0;
-}
-
-.order-report__row {
-	display: grid;
-	grid-template-columns: 2fr 3fr 2fr 1fr;
-	font-size: 14px;
-	line-height: 1.4;
-	color: #e0e6e9;
-	align-items: center;
-	padding: 10px 0;
-}
-
-.column__customer {
-	font-size: 20px;
-	font-weight: 600;
-	color: white;
-}
-
-.status-bg {
-	padding: 4px 12px;
-	border-radius: 30px;
-	text-align: center;
-	font-weight: 500;
-	line-height: 1;
-}
-
-.bg-orange {
-	background: rgba(235, 150, 106, 0.24);
-	color: #ffb572;
-}
-
-.bg-green {
-	background: rgba(107, 226, 190, 0.24);
-	color: #50d1aa;
 }

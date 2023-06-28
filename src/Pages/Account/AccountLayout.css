@@ -26,6 +26,7 @@
 	background-color: #1f1d2b;
 	border-radius: 12px;
 	display: flex;
+	overflow: hidden;
 }
 
 .form-reverse {
