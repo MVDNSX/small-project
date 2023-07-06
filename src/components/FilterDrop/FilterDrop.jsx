@@ -1,6 +1,7 @@
 import {motion, AnimatePresence} from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './FilterDrop.css'
+import { current } from '@reduxjs/toolkit'
 
 export const FilterDrop = ({current, setCurrent, drop, setDrop}) => {
 
@@ -36,4 +37,43 @@ export const FilterDrop = ({current, setCurrent, drop, setDrop}) => {
 			</AnimatePresence>
 		</div>
 	)
+}
+
+
+export const Filter = () => {
+	console.log('rerender')
+	const [curValue, setCurValue] = useState('Cheapers');
+	const [isDrop, setIsDrop] = useState(false)
+	let ref = useRef(null)
+
+	const changeSort = (e) => {
+		setCurValue(e.target.innerText)
+		setIsDrop(false);
+	}
+
+
+
+	 return (
+		<div className='filter'>
+			<div className="filter__current" 
+			onClick={() => setIsDrop(!isDrop)}
+			>{curValue}</div>
+			<AnimatePresence>
+				{isDrop 
+				? <motion.div 
+				className="filter__variants" 
+				onClick={(e) => {changeSort(e)}}
+				onMouseEnter={(e) => {mouseHandler(e)}}
+				initial={{y: '20px', opacity: 0}} 
+				animate={{y: 0, opacity:1}} 
+				exit={{y: '20px', opacity: 0}} >
+					<div onMouseOver={}>Cheapers</div>
+					<div onMouseOver={}>Expencive</div>
+					<div onMouseOver={}>Name</div>
+					
+				</motion.div>
+				: null}
+			</AnimatePresence>
+		</div>
+	 )
 }

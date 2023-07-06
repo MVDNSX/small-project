@@ -1,0 +1,19 @@
+.search-container {
+	padding: 14px;
+	width: 220px;
+	font-size: 14px;
+	line-height: 1.4;
+	background: #2d303e;
+	border: 1px solid #393c49;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+}
+
+.search-container input {
+	margin-left: 8px;
+	color: #fff;
+	width: 100%;
+	background: #2d303e;
+	position: relative;
+}

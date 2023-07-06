@@ -4,7 +4,7 @@ import { DishesCard } from "../DishesCard/DishesCard";
 import SkeletonCard from '../DishesCard/SkeletonCard';
 
 
-export const CategoryDishes = ({name, dishes, isLoading, discountFlag}) => {
+export const CategoryDishes = ({name, dishes, isLoading}) => {
 	return (
 		<div className="category-block">
 			<div className="category__name">{name}</div>
@@ -14,14 +14,7 @@ export const CategoryDishes = ({name, dishes, isLoading, discountFlag}) => {
 				</div> 
 			: 
 			  <div className="category__dishes">
-					{discountFlag 
-					? dishes.filter((item) => {return item.discount > 0}).map((el, index) =>
-					<DishesCard 
-						key={index} 
-						dishesInfo={el}
-						id={index}
-				/>) 
-				: dishes.map((el, index) =>
+					{dishes.map((el, index) =>
 						<DishesCard 
 							key={index} 
 							dishesInfo={el}
