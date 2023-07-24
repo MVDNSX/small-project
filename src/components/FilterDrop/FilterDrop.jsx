@@ -67,9 +67,9 @@ export const Filter = () => {
 				initial={{y: '20px', opacity: 0}} 
 				animate={{y: 0, opacity:1}} 
 				exit={{y: '20px', opacity: 0}} >
-					<div onMouseOver={}>Cheapers</div>
-					<div onMouseOver={}>Expencive</div>
-					<div onMouseOver={}>Name</div>
+					<div>Cheapers</div>
+					<div>Expencive</div>
+					<div>Name</div>
 					
 				</motion.div>
 				: null}
