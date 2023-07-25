@@ -1,7 +1,6 @@
 import {motion, AnimatePresence} from 'framer-motion'
 import { useState, useRef } from 'react'
 import './FilterDrop.css'
-import { current } from '@reduxjs/toolkit'
 
 export const FilterDrop = ({current, setCurrent, drop, setDrop}) => {
 
@@ -16,24 +15,31 @@ export const FilterDrop = ({current, setCurrent, drop, setDrop}) => {
 	}
 	return (
 		<div className="dishes__filter filter">
-			<div className="filter__current" onClick={()=>{setDrop(!drop)}} >{current.name}</div>
+			<div 
+			className="filter__current" 
+			onClick={()=>{setDrop(!drop)}}>
+				{current.name}
+			</div>
 			<AnimatePresence>
 				{drop 
-					?	<motion.div 
+					&&	<motion.div 
+						className="filter__variants"
 						initial={{y: '20px', opacity: 0}} 
 						animate={{y: 0, opacity:1}} 
-						exit={{y: '20px', opacity: 0}} 
-						className="filter__variants">
+						exit={{y: '20px', opacity: 0}}>
 							{sorts.map((item, index) => 
 								<div 
+									className={`filter__variant`}
 									key={index} 
 									onClick={() => {handleClick(item)}} 
 									onMouseOver={()=>{setHover(index)}}
-									className={`filter__variant`}>{item.name}
-										{ hover === index ? <motion.div layoutId='dropLayout' className='drop__hover'></motion.div> : null}
+									>{item.name}
+										{ hover === index 
+										? <motion.div layoutId='dropLayout' className='drop__hover'></motion.div> 
+										: null}
 								</div>)}
 						</motion.div> 
-					: null}
+					}
 			</AnimatePresence>
 		</div>
 	)

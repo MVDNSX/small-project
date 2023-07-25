@@ -3,7 +3,7 @@
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 1.4;
-	color: #FFFFFF;
+	color: #ffffff;
 	cursor: pointer;
 }
 
@@ -11,8 +11,8 @@
 	width: 174px;
 	position: relative;
 	padding: 15px;
-	border: 1px solid #393C49;
-	background-color: #1F1D2B;
+	border: 1px solid #393c49;
+	background-color: #1f1d2b;
 	border-radius: 8px;
 	flex-shrink: 0;
 }
@@ -22,8 +22,8 @@
 	width: 174px;
 	position: absolute;
 	padding: 10px;
-	border: 1px solid #393C49;
-	background-color: #1F1D2B;
+	border: 1px solid #393c49;
+	background-color: #1f1d2b;
 	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
@@ -47,5 +47,3 @@
 	border-radius: 5px;
 	z-index: -1;
 }
-
-.filter__variant-active {}
