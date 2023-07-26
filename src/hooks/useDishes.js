@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export function useDishes(url){
-  const [dishes, setDishes] = useState('')
+  const [dishes, setDishes] = useState([])
   useEffect(()=>{
     fetch(url)
 		.then((res) => res.json())
@@ -9,6 +9,6 @@ export function useDishes(url){
 			setDishes(res)
 		})
   }, [])
-  return {dishes};
+  return {dishes, setDishes};
 }
 
