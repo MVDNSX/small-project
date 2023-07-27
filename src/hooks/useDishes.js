@@ -1,14 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 
-export function useDishes(url){
-  const [dishes, setDishes] = useState([])
-  useEffect(()=>{
-    fetch(url)
-		.then((res) => res.json())
-		.then((res) => {
-			setDishes(res)
-		})
-  }, [])
-  return {dishes, setDishes};
+export const useSortDishes = (dishes, sortParam) => {
+  const sortedDishes = useMemo( () => {
+		if(sortParam === 'name' ) {
+			return [...dishes].sort( (a,b) => {return a[sortParam].localeCompare(b[sortParam])})
+		}else if(sortParam === 'price'){
+			return [...dishes].sort( (a,b) => {return a[sortParam] - b[sortParam] })
+		}
+		else{
+			return dishes;
+		}
+	}, [sortParam, dishes])
+  return sortedDishes
 }
 
+export const useSortAndFilterDishes = (dishes, sort, query) => {
+  const sortedDishes = useSortDishes(dishes, sort);
+	
+  const sortedAndSearchDishes = useMemo( ()=> {
+		return sortedDishes.filter( d => d.name.toLowerCase().includes(query.toLowerCase()))
+	},[query, sortedDishes])
+  return sortedAndSearchDishes;
+}

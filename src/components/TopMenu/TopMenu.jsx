@@ -1,7 +1,14 @@
 import {motion} from 'framer-motion'
 import './TopMenu.css'
 export const TopMenu = ({active, onClickMenu}) => {
-	const menuCategory = [{id:0, name: 'All Dishes'},{id: 1, name: 'Hot Dishes'},{id: 2, name:'Cold Dishes'}, {id: 3, name:'Soup'}, {id: 4, name:'Grill'}, {id: 5, name:'Dessert'}]
+	const menuCategory = [
+		{id:0, name: 'All Dishes'},
+		{id: 1, name: 'Hot Dishes'},
+		{id: 2, name:'Cold Dishes'},
+		{id: 3, name:'Soup'},
+		{id: 4, name:'Grill'},
+		{id: 5, name:'Dessert'}
+	]
 	const handleClickMenu = (item) => {
 		if(active.id !== item.id){
 			onClickMenu(item)

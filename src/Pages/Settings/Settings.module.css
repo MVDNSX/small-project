@@ -2,9 +2,3 @@
 	height: 100%;
 	padding: 24px;
 }
-
-.dishes {
-	display: grid;
-  grid-template-columns: repeat(4, 192px);
-  gap: 17px 25px;
-}

@@ -1,0 +1,5 @@
+.dishes {
+	display: grid;
+	grid-template-columns: repeat(4, 192px);
+	gap: 17px 25px;
+}
