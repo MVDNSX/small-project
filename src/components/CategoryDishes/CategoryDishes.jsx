@@ -1,26 +1,32 @@
+import { useState } from 'react'
+import c from'./CategoryDiahes.module.css'
 
-import './CategoryDiahes.css'
-import { DishesCard } from "../DishesCard/DishesCard";
-import SkeletonCard from '../DishesCard/SkeletonCard';
+import {motion, AnimatePresence} from 'framer-motion'
 
+const CategoryDishes = ({categories, onChange}) => {
+	
+	const [isActive, setActive] = useState(0)
+	const handlerClick = (id) => {
+		onChange(id)
+		setActive(id)
+	}
 
-export const CategoryDishes = ({name, dishes, isLoading}) => {
 	return (
-		<div className="category-block">
-			<div className="category__name">{name}</div>
-			{ isLoading
-			? <div className="category__dishes">
-					{[...new Array(8)].map((_, index) => <SkeletonCard key={index}/>)}
-				</div> 
-			: 
-			  <div className="category__dishes">
-					{dishes.map((el, index) =>
-						<DishesCard 
-							key={index} 
-							dishesInfo={el}
-							id={index}
-					/>)}
-				</div>}
-		</div>
+		<AnimatePresence>
+			<div className={c.category__list}>	
+				{categories.map( category => 
+					<div 
+					className={isActive === category.id ? [c.category__name, c.active].join(' ') : [c.category__name]}
+					key={category.id} 
+					item={category}
+					onClick={()=> handlerClick(category.id)}>
+						{category.name}
+						{isActive === category.id && 
+						<motion.div className={c.underline} layoutId='activeCategory'></motion.div>}
+					</div>)}
+			</div>
+		</AnimatePresence>
 	)
 }
+
+export default CategoryDishes

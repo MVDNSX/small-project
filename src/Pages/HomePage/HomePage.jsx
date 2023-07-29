@@ -52,7 +52,7 @@ const Home = () => {
 					<FilterDrop current={sortType} setCurrent={(id)=> {setSortType(id)}} drop={isDropSort} setDrop={(drop)=>setIsDropSort(drop)}/>
 				</div>
 				<div className="home__menu">
-					{<CategoryDishes name={activeCategory.name} dishes={dishes} isLoading={isLoading}/>}
+					{/*{<CategoryDishes name={activeCategory.name} dishes={dishes} isLoading={isLoading}/>}*/}
 				</div>
 				</div>
 			</div>

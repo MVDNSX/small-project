@@ -1,0 +1,13 @@
+.header{
+  color:#FFF;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.date {
+  color:#E0E6E9;
+  font-size: 16px;
+  line-height: 140%;
+}
