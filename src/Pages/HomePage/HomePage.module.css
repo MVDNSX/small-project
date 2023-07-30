@@ -1,19 +1,11 @@
-.settings {
+.home {
 	height: 100%;
 	display: flex;
 }
 
-.basket__wrapper {
-	width: 80px;
-	border-radius: 8px;
-	background-color: #1f1d2b;
-	padding: 24px 16px;
-}
-
-.settings__wrapper {
-	height: 100%;
-	padding: 24px;
-	flex-grow: 1;
+.main {
+	flex: 1 1;
+	padding: 24px 104px 24px 24px;
 }
 
 .header__wrapper {
@@ -45,4 +37,24 @@
 .dishes__wrapper::-webkit-scrollbar {
 	width: 0;
 	height: 0;
+}
+
+.order__wrapper {
+	position: absolute;
+	width: 80px;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background-color: #1F1D2B;
+	border-radius: 8px;
+	padding: 24px 14px;
+}
+
+.basket {
+	height: 100%;
+	width: 416px;
+	background-color: #1F1D2B;
+	border-radius: 8px;
+	padding: 24px 14px;
+	z-index: 2;
 }

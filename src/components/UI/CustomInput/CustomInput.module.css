@@ -13,6 +13,6 @@
 .input {
 	margin-left: 8px;
 	color: #fff;
-	width: 100%;
+	min-width: 220px;
 	background: #2d303e;
 }

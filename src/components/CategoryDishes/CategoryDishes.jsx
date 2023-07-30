@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import c from'./CategoryDiahes.module.css'
-
-import {motion, AnimatePresence} from 'framer-motion'
+import {useState } from 'react'
+import c from './CategoryDiahes.module.css'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const CategoryDishes = ({categories, onChange}) => {
 	

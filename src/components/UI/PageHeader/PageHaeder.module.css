@@ -1,13 +1,17 @@
-.header{
-  color:#FFF;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 4px;
+.heading {
+	display: inline-block;
+}
+
+.header {
+	color: #fff;
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 1.4;
+	margin-bottom: 4px;
 }
 
 .date {
-  color:#E0E6E9;
-  font-size: 16px;
-  line-height: 140%;
+	color: #e0e6e9;
+	font-size: 16px;
+	line-height: 140%;
 }

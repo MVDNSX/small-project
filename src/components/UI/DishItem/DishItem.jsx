@@ -1,5 +1,6 @@
 import c from './DishItem.module.css'
 import dishImage from '../../../assets/cards/Image 1.png'
+import CustomButton from '../CustomButton/CustomButton'
 
 const DishItem = ({dish}) => {
   const {name, price, bowls} = dish;
@@ -14,7 +15,7 @@ const DishItem = ({dish}) => {
           <div className={c.dish__price}>$ {price}</div>
           <div className={c.dish__available}>{bowls} Bowls available</div>
         </div>
-        <button className={c.button__order}>Order now</button>
+        <CustomButton className='btn'>Order now</CustomButton>
       </div>
       <div className={c.dish__bg}></div>
     </div>
