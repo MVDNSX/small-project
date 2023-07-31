@@ -1,7 +1,13 @@
-.dishes {
-	display: grid;
-	grid-template-columns: repeat(4, 192px);
-	gap: 17px 25px;
+
+.dishes__container {
+	min-width: 632px;
 	margin-bottom: 24px;
+}
+
+.dishes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 17px 28px;
 	position: relative;
 }
+

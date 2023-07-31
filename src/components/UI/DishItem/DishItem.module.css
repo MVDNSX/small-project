@@ -1,4 +1,5 @@
 .dish__item {
+	width: 192px;
 	display: flex;
 	flex-direction: column;
 	padding: 0 12px;

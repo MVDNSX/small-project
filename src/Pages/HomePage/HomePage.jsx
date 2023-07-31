@@ -14,6 +14,7 @@ import c from './HomePage.module.css'
 import CustomButton from '../../components/UI/CustomButton/CustomButton'
 import {SvgIcon} from '../../components/Svg/SvgIcon'
 import {motion, AnimatePresence} from 'framer-motion'
+import Basket from '../../components/Basket/Basket'
 
 const Home = () => {
 
@@ -74,6 +75,10 @@ const Home = () => {
 								sortedAndSearchDishes={sortedAndSearchDishes}/>
 					</div>
 
+				</div>
+
+				<div className={c.basket__wrapper}>
+					<Basket/>
 				</div>
 
 				
