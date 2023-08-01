@@ -45,7 +45,8 @@ const Home = () => {
 					<div className={c.header__wrapper}>
 						<PageHeader header={'Riverside Flamez'} date={date}/>
 						<CustomInput 
-						placeholder='Search for food, coffe, etc..' 
+						placeholder='Search for food, coffe, etc..'
+						style={{width: 164}} 
 						value={dishFilter.query}
 						onChange={(e) => setDishFilter({...dishFilter, query: e.target.value})}>
 							<BiSearch size='20' color='#fff'/>

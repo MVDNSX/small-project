@@ -1,7 +1,8 @@
+import c from './CustomButton.module.css'
 
 const CustomButton = ({children, ...props}) => {
   return (
-    <button {...props}>{children}</button>
+    <button className={c.btn} {...props}>{children}</button>
   )
 }
 

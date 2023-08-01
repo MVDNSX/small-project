@@ -1,0 +1,15 @@
+.btn {
+	width: 100%;
+	max-height: 48px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+	padding: 13px;
+	color: #fafafa;
+	background-color: #ea736d;
+	border-radius: 8px;
+	transition: box-shadow 0.15s ease;
+}
+.btn:hover {
+	box-shadow: 0px 8px 24px 0px rgba(146, 136, 224, 0.2);
+}

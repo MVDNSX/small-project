@@ -15,7 +15,7 @@ const DishItem = ({dish}) => {
           <div className={c.dish__price}>$ {price}</div>
           <div className={c.dish__available}>{bowls} Bowls available</div>
         </div>
-        <CustomButton className='btn'>Order now</CustomButton>
+        <CustomButton>Order now</CustomButton>
       </div>
       <div className={c.dish__bg}></div>
     </div>
