@@ -23,10 +23,12 @@ const Basket = () => {
         animate={isOpen ? {opacity: 0}: {opacity: 1}}>
           <CustomButton onClick={()=>{setOpen(true)}} id='basket'/>
       </motion.div>
-      <motion.div 
+      <AnimatePresence>
+      {isOpen && <motion.div 
         className={c.basket}
-        initial={false}
-        animate={isOpen ? {opacity: 1} : {opacity: 0}}>
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}>
         <div className={c.header}>
           <div className={c.order_number}>Orders #34562</div>
           <div className={c.columns}>
@@ -59,7 +61,9 @@ const Basket = () => {
           <CustomButton children={'Continue to Payment'}/>
         </div>
 
-       </motion.div>
+       </motion.div>}
+      </AnimatePresence>
+      
       </motion.div>
     </AnimatePresence>
    )
