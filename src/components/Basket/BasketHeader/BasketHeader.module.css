@@ -1,0 +1,22 @@
+.order_number {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.4;
+	margin-bottom: 24px;
+}
+
+.columns {
+	display: grid;
+	grid-template-columns: 1fr 48px 48px;
+	column-gap: 16px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.column_header {
+	text-align: left;
+}

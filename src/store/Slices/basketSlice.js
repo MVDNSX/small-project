@@ -10,12 +10,7 @@ export const basketSlice = createSlice({
 	initialState,
 	reducers: {
 		addDishes: (state, action) => {
-			const existingItemIndex = state.order.findIndex(item => item.dishesId === action.payload.dishesId)
-			if (existingItemIndex >= 0) {
-				state.order[existingItemIndex].count += 1;
-			} else {
-				state.order = [...state.order, action.payload]
-			}
+			
 		},
 		deleteDishes: (state, action) => {
 			state.order = state.order.filter(item => item.dishesId !== action.payload.dishesId)

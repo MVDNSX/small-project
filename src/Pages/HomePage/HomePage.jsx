@@ -11,9 +11,6 @@ import { getCategories } from '../../utils/getCategories'
 import { getDateFormat } from '../../utils/getDate'
 import { getOptionsSort } from '../../utils/getOptionSort'
 import c from './HomePage.module.css'
-import CustomButton from '../../components/UI/CustomButton/CustomButton'
-import {SvgIcon} from '../../components/Svg/SvgIcon'
-import {motion, AnimatePresence} from 'framer-motion'
 import Basket from '../../components/Basket/Basket'
 
 const Home = () => {
@@ -26,7 +23,6 @@ const Home = () => {
 	const [dishFilter, setDishFilter] = useState({sortName: '', sort: '', query:'', category: 0})
 	const sortedAndSearchDishes = useSortAndFilterDishes(dishes, dishFilter.sort, dishFilter.query, dishFilter.category)
 	const [isDishesLoading, setDishesLoading] = useState(false);
-	const [isOpenBasket, setOpenBasket] = useState(false)
 	const date = getDateFormat();
 	const categories = getCategories();
 	const options = getOptionsSort();
