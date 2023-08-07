@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useEffect, useMemo, useState} from 'react'
 import c from './Basket.module.css'
 import {motion, AnimatePresence} from 'framer-motion'
 import BasketItem from './BasketItem/BasketItem'
@@ -6,22 +6,13 @@ import CustomButtonNeon from '../UI/CustomButtonNeon/CustomButtonNeon'
 import CustomButton from '../UI/CustomButton/CustomButton'
 import Total from './Total/Total'
 import BasketHeader from './BasketHeader/BasketHeader'
+import { useSelector } from 'react-redux'
 
 
 
 const Basket = () => {
   const [isOpen, setOpen] = useState(false)
-
-  
-
-  //const dish = {
-  //  id,
-  //  name,
-  //  priceOne,
-  //  quantity,
-  //  comment,
-  //  allPrice
-  //}
+  const order = useSelector((store) => store.basket.order)
 
   return (
     <AnimatePresence>
@@ -44,13 +35,7 @@ const Basket = () => {
           <BasketHeader/>
 
           <div className={c.content}>
-            <BasketItem/>
-            <BasketItem/>
-            <BasketItem/>
-            <BasketItem/>
-            <BasketItem/>
-            <BasketItem/>
-            <BasketItem/>
+            {order.map( (item, index) => <BasketItem key={item.dishesId} item={item} index={index}/>)}
           </div>
 
           <Total/>
