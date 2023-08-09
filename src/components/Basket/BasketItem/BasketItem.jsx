@@ -3,26 +3,21 @@ import CustomButtonNeon from '../../UI/CustomButtonNeon/CustomButtonNeon'
 import CustomInput from '../../UI/CustomInput/CustomInput'
 import c from './BasketItem.module.css'
 import dishImg from '../../../assets/cards/Image 1.png'
+import { changeCount, deleteDishes } from '../../../store/Slices/basketSlice'
+import {useState } from 'react'
+import { useDebounceComment } from '../../../hooks/useDebounceComment'
 import { useDispatch } from 'react-redux'
-import { changeComment, deleteDishes } from '../../../store/Slices/basketSlice'
-import { useEffect, useRef, useState } from 'react'
-import { useDebounce } from '../../../hooks/useDebounceComment'
 
 const BasketItem = ({item, index}) => {
-  const dispatch = useDispatch();
+  const {name, price, dishesId, count} = item
   const [comment, setComment] = useState('')
-  const {name, price, dishesId} = item
-  
-  useEffect(()=>{
-    let timer = setTimeout(() => {
-      useDispatch(changeComment({comment, index}))
-    }, 1000);
+  const dispatch = useDispatch()
 
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [comment])
+  useDebounceComment(comment, index, 1000)
   
+  const handlerCount = (e) => {
+      dispatch(changeCount({count: e.target.value, index}))
+  }
 
   return (
     <div className={c.item}>
@@ -35,7 +30,12 @@ const BasketItem = ({item, index}) => {
           <div className={c.price}>$ {price}</div>
         </div>
       </div>
-      <div className={c.quantity}><CustomInput placeholder={0} style={{width: 20, textAlign: 'center'}}/></div>
+      <div className={c.quantity}>
+        <CustomInput 
+          value={count}
+          min={1} 
+          onChange={(e) => {handlerCount(e)}}
+          style={{width: 20, textAlign: 'center'}}/></div>
       <div className={c.total__price}>$ 5.32</div>
       <div className={c.commentary}>
         <CustomInput 
