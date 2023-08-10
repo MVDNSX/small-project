@@ -1,6 +1,6 @@
 import c from './Total.module.css'
 
-const Total = () => {
+const Total = ({orderPrice}) => {
   return (
     <div className={c.total}>
       <div className={c.total__item}>
@@ -9,7 +9,7 @@ const Total = () => {
       </div>
       <div className={c.total__item}>
         Sub total
-       <span>$ 21.3</span>
+       <span>$ {orderPrice}</span>
       </div>
     </div>
   )

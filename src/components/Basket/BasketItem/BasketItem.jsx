@@ -9,12 +9,10 @@ import { useDebounceComment } from '../../../hooks/useDebounceComment'
 import { useDispatch } from 'react-redux'
 
 const BasketItem = ({item, index}) => {
-  const {name, price, dishesId, count} = item
+  const {name, price, dishesId, count, countPrice, bowls} = item
   const [comment, setComment] = useState('')
   const dispatch = useDispatch()
-
   useDebounceComment(comment, index, 1000)
-  
   const handlerCount = (e) => {
       dispatch(changeCount({count: e.target.value, index}))
   }
@@ -33,10 +31,10 @@ const BasketItem = ({item, index}) => {
       <div className={c.quantity}>
         <CustomInput 
           value={count}
-          min={1} 
+          min={1}
           onChange={(e) => {handlerCount(e)}}
-          style={{width: 20, textAlign: 'center'}}/></div>
-      <div className={c.total__price}>$ 5.32</div>
+          style={{width: 20, textAlign: 'center', fontWeight: 500}}/></div>
+      <div className={c.total__price}>${countPrice}</div>
       <div className={c.commentary}>
         <CustomInput 
           placeholder='Order Note...' 

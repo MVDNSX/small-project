@@ -8,11 +8,10 @@ import Total from './Total/Total'
 import BasketHeader from './BasketHeader/BasketHeader'
 import { useSelector } from 'react-redux'
 
-
-
 const Basket = () => {
   const [isOpen, setOpen] = useState(false)
   const order = useSelector((store) => store.basket.order)
+  const orderPrice = useSelector((store) => store.basket.result)
 
   return (
     <AnimatePresence>
@@ -38,7 +37,7 @@ const Basket = () => {
             {order.map( (item, index) => <BasketItem key={item.dishesId} item={item} index={index}/>)}
           </div>
 
-          <Total/>
+          <Total orderPrice={orderPrice}/>
         
           <div className={c.controls}>
             <CustomButtonNeon children={'Go Back'} onClick={() => setOpen(false)}/>
