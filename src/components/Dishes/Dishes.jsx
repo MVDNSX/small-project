@@ -2,6 +2,7 @@ import SkeletonDishItem from '../UI/SkeletonDishItem/SkeletonDishItem'
 import DishItem from '../UI/DishItem/DishItem'
 import c from './Dishes.module.css'
 
+
 const Dishes = ({isDishesLoading, sortedAndSearchDishes}) => { 
   
   return (

@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
 	order: [
 	],
-	result: 0
+	result: 0,
+	discount: 0
 }
 
 const recalculationPrice = (count, price) => {
@@ -11,9 +12,16 @@ const recalculationPrice = (count, price) => {
 }
 
 const calculationTotal = (state) => {
-	let res = 0;
-	state.order.map( item => res += item.countPrice)
-	return +res.toFixed(2)
+	let result = 0;
+	let discount = 0
+	state.order.map( (item) => {
+		result += item.countPrice
+		if(item.discount !== 0){
+			discount += (item.price - item.finalPrice) * item.count
+		}
+	})
+	state.result = +result.toFixed(2)
+	state.discount = +discount.toFixed(2)
 }
 
 export const basketSlice = createSlice({
@@ -29,12 +37,12 @@ export const basketSlice = createSlice({
 				state.order[indexDish].count += 1
 				state.order[indexDish].countPrice = recalculationPrice(state.order[indexDish].count, state.order[indexDish].finalPrice)
 			}
-			state.result = calculationTotal(state)
+			calculationTotal(state)
 		},
 
 		deleteDishes: (state, action) => {
 			state.order = state.order.filter(item => item.dishesId !== action.payload)
-			state.result = calculationTotal(state)
+			calculationTotal(state)
 		},
 
 		changeCount: (state, action) => {
@@ -46,9 +54,8 @@ export const basketSlice = createSlice({
 			}
 			state.order[indexDish].countPrice = recalculationPrice(state.order[indexDish].count, state.order[indexDish].finalPrice)
 			calculationTotal(state)
-			state.result = calculationTotal(state)
 		},
-		
+
 		changeComment: (state, action) => {
 			state.order[action.payload.index].comment = action.payload.comment
 		}

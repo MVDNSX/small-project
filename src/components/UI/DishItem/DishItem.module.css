@@ -22,6 +22,27 @@
 	color: #fff;
 	font-size: 14px;
 	padding: 0 12px;
+	position: relative;
+}
+
+.discount__bg {
+	position: absolute;
+	left: -12px;
+	top:47%;
+	transform: translateY(-50%);
+	width: 93px;
+	padding: 2px 8px;
+	border-radius: 0 10px 10px 0;
+	text-align: center;
+	background-color: #ea736d;
+	color: #FFF;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.discount__value{
+	padding: 10px;
 }
 
 .dish__image {
@@ -39,8 +60,17 @@
 }
 
 .dish__price {
+	font-weight: 600;
 	line-height: 1.4;
 	margin-bottom: 4px;
+}
+
+.dish__price_discount {
+	color: #abbbc2;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 1.4;
+	margin-right: 10px;
 }
 
 .dish__available {

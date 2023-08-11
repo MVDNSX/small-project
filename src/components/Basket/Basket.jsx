@@ -12,6 +12,7 @@ const Basket = () => {
   const [isOpen, setOpen] = useState(false)
   const order = useSelector((store) => store.basket.order)
   const orderPrice = useSelector((store) => store.basket.result)
+  const orderDiscount = useSelector((store) => store.basket.discount)
 
   return (
     <AnimatePresence>
@@ -34,10 +35,12 @@ const Basket = () => {
           <BasketHeader/>
 
           <div className={c.content}>
-            {order.map( (item, index) => <BasketItem key={item.dishesId} item={item} index={index}/>)}
+            <AnimatePresence>
+              {order.map( (item, index) => <BasketItem key={item.dishesId} item={item} index={index}/>)}
+            </AnimatePresence>
           </div>
 
-          <Total orderPrice={orderPrice}/>
+          <Total orderPrice={orderPrice} orderDiscount={orderDiscount}/>
         
           <div className={c.controls}>
             <CustomButtonNeon children={'Go Back'} onClick={() => setOpen(false)}/>

@@ -7,9 +7,10 @@ import { changeCount, deleteDishes } from '../../../store/Slices/basketSlice'
 import {useState } from 'react'
 import { useDebounceComment } from '../../../hooks/useDebounceComment'
 import { useDispatch } from 'react-redux'
+import {motion} from 'framer-motion'
 
 const BasketItem = ({item, index}) => {
-  const {name, price, dishesId, count, countPrice, bowls} = item
+  const {name, price, finalPrice, dishesId, count, countPrice, discount} = item
   const [comment, setComment] = useState('')
   const dispatch = useDispatch()
   useDebounceComment(comment, index, 1000)
@@ -18,14 +19,20 @@ const BasketItem = ({item, index}) => {
   }
 
   return (
-    <div className={c.item}>
+    <motion.div 
+      className={c.item}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      layout
+      >
       <div className={c.data}>
         <div className={c.img}>
           <img src={dishImg} alt="foto" />
         </div>
         <div className={c.info}>
           <div className={c.name}>{name}</div>
-          <div className={c.price}>$ {price}</div>
+          <div className={c.price}>{discount !== 0 && <s className={c.discount}>$ {price}</s>}$ {finalPrice}</div>
         </div>
       </div>
       <div className={c.quantity}>
@@ -44,7 +51,7 @@ const BasketItem = ({item, index}) => {
       <div className={c.delete}>
         <CustomButtonNeon 
           onClick={() => dispatch(deleteDishes(dishesId))}><SvgIcon id='trash'/></CustomButtonNeon></div>
-    </div>
+    </motion.div>
   )
 }
 
