@@ -32,7 +32,9 @@ const router = createBrowserRouter(createRoutesFromElements
 				<RequireAuth><Profile/></RequireAuth>}/> 
 				<Route path='login' element={<Form/>}/> 
 			</Route>
-			<Route path='settings' element={<Settings/>}/>
+			<Route path='settings' element={<Settings/>}>
+				<Route path='123' element={123}/>
+			</Route>
 			<Route path='logout' element={<Logout/>}/>
 		</Route>
 	)

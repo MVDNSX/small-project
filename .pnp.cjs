@@ -43,7 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:8.1.0"],\
             ["react-router-dom", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:6.13.0"],\
             ["react-scripts", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:5.0.1"],\
-            ["sass", "npm:1.63.4"],\
+            ["sass", "npm:1.65.1"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
@@ -15879,10 +15879,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.63.4", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.63.4-bf5f3496c2-12bde5beff.zip/node_modules/sass/",\
+        ["npm:1.65.1", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.65.1-d6fc30b338-33e325fc80.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.63.4"],\
+            ["sass", "npm:1.65.1"],\
             ["chokidar", "npm:3.5.3"],\
             ["immutable", "npm:4.3.0"],\
             ["source-map-js", "npm:1.0.2"]\
@@ -16233,7 +16233,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:8.1.0"],\
             ["react-router-dom", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:6.13.0"],\
             ["react-scripts", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:5.0.1"],\
-            ["sass", "npm:1.63.4"],\
+            ["sass", "npm:1.65.1"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
           "linkType": "SOFT"\
