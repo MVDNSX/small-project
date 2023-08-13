@@ -8,7 +8,6 @@ import CustomSelect from '../../components/UI/CustomSelect/CustomSelect'
 import PageHeader from '../../components/UI/PageHeader/PageHeader'
 import { useSortAndFilterDishes } from '../../hooks/useDishes'
 import { getCategories } from '../../utils/getCategories'
-import { getDateFormat } from '../../utils/getDate'
 import { getOptionsSort } from '../../utils/getOptionSort'
 import c from './HomePage.module.css'
 import Basket from '../../components/Basket/Basket'
@@ -23,7 +22,6 @@ const Home = () => {
 	const [dishFilter, setDishFilter] = useState({sortName: '', sort: '', query:'', category: 0})
 	const sortedAndSearchDishes = useSortAndFilterDishes(dishes, dishFilter.sort, dishFilter.query, dishFilter.category)
 	const [isDishesLoading, setDishesLoading] = useState(false);
-	const date = getDateFormat();
 	const categories = getCategories();
 	const options = getOptionsSort();
 
@@ -39,7 +37,7 @@ const Home = () => {
 				<div className={c.main}>
 
 					<div className={c.header__wrapper}>
-						<PageHeader header={'Riverside Flamez'} date={date}/>
+						<PageHeader header={'Riverside Flamez'}/>
 						<CustomInput 
 						placeholder='Search for food, coffe, etc..'
 						style={{width: 164}} 

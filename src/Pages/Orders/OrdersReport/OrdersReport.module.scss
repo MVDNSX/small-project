@@ -1,0 +1,41 @@
+.reports {
+  padding: 24px 0;
+  background-color: #1F1D2B;
+  border-radius: 8px;
+  color: #FFF;
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+    .filter {
+      cursor: pointer;
+      width: 211px;
+      padding: 14px;
+      display: flex;
+      gap: 8px;
+      border: 1px solid #393C49;
+      border-radius: 8px;
+      justify-content: center;
+      font-family: Barlow;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+}
+
+.main {
+  .columns {
+    display: flex;
+    padding: 0 10px 16px 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #393c49;
+    margin-bottom: 16px;
+  }
+}

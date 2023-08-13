@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:8.1.0"],\
             ["react-router-dom", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:6.13.0"],\
             ["react-scripts", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:5.0.1"],\
+            ["react-use-measure", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:2.1.1"],\
             ["sass", "npm:1.65.1"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\
@@ -7654,6 +7655,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["abab", "npm:2.0.6"],\
             ["whatwg-mimetype", "npm:2.3.0"],\
             ["whatwg-url", "npm:8.7.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["debounce", [\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/debounce-npm-1.2.1-b09266a260-682a89506d.zip/node_modules/debounce/",\
+          "packageDependencies": [\
+            ["debounce", "npm:1.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15408,6 +15418,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-use-measure", [\
+        ["npm:2.1.1", {\
+          "packageLocation": "./.yarn/cache/react-use-measure-npm-2.1.1-7e53301142-b8e8939229.zip/node_modules/react-use-measure/",\
+          "packageDependencies": [\
+            ["react-use-measure", "npm:2.1.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:2.1.1", {\
+          "packageLocation": "./.yarn/__virtual__/react-use-measure-virtual-6e6b2e35df/0/cache/react-use-measure-npm-2.1.1-7e53301142-b8e8939229.zip/node_modules/react-use-measure/",\
+          "packageDependencies": [\
+            ["react-use-measure", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:2.1.1"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["debounce", "npm:1.2.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["read-cache", [\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/read-cache-npm-1.0.0-00fa89ed05-cffc728b9e.zip/node_modules/read-cache/",\
@@ -16233,6 +16270,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:8.1.0"],\
             ["react-router-dom", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:6.13.0"],\
             ["react-scripts", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:5.0.1"],\
+            ["react-use-measure", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:2.1.1"],\
             ["sass", "npm:1.65.1"],\
             ["web-vitals", "npm:2.1.4"]\
           ],\

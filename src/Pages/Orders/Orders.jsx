@@ -1,7 +1,13 @@
-const Basket = () => {
+
+import c from './Orders.module.scss'
+
+
+const Orders = () => {
 	return (
-		<div className="">orders</div>
+		<div className={c.order}>
+
+		</div>
 	)
 }
 
-export default Basket
+export default Orders
