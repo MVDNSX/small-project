@@ -6,3 +6,13 @@ export const getOptionsSort = () => {
     ]
   )
 } 
+
+export const getOptionsSortOrder = () => {
+   return (
+    [
+      {value: 'Completed', name: 'Completed'},
+      {value: 'Preparing', name: 'Preparing'},
+      {value: 'Pending', name: 'Pending'},
+    ]
+   )
+}
