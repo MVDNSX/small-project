@@ -1,7 +1,7 @@
 /* !Sidebar */
 .sidebar {
 	padding: 24px 24px 24px 24px;
-	background-color: #1F1D2B;
+	background-color: #1f1d2b;
 	width: 104px;
 	height: 100%;
 	border-radius: 16px;
@@ -26,7 +26,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	background: #EA8269;
+	background: #ea8269;
 	opacity: 0.26;
 	z-index: -1;
 }
@@ -44,27 +44,9 @@
 }
 
 .nav__item {
-	width: 56px;
-	height: 56px;
 }
 
 .nav__link {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	position: relative;
-	z-index: 1;
-}
-
-.nav__icon {
-	fill: #EA736D;
-	transition: fill 0.3s ease-in;
-}
-
-.nav__icon-active {
-	fill: #fff;
-	transition: fill 0.2s ease-in;
 }
 
 .nav__selected-bg {
@@ -86,7 +68,12 @@
 	top: -12px;
 	right: 0;
 	background: #252836;
-	mask-image: radial-gradient(circle 26px at 0px 0px, transparent 0, transparent 12px, black 0px);
+	mask-image: radial-gradient(
+		circle 26px at 0px 0px,
+		transparent 0,
+		transparent 12px,
+		black 0px
+	);
 }
 
 .nav__selected-bg::after {
@@ -97,7 +84,12 @@
 	bottom: -12px;
 	right: 0;
 	background: #252836;
-	mask-image: radial-gradient(circle 26px at 0px 13px, transparent 0, transparent 12px, black 0px);
+	mask-image: radial-gradient(
+		circle 26px at 0px 13px,
+		transparent 0,
+		transparent 12px,
+		black 0px
+	);
 }
 
 .nav__selected {
@@ -106,7 +98,7 @@
 	left: 12px;
 	width: 56px;
 	height: 56px;
-	background-color: #EA736D;
+	background-color: #ea736d;
 	box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.32);
 	border-radius: 8px;
 	z-index: 1;

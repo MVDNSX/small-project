@@ -1,0 +1,17 @@
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 24px;
+  padding: 24px;
+
+  .left{
+    
+  }
+}
+
+
+.stat{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+}

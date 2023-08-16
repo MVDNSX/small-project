@@ -2,7 +2,6 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import avatar from '../../assets/avatar/user-avatar.png'
 import './Profile.css'
 import { useEffect, useState } from 'react'
-import UserOrder from '../UserOrder/UserOrder'
 import dishIMG from '../../assets/cards/Image 1.png'
 import dishIMG2 from '../../assets/cards/Image 2.png'
 import dishIMG3 from '../../assets/cards/Image 3.png'
@@ -120,12 +119,12 @@ const Profile = () => {
 				</div>
 				
 				<div className="order-report__row-wrapper">
-				{orders.map((el, index) =>
+				{/*{orders.map((el, index) =>
 						<UserOrder 
 							key={el.orderId} 
 							dishesInfo={el}
 							id={el.orderId}
-					/>)}
+					/>)}*/}
 				</div>
 
 				
