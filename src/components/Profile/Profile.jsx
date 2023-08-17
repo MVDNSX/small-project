@@ -1,19 +1,12 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import avatar from '../../assets/avatar/user-avatar.png'
-import './Profile.css'
+import c from './Profile.module.scss'
 import { useEffect, useState } from 'react'
 import dishIMG from '../../assets/cards/Image 1.png'
 import dishIMG2 from '../../assets/cards/Image 2.png'
 import dishIMG3 from '../../assets/cards/Image 3.png'
+import OrderLayout from '../OrderLayout/OrderLayout'
 const Profile = () => {
-	const [orders, setOrders] = useState([])
-	useEffect(() => {
-		fetch('https://6420700f25cb657210497359.mockapi.io/api/orders?userId=1')
-		.then((res) => res.json())
-		.then((json) => setOrders(json))
-	}, [])
-
-
 
 	const { register, handleSubmit, formState: { errors, isValid}} = useForm({mode: 'onChange'});
 	const name = 'Eren yeager';
@@ -21,12 +14,12 @@ const Profile = () => {
 	const onSubmit = (data) => {
 		alert(JSON.stringify(data));
 	}
-
-	console.log(orders.map((i)=>console.log(i)))
 	return (
-		<div className="profile-container">
+		<div className={c.profile}>
+			<div className={c.user}></div>
+			<div className={c.most_order}></div>
 
-			<div className="user-profile">
+			{/*<div className="user-profile">
 
 				<div className="user-data">
 
@@ -105,30 +98,10 @@ const Profile = () => {
 				</div>
 
 			</div>
+*/}
 
-
-			<div className="order-report">
-				<div className="order-report__header">
-					<div className="order-report__title">Eren Yeager’s orders</div>
-					<div className="order-report__heading">
-						<div>Customer</div>
-						<div>Menu</div>
-						<div>Total Payment</div>
-						<div>Status</div>
-					</div>
-				</div>
-				
-				<div className="order-report__row-wrapper">
-				{/*{orders.map((el, index) =>
-						<UserOrder 
-							key={el.orderId} 
-							dishesInfo={el}
-							id={el.orderId}
-					/>)}*/}
-				</div>
-
-				
-				
+			<div className={c.order_wrapper}>
+				<OrderLayout/>
 			</div>
 		</div>
 	)

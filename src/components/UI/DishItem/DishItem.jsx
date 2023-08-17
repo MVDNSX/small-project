@@ -10,11 +10,7 @@ const DishItem = ({dish}) => {
 
   const {name, price, finalPrice, bowls, discount} = dish;
   return (
-    <div className={c.dish__item}
-    initial={{opacity:0}}
-      animate={{opacity:1}}
-      layout
-      exit={{opacity:0}}>
+    <div className={c.dish__item}>
       <div className={c.dish__wrapper}>
         <div className={c.dish__info}>
           {discount !== 0 && <div className={c.discount__bg}><p className={c.discount__value}>{discount}% off</p></div>}

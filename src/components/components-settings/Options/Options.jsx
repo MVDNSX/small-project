@@ -24,8 +24,9 @@ const Options = ( ) => {
             key={item.id} 
             item={item} 
             isActive={isActiveOption} 
-            setActive={setActiveOption}>
-          </OptionsItem>)}
+            setActive={setActiveOption}/>
+          )
+        }
       </AnimatePresence>
     </div>
   )

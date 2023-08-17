@@ -1,17 +1,18 @@
 .layout {
+  height: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 646px 372px;
   column-gap: 24px;
   padding: 24px;
 
   .left{
-    
+    display: flex;
+    flex-direction: column;
   }
 }
-
-
 .stat{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 24px;
+  margin-bottom: 24px;
 }

@@ -1,20 +1,29 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { SvgIcon } from '../../Svg/SvgIcon'
-
 import c from './SidebarItem.module.scss'
 
-export const SidebarItem = ({item, isSelected, handleClick}) => {
+export const SidebarItem = ({item, index, active}) => {
+	const check = active === index;
 	return (
-		<li className={!isSelected ? `${c.item}` : `${c.item} ${c.active}`} onClick={handleClick}>
-				<Link to={`/${item}`} className={c.link}>
+		<li 
+			className={check ? `${c.link} ${c.active}` : c.link}
+			>
+				<Link to={`/${item}`}>
 					<SvgIcon id={item}/>
-					{isSelected 
-					? <motion.div 
-							className={c.selected_bg} layoutId='underline'>
-								<div className={c.selected}></div>
-						</motion.div>
-					: null}
+				{check && 
+				<>
+					<motion.div
+						className={c.link_bg}
+						layoutId='link_bg'>
+							<SvgIcon id={'layout'}/>
+					</motion.div>
+					<motion.div
+						className={c.top} 
+						layoutId='top'>
+					</motion.div>
+				</>
+					}
 				</Link>
 		</li>
 	)

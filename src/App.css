@@ -13,14 +13,11 @@
 	margin: 0 auto;
 	background-color: #fff;
 	border-radius: 16px;
-	display: flex;
+	display: grid;
+	grid-template-columns: 104px 1fr;
 	background: #252836;
 	position: relative;
 	overflow: hidden;
-}
-
-.children {
-	flex-grow: 1;
 }
 
 .title {

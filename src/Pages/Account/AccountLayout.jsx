@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
-import {BiSearch} from 'react-icons/bi'
 import {Outlet, useNavigate} from 'react-router-dom'
-import {useEffect, useState } from 'react'
+import {useEffect} from 'react'
 import './AccountLayout.css'
+import PageHeader from '../../components/UI/PageHeader/PageHeader'
 
 
 const AccountLayout = (props) => {
@@ -14,13 +14,10 @@ const AccountLayout = (props) => {
 
 	return (
 		<div className="account-page">
-			<div className="account__header">
-					<div className="account__info info">
-						<div className="info__name title">User account</div>
-						<div className="info__date date">Tuesday, 2 Feb 2021</div>
-					</div>
-
-				</div>
+				<PageHeader
+					header={'User account'}
+					isDate
+					isBorder/>
 				<Outlet/>
 		</div>
 	)

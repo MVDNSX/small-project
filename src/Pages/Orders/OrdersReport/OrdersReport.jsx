@@ -21,7 +21,7 @@ const OrdersReport = () => {
         <div className={report}>
           <div className="number"></div>
           <div className="payment"></div>
-          <div className="status"></div>
+          <div className="statu"></div>
         </div>
       </div>
     </div>

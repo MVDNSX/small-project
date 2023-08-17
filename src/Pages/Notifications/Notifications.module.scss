@@ -1,19 +1,8 @@
 .notifications {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-rows: 114px 672px;
 	padding: 24px;
 	height: 100%;
+	overflow: hidden;
 }
 
-.order__wrapper {
-	flex-grow: 1;
-	overflow: scroll;
-	background-color: #1F1D2B;
-  border-radius: 8px;
-	padding-top: 24px;
-}
-
-.order__wrapper::-webkit-scrollbar {
-	width: 0;
-	height: 0;
-}
