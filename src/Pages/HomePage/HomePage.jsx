@@ -12,25 +12,16 @@ import { getOptionsSort } from '../../utils/getOptionSort'
 import c from './HomePage.module.css'
 import Basket from '../../components/Basket/Basket'
 
+import {useGetDishesQuery, useAddDishesMutation} from '../../store/dishesAPI'
+
 const Home = () => {
 
-	useEffect(()=>{
-		fetchDishes()
-	},[])
-	
-	const [dishes, setDishes] = useState([])
+	const {data=[], error, isLoading } = useGetDishesQuery()
+
 	const [dishFilter, setDishFilter] = useState({sortName: '', sort: '', query:'', category: 0})
-	const sortedAndSearchDishes = useSortAndFilterDishes(dishes, dishFilter.sort, dishFilter.query, dishFilter.category)
-	const [isDishesLoading, setDishesLoading] = useState(false);
+	const sortedAndSearchDishes = useSortAndFilterDishes(data, dishFilter.sort, dishFilter.query, dishFilter.category)
 	const categories = getCategories();
 	const options = getOptionsSort();
-
-	async function fetchDishes() {
-		setDishesLoading(true)
-		const dishes = await ServiceDishes.getAll();
-		setDishes(dishes)
-		setDishesLoading(false)
-	}
 
 	return (
 		<div className={c.home}>
@@ -66,14 +57,14 @@ const Home = () => {
 					<div className={c.dishes__wrapper}>
 							<Dishes 
 								key={c.id} 
-								isDishesLoading={isDishesLoading} 
+								isDishesLoading={isLoading} 
 								sortedAndSearchDishes={sortedAndSearchDishes}/>
 					</div>
 
 				</div>
 
 				<div className={c.basket__wrapper}>
-					<Basket/>
+					{/*<Basket/>*/}
 				</div>
 
 				

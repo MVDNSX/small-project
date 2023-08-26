@@ -11,7 +11,7 @@ const Dishes = ({isDishesLoading, sortedAndSearchDishes}) => {
         {!isDishesLoading 
           ? sortedAndSearchDishes.map( d => 
           <DishItem 
-          key={d.dishesId}
+          key={d.dishId}
           dish={d}
           />)
           : [...new Array(8)].map ((_, index) => <SkeletonDishItem key={index}/>)

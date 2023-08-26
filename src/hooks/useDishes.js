@@ -17,7 +17,7 @@ export const useSortDishes = (dishes, sortParam, category) => {
   const sortedDishes = useMemo( () => {
 		if(sortParam === 'name' ) {
 			return [...categoryDishes].sort( (a,b) => {return a[sortParam].localeCompare(b[sortParam])})
-		}else if(sortParam === 'price'){
+		}else if(sortParam === 'finalPrice'){
 			return [...categoryDishes].sort( (a,b) => {return a[sortParam] - b[sortParam] })
 		}
 		else{
@@ -30,7 +30,11 @@ export const useSortDishes = (dishes, sortParam, category) => {
 export const useSortAndFilterDishes = (dishes, sort, query, category) => {
   const sortedDishes = useSortDishes(dishes, sort, category);
   const sortedAndSearchDishes = useMemo( ()=> {
-		return sortedDishes.filter( d => d.name.toLowerCase().includes(query.toLowerCase()))
+		if(sortedDishes){
+			return sortedDishes.filter( d => d.name.toLowerCase().includes(query.toLowerCase()))
+		}else{
+			return sortedDishes
+		}
 	},[query, sortedDishes])
   return sortedAndSearchDishes;
 }
