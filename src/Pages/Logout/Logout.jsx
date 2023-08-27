@@ -1,10 +1,13 @@
+import { useDispatch } from 'react-redux'
+import CustomButton from '../../components/UI/CustomButton/CustomButton'
 import { useGetDishesQuery } from '../../store/dishesAPI'
+import { resetUser } from '../../store/Slices/userSlice'
 
 const Logout = () => {
-	const {data, error, isLoading } = useGetDishesQuery()
+	const dispatch = useDispatch()
 	return (
-		<div className="logout">
-			{isLoading ?  <h1>loading</h1> :  data.map( i  => <div>{i.name}</div>)}
+		<div className="logout" style={{padding: 25}}>
+			<CustomButton onClick={()=>dispatch(resetUser())}>Logout</CustomButton>
 		</div>
 	)
 }

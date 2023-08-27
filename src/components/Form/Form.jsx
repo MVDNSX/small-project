@@ -1,16 +1,23 @@
 import { AnimatePresence, motion } from "framer-motion"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Entry from '../../components/Forms/Entry'
 import Greeting from '../../components/Forms/Greeting'
+import { useSelector } from 'react-redux'
+import {Navigate} from 'react-router-dom'
 
 
 const Form = () => {
-	const [side, setSide] = useState(true);
-	const handlerSide = () => {setSide(!side)}
+	const [side, setSide] = useState('login');
+
+	const isAuth = useSelector((state) => state.user.isAuthUser)
+	if(isAuth){
+		return (<Navigate 
+    to='/account/profile'/>)
+	}
 	return (
 		<div className="form__container">
 				<AnimatePresence>
-					<motion.div className={side ? 'main-form' : 'main-form form-reverse'}
+					<motion.div className={side !== 'login' ? 'main-form' : 'main-form form-reverse'}
 					initial={{height:0, opacity:0}}
 					animate={{height:500, opacity:1}}
 					transition={{duration: 0.4}}>
@@ -19,7 +26,7 @@ const Form = () => {
 						className="block-greeting" 
 						layout
 						transition={{duration: 0.6}}>
-							<Greeting side={side} handlerSide={handlerSide}/>
+							<Greeting side={side} handlerSide={setSide}/>
 						</motion.div>
 
 						<motion.div 

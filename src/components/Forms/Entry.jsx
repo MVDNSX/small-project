@@ -1,23 +1,33 @@
-import './Entry.css'
 import { AnimatePresence, motion } from "framer-motion"
-import { useForm } from "react-hook-form";
-import { useDispatch } from 'react-redux'
-import { isAuth } from '../../store/Slices/authSlice';
+import { useForm } from "react-hook-form"
+import { useLoginUserMutation, useRegUserMutation } from '../../store/authAPI'
+import './Entry.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { setUser } from '../../store/Slices/userSlice'
 
 const Entry = (props) => {
-  const dispatch = useDispatch()
-  
   const {side} = props
+  const dispatch = useDispatch()
+  const data = useSelector((state) => state.user)
+  const [regUser] = useRegUserMutation()
+  const [loginUser] = useLoginUserMutation()
+
   const { register, handleSubmit,reset, watch, formState: { errors, isValid } } = useForm({mode: 'onBlur'});
-  const onSubmit = data => {
+
+  const onSubmit = async (data) => {
     alert(JSON.stringify(data));
-    dispatch(isAuth(true))
+    if(side === 'login'){
+      await loginUser(data).unwrap();
+    
+    }else{
+      await regUser(data).unwrap();
+    }
     reset();
   }
   return (
     <>
       <AnimatePresence initial={false} mode='wait'>
-				{side 
+				{side !== 'login'
         ? (<motion.div 
           initial={{opacity: 0}}
           animate={{opacity: 1}}
@@ -27,7 +37,7 @@ const Entry = (props) => {
           className='register'>
             <form onSubmit={handleSubmit(onSubmit)} className='register-form'>
               <div className="register__title">Create Account</div>
-              <input 
+              {/*<input 
               {...register('name', 
               {required: 'Обязательное поле!', 
               minLength: {
@@ -38,7 +48,7 @@ const Entry = (props) => {
                 value: 12,
                 message: 'Введенное имя слишком длинное!'
               }})} type="text"/>
-              {errors.name && <p className='input-error' role="alert">{errors.name?.message}</p>}
+              {errors.name && <p className='input-error' role="alert">{errors.name?.message}</p>}*/}
 
               <input {...register('email',
               {required: 'Обязательное поле!', 

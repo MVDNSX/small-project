@@ -1,16 +1,15 @@
 import { useSelector } from 'react-redux'
-import {Outlet, useNavigate} from 'react-router-dom'
+import {Outlet, useNavigate, Navigate} from 'react-router-dom'
 import {useEffect} from 'react'
 import './AccountLayout.css'
 import PageHeader from '../../components/UI/PageHeader/PageHeader'
 
 
-const AccountLayout = (props) => {
-	const navigate = useNavigate()
-	const auth = useSelector((state) => state.auth.auth)
+const AccountLayout = () => {
+	const navigate = useNavigate();
 	useEffect(() => {
-      navigate("/account/profile");
-  }, [auth]);
+		navigate("/account/profile");
+}, []);
 
 	return (
 		<div className="account-page">
