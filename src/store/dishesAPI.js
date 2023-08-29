@@ -2,14 +2,14 @@ import { createApi,fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const dishesApi = createApi({
   reducerPath: 'dishesApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5005/api'}),
+  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5005/api/dishes'}),
   endpoints: (build) => ({
     getDishes: build.query({
-      query: () => 'dishes',
+      query: () => '/',
     }),
     addDish: build.mutation({
       query: (body) => ({
-        url: 'dishes/create',
+        url: 'create',
         method: 'POST',
         body
       })

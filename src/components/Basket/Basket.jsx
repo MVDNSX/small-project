@@ -7,10 +7,13 @@ import CustomButton from '../UI/CustomButton/CustomButton'
 import Total from './Total/Total'
 import BasketHeader from './BasketHeader/BasketHeader'
 import { useSelector } from 'react-redux'
+import { useGetBasketQuery } from '../../store/basketApi'
 
 const Basket = () => {
   const [isOpen, setOpen] = useState(false)
-  const order = useSelector((store) => store.basket.order)
+  const {data: basket=[]} = useGetBasketQuery()
+  const basketItem = basket.Dishes
+  console.log(basketItem)
   const orderPrice = useSelector((store) => store.basket.result)
   const orderDiscount = useSelector((store) => store.basket.discount)
 
@@ -36,7 +39,7 @@ const Basket = () => {
 
           <div className={c.content}>
             <AnimatePresence>
-              {order.map( (item, index) => <BasketItem key={item.dishesId} item={item} index={index}/>)}
+              {basketItem.map( (item, index) => <BasketItem key={item.dishId} item={item} index={index}/>)}
             </AnimatePresence>
           </div>
 

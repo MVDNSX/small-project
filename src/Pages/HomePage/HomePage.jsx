@@ -12,14 +12,14 @@ import { getOptionsSort } from '../../utils/getOptionSort'
 import c from './HomePage.module.css'
 import Basket from '../../components/Basket/Basket'
 
-import {useGetDishesQuery, useAddDishesMutation} from '../../store/dishesAPI'
+import {useGetDishesQuery} from '../../store/dishesAPI'
 
 const Home = () => {
 
-	const {data=[], error, isLoading } = useGetDishesQuery()
+	const {data: dishes=[],  isLoading} = useGetDishesQuery()
 
 	const [dishFilter, setDishFilter] = useState({sortName: '', sort: '', query:'', category: 0})
-	const sortedAndSearchDishes = useSortAndFilterDishes(data, dishFilter.sort, dishFilter.query, dishFilter.category)
+	const sortedAndSearchDishes = useSortAndFilterDishes(dishes, dishFilter.sort, dishFilter.query, dishFilter.category)
 	const categories = getCategories();
 	const options = getOptionsSort();
 
@@ -64,7 +64,7 @@ const Home = () => {
 				</div>
 
 				<div className={c.basket__wrapper}>
-					{/*<Basket/>*/}
+					<Basket/>
 				</div>
 
 				

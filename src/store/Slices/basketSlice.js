@@ -29,6 +29,7 @@ export const basketSlice = createSlice({
 	initialState,
 	reducers: {
 		addDishes: (state, action) => {
+			console.log(action.payload)
 			const dish = {...action.payload, comment: '', count: 1, countPrice: action.payload.finalPrice}
 			const indexDish = state.order.findIndex( item => item.dishesId === dish.dishesId)
 			if(indexDish < 0){

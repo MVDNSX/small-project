@@ -3,12 +3,12 @@ import defaultImgDish from '../../../assets/cards/Image 1.png'
 import CustomButton from '../CustomButton/CustomButton'
 import {useDispatch} from 'react-redux'
 import { addDishes } from '../../../store/Slices/basketSlice'
+import { useAddItemBasketMutation } from '../../../store/basketApi'
 
 const DishItem = ({dish}) => {
-
-  const dispatch = useDispatch();
+  const [addBasketItem] = useAddItemBasketMutation()
   
-  const {name, price, finalPrice, bowls, discount, picture} = dish;
+  const {name, price, finalPrice, bowls, discount, picture, dishId} = dish;
   const dishPicture = picture ? `http://localhost:5005/${picture}` : defaultImgDish
   return (
     <div className={c.dish__item}>
@@ -22,7 +22,7 @@ const DishItem = ({dish}) => {
           <div className={c.dish__price}>{discount !== 0 && <s className={c.dish__price_discount}>$ {price}</s>}$ {finalPrice}</div>
           <div className={c.dish__available}>{bowls} Bowls available</div>
         </div>
-        <CustomButton onClick={() => {dispatch(addDishes(dish))}}>Order now</CustomButton>
+        <CustomButton onClick={() => {addBasketItem({basketId:1, dishId})}}>Order now</CustomButton>
       </div>
       <div className={c.dish__bg}></div>
     </div>

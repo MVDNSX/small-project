@@ -3,14 +3,18 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 import { authApi } from './authAPI'
 import { dishesApi } from './dishesAPI'
 import userSlice from './Slices/userSlice'
+import basketSlice from './Slices/basketSlice'
+import { basketApi } from './basketApi'
 
 export const store = configureStore({
 	reducer:{
-		[dishesApi.reducerPath]: dishesApi.reducer,
 		[authApi.reducerPath]: authApi.reducer,
-		user: userSlice
+		[dishesApi.reducerPath]: dishesApi.reducer,
+		[basketApi.reducerPath]: basketApi.reducer,
+		user: userSlice,
+		basket: basketSlice
 	},
 	middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(dishesApi.middleware, authApi.middleware),
+    getDefaultMiddleware().concat(authApi.middleware, dishesApi.middleware, basketApi.middleware),
 })
 setupListeners(store.dispatch)
