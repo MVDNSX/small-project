@@ -4,7 +4,7 @@ import { getAccessToken } from '../utils/getAccessToken'
 export const basketApi = createApi({
   reducerPath: 'basketApi',
   baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5005/api/basket'}),
-  tagTypes:['BasketItems', 'ItemComment', 'ItemCount', 'DeleteItem'],
+  tagTypes:['Basket'],
   endpoints: (build) => ({
 
     getBasket: build.query({
@@ -15,7 +15,13 @@ export const basketApi = createApi({
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      providesTags:['BasketItems', 'AddBasketItem', 'DeleteItem', 'ItemComment', 'ItemCount']
+      providesTags: (result, error, arg) => 
+      result?.Dishes
+      ? [...result.Dishes
+        .map( (el) => ({type: 'Basket', id: el.dishId})), 
+        {type: 'Basket', id: 'LIST'}, 
+        {type: 'Basket', id: 'RELOAD-LIST'}]
+      : [{type: 'Basket', id: 'LIST'}, {type: 'Basket', id: 'RELOAD-LIST'}]
     }),
     addItemBasket: build.mutation({
       query: ({basketId, dishId}) => ({
@@ -29,7 +35,7 @@ export const basketApi = createApi({
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: ['AddBasketItem']
+      invalidatesTags: [{type: 'Basket', id: 'LIST'}]
     }),
     deleteItem: build.mutation({
       query: (dishId) => ({
@@ -39,7 +45,7 @@ export const basketApi = createApi({
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: ['DeleteItem']
+      invalidatesTags: [{type: 'Basket', id: 'RELOAD-LIST'}]
     }),
     changeItemComment: build.mutation({
       query: ({basketId, dishId, comment}) => ({
@@ -54,7 +60,7 @@ export const basketApi = createApi({
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: ['ItemComment']
+      invalidatesTags: (result, error, arg) => [{type: 'Basket', id: arg.dishId}]
     }), 
     changeItemCount: build.mutation({
       query: ({basketId, dishId, count}) => ({
@@ -69,9 +75,9 @@ export const basketApi = createApi({
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: ['ItemCount']
+      invalidatesTags: ['Basket']
     })
   })
 })
 
-export const {useGetBasketQuery, useDeleteItemMutation, useAddItemBasketMutation, useChangeItemCommentMutation, useChangeItemCountMutation} = basketApi
+export const {useGetBasketQuery, useGetBasketItemQuery, useDeleteItemMutation, useAddItemBasketMutation, useChangeItemCommentMutation, useChangeItemCountMutation} = basketApi

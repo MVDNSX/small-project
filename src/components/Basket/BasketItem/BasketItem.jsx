@@ -17,6 +17,7 @@ const BasketItem = ({item}) => {
   const {name, price, finalPrice, dishId, discount, picture} = item
   const {count, comment, totalCost} = item.BasketItem
   const [comm, setComm] = useState('')
+  console.log(item.BasketItem)
   //const dispatch = useDispatch()
   //useDebounceComment(comm, 1000)
 
