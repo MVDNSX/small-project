@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState} from 'react'
+import {useState} from 'react'
 import c from './Basket.module.css'
 import {motion, AnimatePresence} from 'framer-motion'
 import BasketItem from './BasketItem/BasketItem'
@@ -8,14 +8,10 @@ import Total from './Total/Total'
 import BasketHeader from './BasketHeader/BasketHeader'
 import { useSelector } from 'react-redux'
 import { useGetBasketQuery } from '../../store/basketApi'
+import { useBasket } from '../../hooks/useBasket'
 
 const Basket = () => {
-  const [isOpen, setOpen] = useState(false)
-  const {data: basket=[]} = useGetBasketQuery()
-  const basketItem = basket.Dishes
-  console.log(basketItem)
-  const orderPrice = useSelector((store) => store.basket.result)
-  const orderDiscount = useSelector((store) => store.basket.discount)
+  const {isOpen, setOpen, basketItems, totalDiscount, totalCostBasket, handleOpen, handleClose} = useBasket();
 
   return (
     <AnimatePresence>
@@ -24,7 +20,7 @@ const Basket = () => {
       <motion.div 
         className={c.open} 
         animate={isOpen ? {opacity: 0, pointerEvents: 'none'}: {opacity: 1}}>
-          <CustomButton onClick={()=>{setOpen(true)}} id='basket'/>
+          <CustomButton onClick={handleOpen} id='basket'/>
       </motion.div>
       
       <AnimatePresence>
@@ -39,14 +35,14 @@ const Basket = () => {
 
           <div className={c.content}>
             <AnimatePresence>
-              {basketItem.map( (item, index) => <BasketItem key={item.dishId} item={item} index={index}/>)}
+              {basketItems.map( (item, index) => <BasketItem key={item.dishId} item={item} index={index}/>)}
             </AnimatePresence>
           </div>
 
-          <Total orderPrice={orderPrice} orderDiscount={orderDiscount}/>
+          <Total orderPrice={totalCostBasket} orderDiscount={totalDiscount}/>
         
           <div className={c.controls}>
-            <CustomButtonNeon children={'Go Back'} onClick={() => setOpen(false)}/>
+            <CustomButtonNeon children={'Go Back'} onClick={handleClose}/>
             <CustomButton children={'Continue to Payment'}/>
           </div>
 

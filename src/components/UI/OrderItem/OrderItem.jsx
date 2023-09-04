@@ -5,7 +5,6 @@ import c from './OrderItem.module.scss'
 import dishImg from '../../../assets/cards/Image 1.png'
 import { changeCount, deleteDishes } from '../../../store/Slices/basketSlice'
 import {useState } from 'react'
-import { useDebounceComment } from '../../../hooks/useDebounceComment'
 import { useDispatch } from 'react-redux'
 import {motion} from 'framer-motion'
 
