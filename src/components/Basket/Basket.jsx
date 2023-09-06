@@ -6,12 +6,10 @@ import CustomButtonNeon from '../UI/CustomButtonNeon/CustomButtonNeon'
 import CustomButton from '../UI/CustomButton/CustomButton'
 import Total from './Total/Total'
 import BasketHeader from './BasketHeader/BasketHeader'
-import { useSelector } from 'react-redux'
-import { useGetBasketQuery } from '../../store/basketApi'
 import { useBasket } from '../../hooks/useBasket'
 
 const Basket = () => {
-  const {isOpen, setOpen, basketItems, totalDiscount, totalCostBasket, handleOpen, handleClose} = useBasket();
+  const {isOpen, products, totalDiscount, totalCostBasket, handleOpen, handleClose} = useBasket();
 
   return (
     <AnimatePresence>
@@ -35,11 +33,11 @@ const Basket = () => {
 
           <div className={c.content}>
             <AnimatePresence>
-              {basketItems.map( (item, index) => <BasketItem key={item.dishId} item={item} index={index}/>)}
+              {products.map( (item, index) => <BasketItem key={item.productId} item={item} index={index}/>)}
             </AnimatePresence>
           </div>
 
-          <Total orderPrice={totalCostBasket} orderDiscount={totalDiscount}/>
+          <Total totalCostBasket={totalCostBasket} totalDiscount={totalDiscount}/>
         
           <div className={c.controls}>
             <CustomButtonNeon children={'Go Back'} onClick={handleClose}/>

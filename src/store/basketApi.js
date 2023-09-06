@@ -1,5 +1,7 @@
 import { createApi,fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { getAccessToken } from '../utils/getAccessToken'
+import { addDish, changeComment, changeCount, delDish, loadBasket } from './Slices/basketSlice'
+
 
 export const basketApi = createApi({
   reducerPath: 'basketApi',
@@ -15,67 +17,116 @@ export const basketApi = createApi({
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      providesTags: (result, error, arg) => 
-      result?.Dishes
-      ? [...result.Dishes
-        .map( (el) => ({type: 'Basket', id: el.dishId})), 
-        {type: 'Basket', id: 'LIST'}, 
-        {type: 'Basket', id: 'RELOAD-LIST'}]
-      : [{type: 'Basket', id: 'LIST'}, {type: 'Basket', id: 'RELOAD-LIST'}]
+      providesTags: [{type: 'Basket', id: 'LIST'}],
+      async onQueryStarted(
+        arg,
+        { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }
+      ) {
+        try {
+          const {data} = await queryFulfilled
+          console.log(data)
+          dispatch(loadBasket(data))
+        } catch (error) {
+          console.log(error)
+        }
+      },
     }),
+
     addItemBasket: build.mutation({
-      query: ({basketId, dishId}) => ({
+      query: (productId) => ({
         url: `/add`,
         method: 'POST',
         body:{
-          basketId, // захардкожено пофиксить в  homepage, basketitem
-          dishId
+          productId
         },
         headers: {
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: [{type: 'Basket', id: 'LIST'}]
+      async onQueryStarted(
+        arg,
+        { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }
+      ) {
+        try {
+          const {data} = await queryFulfilled
+          dispatch(addDish(data))
+        } catch (error) {
+          console.log(error)
+        }
+      },
+      //invalidatesTags: [{type: 'Basket', id: 'LIST'}]
     }),
+
     deleteItem: build.mutation({
-      query: (dishId) => ({
-        url: `/${dishId}`,
+      query: (productId) => ({
+        url: `/${productId}`,
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: [{type: 'Basket', id: 'RELOAD-LIST'}]
+      async onQueryStarted(
+        productId,
+        { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }
+      ) {
+        try {
+          await queryFulfilled
+          dispatch(delDish(productId))
+        } catch (error) {
+          console.log(error)
+        }
+      },
+      //invalidatesTags: [{type: 'Basket', id: 'RELOAD-LIST'}]
     }),
     changeItemComment: build.mutation({
-      query: ({basketId, dishId, comment}) => ({
+      query: ({productId, comment}) => ({
         url: '/comment',
         method: 'PUT',
         body:{
-          basketId,
-          dishId,
+          productId,
           comment
         },
         headers: {
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: (result, error, arg) => [{type: 'Basket', id: arg.dishId}]
+      async onQueryStarted(
+        arg,
+        { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }
+      ) {
+        try {
+          const {data} = await queryFulfilled
+          dispatch(changeComment(data))
+        } catch (error) {
+          console.log(error)
+        }
+      },
+      //invalidatesTags: (result, error, arg) => [{type: 'Basket', id: arg.dishId}]
     }), 
     changeItemCount: build.mutation({
-      query: ({basketId, dishId, count}) => ({
+      query: ({productId, count}) => ({
         url: '/count',
         method: 'PUT',
         body:{
-          basketId,
-          dishId,
-          count: +count
+          productId,
+          count
         },
         headers: {
           Authorization: `Bearer ${getAccessToken()}`
         }
       }),
-      invalidatesTags: ['Basket']
+      async onQueryStarted(
+        arg,
+        { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }
+      ) {
+        try {
+          const {data} = await queryFulfilled
+          dispatch(changeCount(data))
+        } catch (error) {
+          console.log(error)
+        }
+      },
+      //invalidatesTags: ['Basket']
     })
   })
 })

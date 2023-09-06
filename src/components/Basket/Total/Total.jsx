@@ -1,15 +1,15 @@
 import c from './Total.module.css'
 
-const Total = ({orderPrice, orderDiscount}) => {
+const Total = ({totalCostBasket, totalDiscount}) => {
   return (
     <div className={c.total}>
       <div className={c.total__item}>
         Discount
-        <span>$ {orderDiscount}</span>
+        <span>$ {totalDiscount}</span>
       </div>
       <div className={c.total__item}>
         Sub total
-       <span>$ {orderPrice}</span>
+       <span>$ {totalCostBasket}</span>
       </div>
     </div>
   )

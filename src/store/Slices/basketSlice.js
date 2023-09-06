@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-	order: [
+	basketId: null,
+	products: [
 	],
-	result: 0,
-	discount: 0
+	totalCostBasket: 0,
+	totalDiscount: 0
 }
 
 const recalculationPrice = (count, price) => {
@@ -28,41 +29,54 @@ export const basketSlice = createSlice({
 	name: 'basket',
 	initialState,
 	reducers: {
-		addDishes: (state, action) => {
-			console.log(action.payload)
-			const dish = {...action.payload, comment: '', count: 1, countPrice: action.payload.finalPrice}
-			const indexDish = state.order.findIndex( item => item.dishesId === dish.dishesId)
-			if(indexDish < 0){
-				state.order = [...state.order, dish]
-			}else{
-				state.order[indexDish].count += 1
-				state.order[indexDish].countPrice = recalculationPrice(state.order[indexDish].count, state.order[indexDish].finalPrice)
-			}
-			calculationTotal(state)
+
+		loadBasket: (state, action) => {
+			const {basketId, totalCostBasket, totalDiscount, products} = action.payload
+			state.basketId = basketId,
+			state.products = [...products]
+			state.totalCostBasket = totalCostBasket
+			state.totalDiscount = totalDiscount
 		},
 
-		deleteDishes: (state, action) => {
-			state.order = state.order.filter(item => item.dishesId !== action.payload)
-			calculationTotal(state)
+		addDish: (state, action) => {
+			const {productId} = action.payload
+			if(!productId){
+				state.products = [...state.products, ...action.payload.products]
+			}else{
+				const indexDish = state.products.findIndex(item => item.productId === productId)
+				state.products[indexDish].product_basket = {...action.payload} 
+			}
+		},
+
+		delDish: (state, action) => {
+			console.log(action.payload)
+			const productId = action.payload
+			state.products = state.products.filter(item => item.productId !== productId)
 		},
 
 		changeCount: (state, action) => {
-			const indexDish = action.payload.index
-			if(action.payload.count > 0){
-				state.order[indexDish].count = +action.payload.count
-			}else {
-				state.order[indexDish].count = 1
-			}
-			state.order[indexDish].countPrice = recalculationPrice(state.order[indexDish].count, state.order[indexDish].finalPrice)
-			calculationTotal(state)
+			const {productId, product_basket} = action.payload.products
+			const {count, totalCost} = product_basket
+			state.products.map( item  => {
+				if(item.productId === productId){
+					item.product_basket = {...item.product_basket, count, totalCost }
+				}
+			})
 		},
 
 		changeComment: (state, action) => {
-			state.order[action.payload.index].comment = action.payload.comment
+			console.log(action.payload)
+			const {productId, product_basket} = action.payload.products
+			const {comment} = product_basket
+			state.products.map( item  => {
+				if(item.productId === productId){
+					item.product_basket = {...item.product_basket, comment}
+				}
+			})
 		}
 	},
 })
 
-export const { addDishes, deleteDishes, changeCount, changeComment } = basketSlice.actions
+export const {loadBasket, addDish, delDish, changeCount, changeComment } = basketSlice.actions
 
 export default basketSlice.reducer

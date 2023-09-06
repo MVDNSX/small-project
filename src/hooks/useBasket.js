@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useChangeItemCommentMutation, useChangeItemCountMutation, useDeleteItemMutation, useGetBasketQuery } from '../store/basketApi'
-import { useDebounce } from './useDebounce'
+import { useSelector } from 'react-redux'
 
 export const useBasket = () => {
   const [isOpen, setOpen] = useState(false)
-  const {data: basket = []} = useGetBasketQuery()
-  const basketItems = basket.Dishes
-  const totalDiscount = 'Fix'
-  const totalCostBasket = 'Fix'
+  useGetBasketQuery()
+  const basket = useSelector( state => state.basket )
+  const {products, totalCostBasket, totalDiscount} = basket
   const handleOpen = () => {
     setOpen(true)
   }
@@ -16,8 +15,7 @@ export const useBasket = () => {
   }
   return {
     isOpen,
-    setOpen,
-    basketItems,
+    products,
     totalDiscount,
     totalCostBasket,
     handleOpen, 
@@ -35,11 +33,11 @@ export const useBasketItem = (item) => {
   const handleCount = (e) => {
     changeItemCount({basketId:1, dishId, count: e.target.value})
   }
-  const handleComment = (e) => {
-        changeItemComment({basketId: 1, dishId, comment:e.target.value})
+  const handleComment = (comment) => {
+       return changeItemComment({basketId:1, dishId, comment})
   }
   const handleDelete = (dishId) => {
-    deleteItem({basketId: 1, dishId, comment: e.target.value})
+    deleteItem(dishId)
   }
   return {
     dishId,name, discount, price, finalPrice, picture, count, comment, totalCost, handleCount, handleComment, handleDelete, isLoading
