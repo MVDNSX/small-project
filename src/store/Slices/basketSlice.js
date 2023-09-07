@@ -49,7 +49,6 @@ export const basketSlice = createSlice({
 		},
 
 		delDish: (state, action) => {
-			console.log(action.payload)
 			const productId = action.payload
 			state.products = state.products.filter(item => item.productId !== productId)
 		},

@@ -24,22 +24,27 @@ export const useBasket = () => {
 }
 
 export const useBasketItem = (item) => {
-  const {name, price, finalPrice, dishId, discount, picture} = item
-  const {count, comment, totalCost} = item.BasketItem
-  const [changeItemComment] = useChangeItemCommentMutation()
+  const {name, price, finalPrice, productId, discount, picture} = item
+  const {count, comment, totalCost} = item.product_basket
+  const [deleteItem] = useDeleteItemMutation()
   const [changeItemCount] = useChangeItemCountMutation()
-  const [deleteItem, {isLoading}] = useDeleteItemMutation()
+  const [changeItemComment] = useChangeItemCommentMutation()
+  const [localComment, setLocalComment] = useState(comment);
 
   const handleCount = (e) => {
-    changeItemCount({basketId:1, dishId, count: e.target.value})
+    changeItemCount({productId, count: +e.target.value})
   }
-  const handleComment = (comment) => {
-       return changeItemComment({basketId:1, dishId, comment})
+  const handleCommentQuery = () =>{
+    if(comment === localComment.trim()){
+      return
+    }
+    changeItemComment({productId, comment: localComment})
   }
-  const handleDelete = (dishId) => {
-    deleteItem(dishId)
+
+  const handleDelete = () => {
+    deleteItem(productId)
   }
   return {
-    dishId,name, discount, price, finalPrice, picture, count, comment, totalCost, handleCount, handleComment, handleDelete, isLoading
+    name, price, finalPrice, discount, picture, count, totalCost, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete
   }
 }

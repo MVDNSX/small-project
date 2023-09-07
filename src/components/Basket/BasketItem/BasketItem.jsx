@@ -6,20 +6,10 @@ import CustomInput from '../../UI/CustomInput/CustomInput'
 import c from './BasketItem.module.css'
 //import dishImg from '../../../assets/cards/Image 1.png'
 import {motion} from 'framer-motion'
+import { useBasketItem } from '../../../hooks/useBasket'
 
 const BasketItem = ({item}) => {
-  const {name, price, finalPrice, productId, discount, picture} = item
-  const {count, comment, totalCost} = item.product_basket
-  const [deleteItem] = useDeleteItemMutation()
-  const [changeItemCount] = useChangeItemCountMutation()
-  const [changeItemComment] = useChangeItemCommentMutation()
-  const [localComment, setLocalComment] = useState(comment);
-  const handleCommentQuery = () =>{
-    if(comment === localComment){
-      return
-    }
-    changeItemComment({productId, comment: localComment})
-  }
+  const {name, price, finalPrice, discount, picture, count, totalCost, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete} = useBasketItem(item)
   return (
     <motion.div 
       className={c.item}
@@ -41,7 +31,7 @@ const BasketItem = ({item}) => {
         <CustomInput 
           value={count}
           min={1}
-          onChange={(e) => {changeItemCount({productId, count: +e.target.value})}}
+          onChange={(e) => {handleCount(e)}}
           style={{width: 20, textAlign: 'center', fontWeight: 500}}/>
       </div>
 
@@ -57,7 +47,7 @@ const BasketItem = ({item}) => {
       </div>
 
       <div className={c.delete}>
-        <CustomButtonNeon onClick={()=>{deleteItem(productId)}}><SvgIcon id='trash'/></CustomButtonNeon>
+        <CustomButtonNeon onClick={handleDelete}><SvgIcon id='trash'/></CustomButtonNeon>
       </div>
 
     </motion.div>

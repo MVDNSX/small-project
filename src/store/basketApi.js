@@ -24,7 +24,6 @@ export const basketApi = createApi({
       ) {
         try {
           const {data} = await queryFulfilled
-          console.log(data)
           dispatch(loadBasket(data))
         } catch (error) {
           console.log(error)
