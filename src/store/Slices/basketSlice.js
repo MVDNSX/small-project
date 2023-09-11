@@ -5,7 +5,7 @@ const initialState = {
 	products: [
 	],
 	totalCostBasket: 0,
-	totalDiscount: 0
+	totalDiscountBasket: 0
 }
 
 const recalculationPrice = (count, price) => {
@@ -31,48 +31,48 @@ export const basketSlice = createSlice({
 	reducers: {
 
 		loadBasket: (state, action) => {
-			const {basketId, totalCostBasket, totalDiscount, products} = action.payload
+			const {basketId, totalCostBasket, totalDiscountBasket, products} = action.payload
 			state.basketId = basketId,
 			state.products = [...products]
 			state.totalCostBasket = totalCostBasket
-			state.totalDiscount = totalDiscount
+			state.totalDiscountBasket = totalDiscountBasket
 		},
 
 		addDish: (state, action) => {
-			const {productId} = action.payload
-			if(!productId){
-				state.products = [...state.products, ...action.payload.products]
+			const {products, totalCostBasket, totalDiscountBasket} = action.payload
+			const productIndex = state.products.findIndex( item => item.productId === products[0].productId)
+			if(productIndex === -1){
+				state.products = [...state.products, ...products]
 			}else{
-				const indexDish = state.products.findIndex(item => item.productId === productId)
-				state.products[indexDish].product_basket = {...action.payload} 
+				state.products[productIndex].product_basket = {...products[0].product_basket}
 			}
-		},
-
-		delDish: (state, action) => {
-			const productId = action.payload
-			state.products = state.products.filter(item => item.productId !== productId)
+			state.totalCostBasket = totalCostBasket
+			state.totalDiscountBasket = totalDiscountBasket
 		},
 
 		changeCount: (state, action) => {
-			const {productId, product_basket} = action.payload.products
-			const {count, totalCost} = product_basket
-			state.products.map( item  => {
-				if(item.productId === productId){
-					item.product_basket = {...item.product_basket, count, totalCost }
-				}
-			})
+			const {product_basket, totalCostBasket, totalDiscountBasket} = action.payload
+			const productIndex = state.products.findIndex( item => item.productId === product_basket.productId)
+			state.products[productIndex].product_basket = {...state.products[productIndex].product_basket, ...product_basket}
+			state.totalCostBasket = totalCostBasket
+			state.totalDiscountBasket = totalDiscountBasket
 		},
 
 		changeComment: (state, action) => {
-			console.log(action.payload)
-			const {productId, product_basket} = action.payload.products
-			const {comment} = product_basket
-			state.products.map( item  => {
-				if(item.productId === productId){
-					item.product_basket = {...item.product_basket, comment}
-				}
-			})
-		}
+			const {product_basket, totalCostBasket, totalDiscountBasket} = action.payload
+			const productIndex = state.products.findIndex( item => item.productId === product_basket.productId)
+			state.products[productIndex].product_basket = {...state.products[productIndex].product_basket, ...product_basket}
+			state.totalCostBasket = totalCostBasket
+			state.totalDiscountBasket = totalDiscountBasket
+		}, 
+
+		delDish: (state, action) => {
+			const {productId, totalCostBasket, totalDiscountBasket} = action.payload
+			state.products = state.products.filter(item => item.productId !== productId)
+			state.totalCostBasket = totalCostBasket
+			state.totalDiscountBasket = totalDiscountBasket
+		},
+		
 	},
 })
 

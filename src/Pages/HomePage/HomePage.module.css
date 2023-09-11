@@ -33,7 +33,7 @@
 }
 
 .dishes__wrapper {
-	height: 593px;
+	height: 100%;
 	overflow: scroll;
 }
 .dishes__wrapper::-webkit-scrollbar {

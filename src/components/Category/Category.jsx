@@ -1,8 +1,8 @@
 import {useState } from 'react'
-import c from './CategoryDiahes.module.css'
+import c from './Category.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const CategoryDishes = ({categories, onChange}) => {
+const Category = ({categories, onChange}) => {
 	
 	const [isActive, setActive] = useState(0)
 	const handlerClick = (id) => {
@@ -28,4 +28,4 @@ const CategoryDishes = ({categories, onChange}) => {
 	)
 }
 
-export default CategoryDishes
+export default Category

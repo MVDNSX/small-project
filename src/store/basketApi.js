@@ -69,8 +69,8 @@ export const basketApi = createApi({
         { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }
       ) {
         try {
-          await queryFulfilled
-          dispatch(delDish(productId))
+          const {data} = await queryFulfilled
+          dispatch(delDish({productId, ...data}))
         } catch (error) {
           console.log(error)
         }

@@ -1,0 +1,26 @@
+.settings {
+	width: 100%;
+	padding: 24px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 24px;
+	flex: 0 0;
+	overflow: hidden;
+}
+
+.content {
+	display: grid;
+	grid-template-columns: 4fr 10fr;
+	height: 100%;
+	column-gap: 24px;
+	overflow: hidden;
+	.page_bg {
+		border-radius: 8px;
+		background-color: #1f1d2b;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		overflow: hidden;
+	}
+}

@@ -9,7 +9,7 @@ import BasketHeader from './BasketHeader/BasketHeader'
 import { useBasket } from '../../hooks/useBasket'
 
 const Basket = () => {
-  const {isOpen, products, totalDiscount, totalCostBasket, handleOpen, handleClose} = useBasket();
+  const {isOpen, products, totalDiscountBasket, totalCostBasket, handleOpen, handleClose} = useBasket();
 
   return (
     <AnimatePresence>
@@ -37,7 +37,7 @@ const Basket = () => {
             </AnimatePresence>
           </div>
 
-          <Total totalCostBasket={totalCostBasket} totalDiscount={totalDiscount}/>
+          <Total totalCostBasket={totalCostBasket} totalDiscountBasket={totalDiscountBasket}/>
         
           <div className={c.controls}>
             <CustomButtonNeon children={'Go Back'} onClick={handleClose}/>

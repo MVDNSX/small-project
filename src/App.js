@@ -9,9 +9,7 @@ function App() {
 		<div className="App">
 			<div className="container">
 				<Sidebar />
-				<div id="detail" className='children'>
-					<Outlet />
-				</div>
+				<Outlet />
 			</div>
 		</div>
 	);

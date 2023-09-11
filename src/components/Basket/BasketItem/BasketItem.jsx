@@ -9,7 +9,7 @@ import {motion} from 'framer-motion'
 import { useBasketItem } from '../../../hooks/useBasket'
 
 const BasketItem = ({item}) => {
-  const {name, price, finalPrice, discount, picture, count, totalCost, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete} = useBasketItem(item)
+  const {name, price, finalPrice, discount, picture, count, totalCostProduct, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete} = useBasketItem(item)
   return (
     <motion.div 
       className={c.item}
@@ -35,7 +35,7 @@ const BasketItem = ({item}) => {
           style={{width: 20, textAlign: 'center', fontWeight: 500}}/>
       </div>
 
-      <div className={c.total__price}>${totalCost}</div>
+      <div className={c.total__price}>${totalCostProduct}</div>
 
       <div className={c.commentary}>
         <CustomInput 

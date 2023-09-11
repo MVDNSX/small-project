@@ -17,6 +17,7 @@ import Logout from './Pages/Logout/Logout';
 import Profile from './components/Profile/Profile'
 import Form from './components/Form/Form'
 import RequireAuth from './components/RequireAuth/RequireAuth'
+import { Management } from './components/components-settings/ProductManagement/Management'
 
 let auth = false;
 const router = createBrowserRouter(createRoutesFromElements
@@ -33,7 +34,11 @@ const router = createBrowserRouter(createRoutesFromElements
 				<Route path='auth' element={<Form/>}/> 
 			</Route>
 			<Route path='settings' element={<Settings/>}>
-				<Route path='123' element={123}/>
+				<Route path='orders' element={<Management/>}/>
+				<Route path='notification' element={<Management/>}/>
+				<Route path='management' element={<Management/>}/>
+				<Route path='security' element={<Management/>}/>
+				<Route path='about' element={<Management/>}/>
 			</Route>
 			<Route path='logout' element={<Logout/>}/>
 		</Route>

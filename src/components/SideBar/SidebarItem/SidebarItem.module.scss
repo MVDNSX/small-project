@@ -1,45 +1,45 @@
-.link{
-  align-self: center;
-  position: relative;
-  z-index: 1;
-  svg path {
-    fill: #EA736D; 
-    transition: fill 0.3s ease-in;
-  }
-  :hover svg path{
-    fill: #fff; 
-    transition: fill 0.3s ease-in;
-  }
-  a {
-    padding: 16px;
-    display: block;
-  }
-  .link_bg{
-    position: absolute;
-    top: -24px;
-    left: -12px;
-    height: 105px;
-    width: 93px;
-     svg path {
-      fill: #252836;
-     }
-     z-index: -1;
-    }
-    .top{
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 56px;
-     height: 56px;
-     border-radius: 8px;
-     background-color: #EA736D;
-     z-index: -1;
-    }
+.link {
+	align-self: center;
+	position: relative;
+	z-index: 1;
+	svg path {
+		fill: #ea736d;
+		transition: fill 0.3s ease-in;
+	}
+	:hover svg path {
+		fill: #fff;
+		transition: fill 0.3s ease-in;
+	}
+	a {
+		padding: 16px;
+		display: block;
+	}
+	.link_bg {
+		position: absolute;
+		top: -24px;
+		left: -12px;
+		height: 105px;
+		width: 93px;
+		svg path {
+			fill: #252836;
+		}
+		z-index: -1;
+	}
+	.top {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 56px;
+		height: 56px;
+		border-radius: 8px;
+		background-color: #ea736d;
+		z-index: -1;
+	}
 }
 
-.active{
-  svg path {
-    fill: #fff; 
-    transition: fill 0.3s ease-in;
-  }
+.active {
+	svg path {
+		fill: #fff;
+		transition: fill 0.3s ease-in;
+	}
 }

@@ -6,7 +6,7 @@ export const useBasket = () => {
   const [isOpen, setOpen] = useState(false)
   useGetBasketQuery()
   const basket = useSelector( state => state.basket )
-  const {products, totalCostBasket, totalDiscount} = basket
+  const {products, totalCostBasket, totalDiscountBasket} = basket
   const handleOpen = () => {
     setOpen(true)
   }
@@ -16,7 +16,7 @@ export const useBasket = () => {
   return {
     isOpen,
     products,
-    totalDiscount,
+    totalDiscountBasket,
     totalCostBasket,
     handleOpen, 
     handleClose
@@ -25,7 +25,7 @@ export const useBasket = () => {
 
 export const useBasketItem = (item) => {
   const {name, price, finalPrice, productId, discount, picture} = item
-  const {count, comment, totalCost} = item.product_basket
+  const {count, comment, totalCostProduct} = item.product_basket
   const [deleteItem] = useDeleteItemMutation()
   const [changeItemCount] = useChangeItemCountMutation()
   const [changeItemComment] = useChangeItemCommentMutation()
@@ -45,6 +45,6 @@ export const useBasketItem = (item) => {
     deleteItem(productId)
   }
   return {
-    name, price, finalPrice, discount, picture, count, totalCost, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete
+    name, price, finalPrice, discount, picture, count, totalCostProduct, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete
   }
 }

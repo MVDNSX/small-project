@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import {useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
-import ServiceDishes from '../../API/ServiceDishes'
-import CategoryDishes from '../../components/CategoryDishes/CategoryDishes'
+import Category from '../../components/Category/Category'
 import Dishes from '../../components/Dishes/Dishes'
 import CustomInput from '../../components/UI/CustomInput/CustomInput'
 import CustomSelect from '../../components/UI/CustomSelect/CustomSelect'
@@ -39,7 +38,7 @@ const Home = () => {
 					</div>
 
 					<div className={c.category__wrapper}>
-						<CategoryDishes 
+						<Category 
 							categories={categories}
 							onChange={(category) => setDishFilter({...dishFilter, category: category})}
 						/>

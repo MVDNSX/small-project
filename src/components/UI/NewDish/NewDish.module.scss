@@ -1,0 +1,29 @@
+.adding {
+	height: 299px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 22px;
+	border-radius: 8px;
+	border: 1px dashed #ea736d;
+	background-color: #1f1d2b;
+	color: #ea736d;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.4;
+	path {
+		stroke: #ea736d;
+		transition: stroke 0.3s ease-in;
+	}
+	cursor: pointer;
+	transition: all 0.3s ease-in;
+	&:hover {
+		border-color: #fff;
+		color: #fff;
+		background-color: rgba($color: #ea736d, $alpha: 0.3);
+		path {
+			stroke: #fff;
+		}
+	}
+}

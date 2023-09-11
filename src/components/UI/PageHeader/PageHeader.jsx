@@ -4,7 +4,7 @@ import c from './PageHaeder.module.css'
 const PageHeader = ({header, children, isDate, isBorder}) => {
   const date = getDateFormat()
    return (
-    <div>
+    <>
       <div className={c.header}>
         <div className={c.left}>
           <div className={c.heading}>{header}</div>
@@ -15,7 +15,7 @@ const PageHeader = ({header, children, isDate, isBorder}) => {
         </div>
       </div>
       {isBorder && <div className={c.border}></div>}
-    </div>
+    </>
    )
 }
 

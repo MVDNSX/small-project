@@ -1,0 +1,28 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.edits {
+	display: grid;
+	grid-template-columns: repeat(3, 215px);
+	height: 100%;
+	gap: 16px;
+	color: #fff;
+	overflow: scroll;
+}
+
+.edits::-webkit-scrollbar {
+	height: 0;
+	width: 0;
+}
+
+.controls {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 8px;
+}
