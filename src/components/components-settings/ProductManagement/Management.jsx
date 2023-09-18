@@ -5,12 +5,16 @@ import Category from '../../Category/Category'
 import CustomButton from '../../UI/CustomButton/CustomButton'
 import { NewDish } from '../../UI/NewDish/NewDish'
 import { EditDish } from '../../UI/EditDish/EditDish'
+import { ModalDish } from '../../UI/ModalDish/ModalDish'
 
 export const Management = () => {
   const categories = getCategories();
   const [Filter, setFilter] = useState({category: 0})
+  const [modal, setModal] = useState(true)
   return (
     <>
+    {modal && <ModalDish/>}
+
     <div className={c.header}>
       <div>Product Management</div>
       {/*<div>manage categories</div>*/}
@@ -20,7 +24,7 @@ export const Management = () => {
 		  onChange={(category) => setFilter({category: category})}
 		/>
     <div className={c.edits}>
-      <NewDish/>
+      <NewDish openModal={setModal}/>
       <EditDish/>
       <EditDish/>
       <EditDish/>

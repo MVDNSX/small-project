@@ -1,0 +1,25 @@
+.container {
+	display: inline-block;
+	min-width: 100px;
+
+	.category[type='radio'] {
+		display: none;
+	}
+	.text {
+		display: block;
+		padding: 7px;
+		text-align: center;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 1.4;
+		background-color: #ea736d;
+		color: #fff;
+		border-radius: 6px;
+		transition: color 0.3s ease-in;
+		transition: background-color 0.3s ease-in;
+	}
+	.category[type='radio']:checked + .text {
+		color: #ea736d;
+		background-color: #fff;
+	}
+}
