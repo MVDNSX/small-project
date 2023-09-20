@@ -10,7 +10,7 @@ import { ModalDish } from '../../UI/ModalDish/ModalDish'
 export const Management = () => {
   const categories = getCategories();
   const [Filter, setFilter] = useState({category: 0})
-  const [modal, setModal] = useState(true)
+  const [modal, setModal] = useState(false)
   return (
     <>
     {modal && <ModalDish/>}
