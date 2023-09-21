@@ -25,5 +25,16 @@ export const dishSchema = yup.object({
                 .number()
                 .integer()
                 .moreThan(0, 'Необходимо выбрать категорию')
-                .required('Обязательное поле')
+                .required('Обязательное поле'),
+  picture: yup
+              .mixed()
+              .test('required', "Необходимо выбрать изображение продукта", (value) =>{
+                return value && value.length
+              } )
+              .test("fileSize", "Большой размер изображения", (value, context) => {
+                return value && value[0] && value[0].size <= 200000;
+              })
+              .test("type", "Поддерживается только png формат", function (value) {
+                return value && value[0] && value[0].type === "image/png";
+              }),
 })

@@ -20,16 +20,16 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	gap: 14px;
+	gap: 7px;
 	justify-content: center;
 
 	& .drop {
-		margin-bottom: 17px;
 		align-self: center;
 		height: 160px;
 		min-width: 164px;
 		padding: 14px;
 		display: flex;
+		justify-content: center;
 		background-color: #252836;
 		border: 2px dashed #393c49;
 		border-radius: 8px;
@@ -43,7 +43,8 @@
 			align-items: center;
 		}
 		input {
-			display: none;
+			height: 0;
+			width: 0;
 		}
 
 		& .preview {
@@ -91,23 +92,19 @@
 				top: -12px;
 				left: 9px;
 			}
-		}
+		}	
+	}
+	.empty {
+		height: 17px;
+	}
 
-		& p{
-			font-size: 14px;
-		}
-		
-		& .empty {
-			height: 17px;
-		}
+	.alert {
+		font-size: 14px;
+		color: #ea736d;
+		padding-left: 15px;
+	}
 
-		& .alert {
-			color: #ea736d;
-			padding-left: 15px;
-		}
-
-		& .required {
-			border: 1px solid #ea736d;
-		}
+	.required {
+		border: 1px solid #ea736d;
 	}
 }

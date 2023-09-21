@@ -5,8 +5,11 @@ import {motion, AnimatePresence} from 'framer-motion'
 import {useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { dishSchema } from '../../../Validation/dishSchema'
+import { useAddDishMutation } from '../../../store/dishesAPI'
+
 
 export const ModalDish = () => {
+
   const container = {
     hidden: {opacity: 0},
     show:{
@@ -35,36 +38,44 @@ export const ModalDish = () => {
     {value: 6, text:'Dessert'},
   ]
 
-  const {register, formState: {errors}, handleSubmit} = useForm({
+  const [addDish] = useAddDishMutation()
+
+  const {register, formState: {errors}, handleSubmit, resetField} = useForm({
     defaultValues: {
     },
-    resolver: yupResolver(dishSchema)
+    resolver: yupResolver(dishSchema),
   });
 
+
   const onSave = (data) => {
-    const picture = new FormData()
     
+    const formData = new FormData()
+    formData.append('categoryId', data.categoryId)
+    formData.append('name', data.name)
+    formData.append('price', data.price)
+    formData.append('discount', data.discount)
+    formData.append('picture',data.picture[0], data.picture[0].name)
+    
+    addDish(formData)
   }
 
-
-  const inputRef = useRef(null);
   const [preview, setPreview] = useState(null)
 
   const handleChange = (e) => {
     const fileObj = e.target.files[0];
     if (fileObj) {
-      inputRef.current = ''
       setPreview(URL.createObjectURL(fileObj))
     }
     return;
   };
 
   const clearDrop = () => {
-    inputRef.current = null;
+    resetField('picture')
     setPreview(null)
   }
 
   
+
 
 
   return (
@@ -75,16 +86,13 @@ export const ModalDish = () => {
           <form className={c.form} onSubmit={handleSubmit(onSave)}>
             
            
-            <div className={c.drop}>
-              {!preview && <label htmlFor="file"><div className={c.text}>No selected image</div></label>}
+            <div className={errors.picture ? `${c.drop} ${c.required}` : `${c.drop}`}>
+              {!preview && <label htmlFor="file"><div className={c.text}>Select image</div></label>}
               <input 
-                value=''
                 {...register('picture')} 
                 type="file" 
                 id="file"
                 accept='image/png' 
-                name="picture" 
-                autoComplete='off'
                 onChange={(e) => {handleChange(e)}}/>
 
               {preview && 
@@ -94,6 +102,9 @@ export const ModalDish = () => {
                 </div> 
               }
             </div>
+            {errors.picture?.message 
+                ? <p className={c.alert}>{errors.picture?.message}</p> 
+                : <p className={c.empty}></p>}
           
 
             
@@ -113,7 +124,7 @@ export const ModalDish = () => {
                 {...register("price")} 
                 type="number" 
                 inputMode='decimal' 
-                step={0.1} 
+                step={0.01} 
                 placeholder='Price'
                 autoComplete="off" 
                 className={errors.price ? `${c.required}` : ''}/>

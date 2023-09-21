@@ -17,4 +17,4 @@ export const dishesApi = createApi({
   })
 })
 
-export const {useGetDishesQuery, useAddDishesMutation} = dishesApi
+export const {useGetDishesQuery, useAddDishMutation} = dishesApi
