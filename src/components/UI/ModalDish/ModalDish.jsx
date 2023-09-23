@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState } from 'react'
-import CustomRadio from '../CustomRadio/CustomRadio'
-import c from './ModalDish.module.scss'
-import {motion, AnimatePresence} from 'framer-motion'
-import {useForm} from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { dishSchema } from '../../../Validation/dishSchema'
 import { useAddDishMutation } from '../../../store/dishesAPI'
+import CustomButton from '../CustomButton/CustomButton'
+import CustomRadio from '../CustomRadio/CustomRadio'
+import c from './ModalDish.module.scss'
 
 
-export const ModalDish = () => {
+export const ModalDish = ({setModal}) => {
 
   const container = {
     hidden: {opacity: 0},
@@ -20,7 +21,9 @@ export const ModalDish = () => {
     }
   }
   const item = {
-    hidden: {scale: 0},
+    hidden: {
+      scale: 0
+    },
     show:{
       scale:1, 
       transition: {
@@ -79,9 +82,10 @@ export const ModalDish = () => {
 
 
   return (
-    <AnimatePresence>
-      <motion.div className={c.modal} variants={container} initial={'hidden'} animate={'show'}>
-        <motion.div className={c.content} variants={item}>
+      <motion.div className={c.modal} variants={container} initial={'hidden'} animate={'show'} exit={'hidden'} 
+      onClick={() => {setModal(false)}}>
+        <motion.div className={c.content} variants={item} initial={'hidden'} animate={'show'} exit={{scale:0}} onClick={(e)=>{e.stopPropagation()}}
+        >
 
           <form className={c.form} onSubmit={handleSubmit(onSave)}>
             
@@ -151,11 +155,13 @@ export const ModalDish = () => {
                 : <p className={c.empty}></p>}
             </div>
 
-            <button type='submit'>send</button>
+            <div className={c.controls}>
+              <CustomButton type='button' text='Discard Changes' onClick={()=>{setModal(false)}}/>
+              <CustomButton type='submit' text='Save Changes'/>
+            </div>
           </form>
 
         </motion.div>
       </motion.div> 
-    </AnimatePresence>
   )
 }

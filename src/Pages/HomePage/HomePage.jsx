@@ -24,26 +24,25 @@ const Home = () => {
 
 	return (
 		<div className={c.home}>
+
 				<div className={c.main}>
+					
+					<PageHeader header={'Riverside Flamez'}>
+							<CustomInput 
+							placeholder='Search for food, coffe, etc..'
+							style={{width: 164}} 
+							value={dishFilter.query}
+							onChange={(e) => setDishFilter({...dishFilter, query: e.target.value})}>
+								<BiSearch size='20' color='#fff'/>
+							</CustomInput>
+					</PageHeader>
 
-					<div className={c.header__wrapper}>
-						<PageHeader header={'Riverside Flamez'}/>
-						<CustomInput 
-						placeholder='Search for food, coffe, etc..'
-						style={{width: 164}} 
-						value={dishFilter.query}
-						onChange={(e) => setDishFilter({...dishFilter, query: e.target.value})}>
-							<BiSearch size='20' color='#fff'/>
-						</CustomInput>
-					</div>
-
-					<div className={c.category__wrapper}>
-						<Category 
+					<Category 
+							layout='homeId'
 							categories={categories}
 							onChange={(category) => setDishFilter({...dishFilter, category: category})}
 						/>
-					</div>
-				
+
 					<div className={c.sort__wrapper}>
 						<div className={c.title}>Choose Dishes</div>
 						<CustomSelect 
@@ -53,21 +52,15 @@ const Home = () => {
 							options={options}/>
 					</div>
 
-					<div className={c.dishes__wrapper}>
-							<Dishes 
-								key={c.id} 
-								isDishesLoading={isLoading} 
-								sortedAndSearchDishes={sortedAndSearchDishes}/>
-					</div>
+					<Dishes 
+						key={c.id} 
+						isDishesLoading={isLoading} 
+						sortedAndSearchDishes={sortedAndSearchDishes}/>
 
 				</div>
 
-				<div className={c.basket__wrapper}>
-					<Basket/>
-				</div>
-
+				<Basket/>
 				
-
 
 		</div>
 	)

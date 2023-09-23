@@ -1,13 +1,11 @@
-
-.dishes__container {
-	min-width: 632px;
-	margin-bottom: 24px;
-}
-
 .dishes {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(192px, 192px));
 	gap: 17px 28px;
-	position: relative;
+	overflow: scroll;
+	padding-bottom: 24px;
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
 }
-

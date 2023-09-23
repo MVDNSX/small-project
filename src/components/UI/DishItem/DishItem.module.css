@@ -28,20 +28,20 @@
 .discount__bg {
 	position: absolute;
 	left: -12px;
-	top:47%;
+	top: 47%;
 	transform: translateY(-50%);
 	width: 93px;
 	padding: 2px 8px;
 	border-radius: 0 10px 10px 0;
 	text-align: center;
 	background-color: #ea736d;
-	color: #FFF;
+	color: #fff;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 1.4;
 }
 
-.discount__value{
+.discount__value {
 	padding: 10px;
 }
 
@@ -98,7 +98,7 @@
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	height: calc(100% - 36px);
+	height: 273px;
 	border-radius: 16px;
 	background-color: #1f1d2b;
 	position: absolute;

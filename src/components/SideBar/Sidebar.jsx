@@ -19,11 +19,13 @@ export const Sidebar = () => {
 
 	return (
 		<div className={c.sidebar}>
+
 			<Link to={'/home'}>
 				<div className={c.logo_bg}>
 					<SvgIcon id={'logo'}/>
 				</div>
 			</Link>
+			
 			<nav className={c.nav}>
 				<ul className={c.list}>
 				{menuLinks.map((item, index)=> 

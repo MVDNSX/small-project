@@ -2,7 +2,7 @@ import {useState } from 'react'
 import c from './Category.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const Category = ({categories, onChange}) => {
+const Category = ({categories, onChange, layout}) => {
 	
 	const [isActive, setActive] = useState(0)
 	const handlerClick = (id) => {
@@ -21,7 +21,7 @@ const Category = ({categories, onChange}) => {
 					onClick={()=> handlerClick(category.id)}>
 						{category.name}
 						{isActive === category.id && 
-						<motion.div className={c.underline} layoutId='activeCategory'></motion.div>}
+						<motion.div className={c.underline} layoutId={layout}></motion.div>}
 					</div>)}
 			</div>
 		</AnimatePresence>

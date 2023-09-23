@@ -69,8 +69,8 @@
 			color: #fff;
 			border: 1px solid #393c49;
 			border-radius: 8px;
-			&::placeholder{
-				color:#bbb;
+			&::placeholder {
+				color: #bbb;
 			}
 		}
 
@@ -92,7 +92,7 @@
 				top: -12px;
 				left: 9px;
 			}
-		}	
+		}
 	}
 	.empty {
 		height: 17px;
@@ -106,5 +106,9 @@
 
 	.required {
 		border: 1px solid #ea736d;
+	}
+	.controls {
+		display: flex;
+		gap: 10px;
 	}
 }
