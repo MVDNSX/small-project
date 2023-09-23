@@ -1,14 +1,9 @@
-import { SvgIcon } from '../../Svg/SvgIcon'
-import CustomButtonNeon from '../CustomButtonNeon/CustomButtonNeon'
-import CustomInput from '../CustomInput/CustomInput'
 import c from './OrderItem.module.scss'
 import dishImg from '../../../assets/cards/Image 1.png'
-import { changeCount, deleteDishes } from '../../../store/Slices/basketSlice'
-import {useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {motion} from 'framer-motion'
 
-const OrderItem = ({item, index}) => {
+export const OrderItem = ({item, index}) => {
   const {name, price, finalPrice, count, countPrice, discount} = item
   const dispatch = useDispatch()
 const commentary = true;
@@ -39,5 +34,3 @@ const commentary = true;
     </motion.div>
   )
 }
-
-export default OrderItem

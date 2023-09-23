@@ -1,5 +1,5 @@
-import img from '../../../assets/cards/Image 1.png'
-import { SvgIcon } from '../../Svg/SvgIcon'
+import img from '../../../../assets/cards/Image 1.png'
+import { SvgIcon } from '../../../Svg/SvgIcon'
 import c from './EditDish.module.scss'
 
 export const EditDish = ({dish}) => {

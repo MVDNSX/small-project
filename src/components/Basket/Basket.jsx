@@ -1,11 +1,11 @@
-import {useState} from 'react'
+
 import c from './Basket.module.css'
 import {motion, AnimatePresence} from 'framer-motion'
-import BasketItem from './BasketItem/BasketItem'
-import CustomButtonNeon from '../UI/CustomButtonNeon/CustomButtonNeon'
-import CustomButton from '../UI/CustomButton/CustomButton'
-import Total from './Total/Total'
-import BasketHeader from './BasketHeader/BasketHeader'
+import {BasketItem} from './BasketItem/BasketItem'
+import {CustomButtonNeon} from '../UI/CustomButtonNeon/CustomButtonNeon'
+import {CustomButton} from '../UI/CustomButton/CustomButton'
+import {Total} from './Total/Total'
+import {BasketHeader} from './BasketHeader/BasketHeader'
 import { useBasket } from '../../hooks/useBasket'
 
 const Basket = () => {

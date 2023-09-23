@@ -1,6 +1,6 @@
 import c from './Total.module.css'
 
-const Total = ({totalCostBasket, totalDiscountBasket}) => {
+export const Total = ({totalCostBasket, totalDiscountBasket}) => {
   return (
     <div className={c.total}>
       <div className={c.total__item}>
@@ -14,5 +14,3 @@ const Total = ({totalCostBasket, totalDiscountBasket}) => {
     </div>
   )
 }
-
-export default Total

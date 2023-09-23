@@ -22,7 +22,6 @@ export const authApi = createApi({
           dispatch(setUser(data))
         } catch (err) {
           // `onError` side-effect
-          console.log(err)
         }
       }
     }),

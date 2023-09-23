@@ -1,6 +1,6 @@
 import c from './BasketHeader.module.css'
 
-const BasketHeader = () => {
+export const BasketHeader = () => {
    return (
     <div className={c.header}>
             <div className={c.order_number}>Your basket</div>
@@ -12,5 +12,3 @@ const BasketHeader = () => {
           </div>
    )
 }
-
-export default BasketHeader

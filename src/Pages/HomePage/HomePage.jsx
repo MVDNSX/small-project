@@ -1,6 +1,6 @@
 import {useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
-import Category from '../../components/Category/Category'
+import {Category} from '../../components/Category/Category'
 import Dishes from '../../components/Dishes/Dishes'
 import CustomInput from '../../components/UI/CustomInput/CustomInput'
 import CustomSelect from '../../components/UI/CustomSelect/CustomSelect'

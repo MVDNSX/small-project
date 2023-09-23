@@ -1,8 +1,6 @@
 import c from './DishItem.module.css'
 import defaultImgDish from '../../../assets/cards/Image 1.png'
-import CustomButton from '../CustomButton/CustomButton'
-import {useDispatch} from 'react-redux'
-import { addDishes } from '../../../store/Slices/basketSlice'
+import {CustomButton} from '../CustomButton/CustomButton'
 import { useAddItemBasketMutation } from '../../../store/basketApi'
 
 const DishItem = ({dish}) => {

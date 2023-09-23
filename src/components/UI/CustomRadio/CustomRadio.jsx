@@ -1,13 +1,14 @@
 
 import c from './CustomRadio.module.scss'
 
-const CustomRadio = ({register, name, text, ...props}) => {
+export const CustomRadio = ({register, name, labelText, ...props}) => {
   return (
     <label className={c.container}>
-      <input className={c.category} type="radio" {...props} {...register(name)}/>
-      <span className={c.text}>{text}</span>
+      <input 
+        className={c.category} 
+        {...register(name)} 
+        {...props} />
+      <span className={c.text}>{labelText}</span>
     </label>
   )
 }
-
-export default CustomRadio

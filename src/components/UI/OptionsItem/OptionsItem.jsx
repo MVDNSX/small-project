@@ -20,7 +20,7 @@ const OptionsItem = ({item, isActive, setActive, children}) => {
         </div>
         <div className={c.name}>{name}</div>
         <div className={c.description}>{description}</div>
-        {isActive === id && <motion.div className={c.layout} layoutId='activeOprions'></motion.div>}
+        {isActive === id && <motion.div className={c.layout} layoutId='activeOptions'></motion.div>}
       </motion.div>
     </>
   )

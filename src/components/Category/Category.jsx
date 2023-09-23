@@ -2,7 +2,7 @@ import {useState } from 'react'
 import c from './Category.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const Category = ({categories, onChange, layout}) => {
+export const Category = ({categories, onChange, layout}) => {
 	
 	const [isActive, setActive] = useState(0)
 	const handlerClick = (id) => {
@@ -27,5 +27,3 @@ const Category = ({categories, onChange, layout}) => {
 		</AnimatePresence>
 	)
 }
-
-export default Category

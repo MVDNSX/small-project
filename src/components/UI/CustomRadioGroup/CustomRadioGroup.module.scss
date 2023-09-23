@@ -1,0 +1,33 @@
+.radio {
+	margin-top: 12px;
+	padding: 18px 14px 14px 14px;
+	border: 1px solid #393c49;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 12px;
+	position: relative;
+	.title {
+		position: absolute;
+		padding: 0 5px;
+		background-color: #1f1d2b;
+		color: #fff;
+		top: -12px;
+		left: 9px;
+	}
+}
+
+.empty {
+	height: 17px;
+}
+
+.alert {
+	font-size: 14px;
+	color: #ea736d;
+	padding-left: 15px;
+}
+
+.required {
+	border: 1px solid #ea736d;
+}
