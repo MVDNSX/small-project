@@ -1,18 +1,18 @@
-import c from './Management.module.scss'
 import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { useGetDishesQuery } from '../../../store/dishesAPI'
+import { useGetProductQuery } from '../../../store/productAPI'
 import { getCategories } from '../../../utils/getCategories'
 import { Category } from '../../Category/Category'
 import { EditDish } from './EditDish/EditDish'
-import { NewDish } from './NewDish/NewDish'
+import c from './Management.module.scss'
 import { ModalDish } from './Modal/ModalProduct'
+import { NewDish } from './NewDish/NewDish'
 
 export const Management = () => {
   const categories = getCategories();
   const [Filter, setFilter] = useState({category: 0})
   const [modalOpen, setModalOpen] = useState(false)
-  const {data: dishes, isLoading} = useGetDishesQuery()
+  const {data: dishes, isLoading} = useGetProductQuery()
 
   return (
     <>

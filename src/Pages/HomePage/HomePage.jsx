@@ -11,11 +11,11 @@ import { getOptionsSort } from '../../utils/getOptionSort'
 import c from './HomePage.module.css'
 import Basket from '../../components/Basket/Basket'
 
-import {useGetDishesQuery} from '../../store/dishesAPI'
+import {useGetProductQuery} from '../../store/productAPI'
 
 const Home = () => {
 
-	const {data: dishes=[],  isLoading} = useGetDishesQuery()
+	const {data: dishes=[],  isLoading} = useGetProductQuery()
 
 	const [dishFilter, setDishFilter] = useState({sortName: '', sort: '', query:'', category: 0})
 	const sortedAndSearchDishes = useSortAndFilterDishes(dishes, dishFilter.sort, dishFilter.query, dishFilter.category)

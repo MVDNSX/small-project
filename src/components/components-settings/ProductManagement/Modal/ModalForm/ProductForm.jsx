@@ -1,13 +1,13 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
-import { useAddDishMutation } from '../../../../../store/dishesAPI'
-import {CustomButton} from '../../../../UI/CustomButton/CustomButton'
-import {CustomRadio} from '../../../../UI/CustomRadio/CustomRadio'
-import { CustomInput } from '../../Modal/CustomInput/CustomInput'
+import { useForm } from 'react-hook-form'
+import { dishSchema } from '../../../../../Validation/dishSchema'
+import { useAddProductMutation } from '../../../../../store/productAPI'
+import { CustomButton } from '../../../../UI/CustomButton/CustomButton'
+import { CustomRadio } from '../../../../UI/CustomRadio/CustomRadio'
 import { CustomRadioGroup } from '../../../../UI/CustomRadioGroup/CustomRadioGroup'
+import { CustomInput } from '../../Modal/CustomInput/CustomInput'
 import c from './ProductForm.module.scss'
-import {useForm} from 'react-hook-form'
-import {yupResolver} from '@hookform/resolvers/yup'
-import {dishSchema} from '../../../../../Validation/dishSchema'
 
 export const ProductForm = () => {
 
@@ -20,7 +20,7 @@ export const ProductForm = () => {
     {id: 6, name:'Dessert'},
   ]
 
-  const [addDish] = useAddDishMutation()
+  const [addDish] = useAddProductMutation()
 
   const {register, formState: {errors}, handleSubmit, resetField} = useForm({
     defaultValues: {

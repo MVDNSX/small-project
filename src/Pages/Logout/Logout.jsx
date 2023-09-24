@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux'
 import CustomButton from '../../components/UI/CustomButton/CustomButton'
-import { useGetDishesQuery } from '../../store/dishesAPI'
 import { resetUser } from '../../store/Slices/userSlice'
 import './Logout.css'
 
