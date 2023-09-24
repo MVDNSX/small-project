@@ -1,58 +1,13 @@
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { dishSchema } from '../../../../../Validation/dishSchema'
-import { useAddProductMutation } from '../../../../../store/productAPI'
 import { CustomButton } from '../../../../UI/CustomButton/CustomButton'
-import { CustomRadio } from '../../../../UI/CustomRadio/CustomRadio'
-import { CustomRadioGroup } from '../../../../UI/CustomRadioGroup/CustomRadioGroup'
+import { GroupLayout } from '../../../../UI/CustomRadioGroup/GroupLayout'
 import { CustomInput } from '../../Modal/CustomInput/CustomInput'
 import c from './ProductForm.module.scss'
+import { useModalForm } from '../../../../../hooks/useModal'
+import { CustomSelect } from '../CustomSelect/CustomSelect'
 
-export const ProductForm = () => {
+export const ProductForm = ({isOpenModal, product}) => {
 
-  const categories = [
-    {id: 1, name:'Hot Dishes'},
-    {id: 2, name:'Cold Dishes'},
-    {id: 3, name:'Soup'},
-    {id: 4, name:'Grill'},
-    {id: 5, name:'Appetizer'},
-    {id: 6, name:'Dessert'},
-  ]
-
-  const [addDish] = useAddProductMutation()
-
-  const {register, formState: {errors}, handleSubmit, resetField} = useForm({
-    defaultValues: {
-    },
-    resolver: yupResolver(dishSchema),
-  });
-
-
-  const onSave = (data) => {
-    const formData = new FormData()
-    formData.append('categoryId', data.categoryId)
-    formData.append('name', data.name)
-    formData.append('price', data.price)
-    formData.append('discount', data.discount)
-    formData.append('picture',data.picture[0], data.picture[0].name)
-    addDish(formData)
-  }
-
-  const [preview, setPreview] = useState(null)
-
-  const handleChange = (e) => {
-    const fileObj = e.target.files[0];
-    if (fileObj) {
-      setPreview(URL.createObjectURL(fileObj))
-    }
-    return;
-  };
-
-  const clearDrop = () => {
-    resetField('picture')
-    setPreview(null)
-  }
+  const {register, errors, handleSubmit, control, Controller, categories, onSave, handleChange, clearImage, preview} = useModalForm(product)
 
   return (
     <form className={c.form} onSubmit={handleSubmit(onSave)}>
@@ -66,11 +21,11 @@ export const ProductForm = () => {
                   accept='image/png' 
                   onChange={(e) => {handleChange(e)}}/>
 
-                {preview && 
+                {preview &&
                   <div className={c.preview}>
-                    <img src={preview} alt='your image'/>
-                    <span className={c.cancel} onClick={clearDrop}>&#10006;</span>
-                  </div> 
+                    <img src={preview || `http://localhost:5005/${getValues('picture')}`} alt='your image'/>
+                    <span className={c.cancel} onClick={clearImage}>&#10006;</span>
+                  </div>
                 }
               </div>
               {errors.picture?.message 
@@ -107,22 +62,29 @@ export const ProductForm = () => {
                   inputMode='numeric'
                   autoComplete='off'
                 /> 
-
-                <CustomRadioGroup title={'Product category'} errors={errors.categoryId}>
-                  {categories.map( ({id, name}) => {
-                    return <CustomRadio 
-                            key={id} 
-                            register={register} 
-                            name={'categoryId'} 
-                            type={'radio'}
-                            value={id}
-                            labelText={name}/>})}
-                </CustomRadioGroup>
                 
+                <GroupLayout 
+                  title={'Product category'} 
+                  errors={errors.categoryId}>
+                  <Controller
+                    control={control}
+                    name="categoryId"
+                    render={({ field: { onChange, onBlur, value, ref } }) => (
+                      <CustomSelect
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        selected={value}
+                        options={categories}
+                        placeholder={'Choose a category...'}
+                      />
+                    )}
+                  />
+                </GroupLayout>
+
               </div>
 
               <div className={c.controls}>
-                <CustomButton type='button' text='Discard Changes' onClick={() => {handleClose(false)}}/>
+                <CustomButton type='button' text='Discard Changes' onClick={() => {isOpenModal(false)}}/>
                 <CustomButton type='submit' text='Save Changes'/>
               </div>
 

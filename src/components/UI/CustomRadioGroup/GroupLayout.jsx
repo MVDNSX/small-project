@@ -1,9 +1,9 @@
-import c from './CustomRadioGroup.module.scss'
+import c from './GroupLayout.module.scss'
 
-export const CustomRadioGroup = ({title, errors, children}) => {
+export const GroupLayout = ({title, errors, children}) => {
   return (
     <>
-      <div className={errors ? `${c.radio} ${c.required}` : `${c.radio}`}>
+      <div className={errors ? `${c.group} ${c.required}` : `${c.group}`}>
         <div className={c.title}>{title}</div>
         {children}
       </div>

@@ -1,0 +1,42 @@
+.wrapper {
+  color: #fff;
+  border-radius: 8px;
+  position: relative;
+}
+
+.select{
+  padding: 14px ;
+	background-color: #1f1d2b;
+	color: #fff;
+	border: 1px solid #393c49;
+	border-radius: 8px;
+  cursor: pointer;
+  & .placeholder {
+    color: #bbb;
+  }
+}
+
+.options_list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  padding:8px;
+	background-color: #1f1d2b;
+	color: #fff;
+	border: 1px solid #393c49;
+	border-radius: 8px;
+}
+
+.option {
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.option:hover{
+  background-color: #393c49;
+
+}

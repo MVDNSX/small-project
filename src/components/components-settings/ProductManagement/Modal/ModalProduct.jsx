@@ -3,7 +3,7 @@ import c from './ModalProduct.module.scss'
 import { ProductForm } from './ModalForm/ProductForm'
 
 
-export const ModalDish = ({handleClose}) => {
+export const ModalProduct = ({isOpenModal, product}) => {
 
   const container = {
     hidden: {opacity: 0},
@@ -33,7 +33,7 @@ export const ModalDish = ({handleClose}) => {
         initial={'hidden'} 
         animate={'show'} 
         exit={'hidden'} 
-        onClick={() => {handleClose(false)}}>
+        onClick={() => {isOpenModal(false)}}>
 
           <motion.div 
             className={c.content} 
@@ -43,7 +43,7 @@ export const ModalDish = ({handleClose}) => {
             exit={'hidden'} 
             onClick={(e) => {e.stopPropagation()}}>
 
-              <ProductForm handleClose={handleClose}/>
+              <ProductForm isOpenModal={isOpenModal} product={product}/>
 
           </motion.div>
       </motion.div> 

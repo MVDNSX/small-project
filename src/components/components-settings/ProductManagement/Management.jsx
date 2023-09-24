@@ -5,7 +5,7 @@ import { getCategories } from '../../../utils/getCategories'
 import { Category } from '../../Category/Category'
 import { EditDish } from './EditDish/EditDish'
 import c from './Management.module.scss'
-import { ModalDish } from './Modal/ModalProduct'
+import { ModalProduct } from './Modal/ModalProduct'
 import { NewDish } from './NewDish/NewDish'
 
 export const Management = () => {
@@ -17,7 +17,7 @@ export const Management = () => {
   return (
     <>
     <AnimatePresence mode='wait'>
-      {modalOpen && <ModalDish handleClose={setModalOpen}/>}
+      {modalOpen && <ModalProduct isOpenModal={setModalOpen} />}
     </AnimatePresence>
 
     <div className={c.header}>
