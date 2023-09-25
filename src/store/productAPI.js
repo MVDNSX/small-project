@@ -9,7 +9,9 @@ export const productApi = createApi({
       query: () => '/',
       providesTags: [
         {type: 'Product', id: 'LIST'}, 
-        {type: 'Product', id: 'ADD-ITEM'}],
+        {type: 'Product', id: 'ADD-ITEM'},
+        {type: 'Product', id:'EDIT-ITEM'},
+      ],
     }),
     addProduct: build.mutation({
       query: (body) => ({
@@ -21,8 +23,19 @@ export const productApi = createApi({
         //}
       }),
       invalidatesTags: [{type: 'Product', id:'ADD-ITEM'}]
+    }),
+    editProduct: build.mutation({
+      query :(body) => ({
+        url: 'edit',
+        method: 'PUT',
+        body,
+        //headers: {
+        //  Authorization: `Bearer ${getAccessToken()}`
+        //}
+      }),
+      invalidatesTags: [{type: 'Product', id:'EDIT-ITEM'}],
     })
   })
 })
 
-export const {useGetProductQuery, useAddProductMutation} = productApi
+export const {useGetProductQuery, useAddProductMutation, useEditProductMutation} = productApi

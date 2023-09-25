@@ -7,10 +7,10 @@ import { CustomSelect } from '../CustomSelect/CustomSelect'
 
 export const ProductForm = ({isOpenModal, product}) => {
 
-  const {register, errors, handleSubmit, control, Controller, categories, onSave, handleChange, clearImage, preview} = useModalForm(product)
+  const {register, errors, handleSubmit, control, Controller, categories, handleModalForm, handleChange, clearImage, preview, isDataSuccess} = useModalForm(product)
 
   return (
-    <form className={c.form} onSubmit={handleSubmit(onSave)}>
+    <form className={c.form} onSubmit={handleSubmit(handleModalForm)}>
 
               <div className={errors.picture ? `${c.drop} ${c.required}` : `${c.drop}`}>
                 {!preview && <label htmlFor="file"><div className={c.text}>Select image</div></label>}
@@ -41,7 +41,7 @@ export const ProductForm = ({isOpenModal, product}) => {
                   type='text'
                   autoComplete='off'
                 /> 
-
+                {isDataSuccess && <div>'Запрос успешно выполнен'</div>}
                 <CustomInput
                   register={register}
                   name={'price'}

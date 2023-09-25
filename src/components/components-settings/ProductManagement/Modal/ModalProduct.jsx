@@ -25,7 +25,6 @@ export const ModalProduct = ({isOpenModal, product}) => {
       y:0,
     }
   }
-
   return (
       <motion.div 
         className={c.modal} 

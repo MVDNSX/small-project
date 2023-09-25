@@ -7,6 +7,7 @@ import { EditDish } from './EditDish/EditDish'
 import c from './Management.module.scss'
 import { ModalProduct } from './Modal/ModalProduct'
 import { NewDish } from './NewDish/NewDish'
+import SkeletonDishItem from '../../UI/SkeletonDishItem/SkeletonDishItem'
 
 export const Management = () => {
   const categories = getCategories();
@@ -17,7 +18,7 @@ export const Management = () => {
   return (
     <>
     <AnimatePresence mode='wait'>
-      {modalOpen && <ModalProduct isOpenModal={setModalOpen} />}
+      {modalOpen && <ModalProduct isOpenModal={setModalOpen}/>}
     </AnimatePresence>
 
     <div className={c.header}>
@@ -31,7 +32,7 @@ export const Management = () => {
 		/>
     <div className={c.edits}>
       <NewDish handleOpen={setModalOpen}/>
-      {!isLoading && dishes.map( dish =>  <EditDish key={dish.productId} dish={dish}/>)}
+      {!isLoading ? dishes.map( dish =>  <EditDish key={dish.productId} dish={dish}/>) : [...new Array(8)].map ((_, index) => <SkeletonDishItem key={index}/>)}
     </div>
     </>
   )

@@ -31,10 +31,10 @@ export const dishSchema = yup.object({
               .test('required', "Необходимо выбрать изображение продукта", (value) =>{
                 return value && value.length
               } )
-              .test("fileSize", "Большой размер изображения", (value, context) => {
-                return value && value[0] && value[0].size <= 200000;
-              })
-              .test("type", "Поддерживается только png формат", function (value) {
-                return value && value[0] && value[0].type === "image/png";
-              }),
+              //.test("fileSize", "Большой размер изображения", (value, context) => {
+              //  return value && value[0] && value[0].size <= 200000;
+              //})
+              //.test("type", "Поддерживается только png формат", function (value) {
+              //  return value && value[0] && value[0].type === "image/png";
+              //}),
 })

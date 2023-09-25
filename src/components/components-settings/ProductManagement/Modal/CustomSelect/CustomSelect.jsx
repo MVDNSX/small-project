@@ -32,7 +32,8 @@ export const CustomSelect = ( {onChange, selected, options, placeholder}) => {
 
         {isOpen && <motion.div className={c.options_list} variants={variants} initial={'hidden'} animate={'show'} exit={'hidden'} >
           {options.map(( option )=>{
-            return <div 
+            return <div
+                    key={option.id} 
                     className={c.option} 
                     onClick={()=>{setSelectItem(option.name); onChange(option.id); setOpen(false)}}>
                       {option.name}
