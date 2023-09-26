@@ -4,10 +4,14 @@ import { CustomInput } from '../../Modal/CustomInput/CustomInput'
 import c from './ProductForm.module.scss'
 import { useModalForm } from '../../../../../hooks/useModal'
 import { CustomSelect } from '../CustomSelect/CustomSelect'
+import { useUploadImageMutation } from '../../../../../store/productAPI'
 
 export const ProductForm = ({isOpenModal, product}) => {
 
-  const {register, errors, handleSubmit, control, Controller, categories, handleModalForm, handleChange, clearImage, preview, isDataSuccess} = useModalForm(product)
+
+  
+  const {register, errors, handleSubmit, control, Controller, categories, handleModalForm, handleChange, clearImage, preview, isDataSuccess, refInput} = useModalForm(product)
+  console.log(preview)
 
   return (
     <form className={c.form} onSubmit={handleSubmit(handleModalForm)}>
@@ -15,15 +19,17 @@ export const ProductForm = ({isOpenModal, product}) => {
               <div className={errors.picture ? `${c.drop} ${c.required}` : `${c.drop}`}>
                 {!preview && <label htmlFor="file"><div className={c.text}>Select image</div></label>}
                 <input 
-                  {...register('picture')} 
+                  //{...register('picture')}
+                  name='picture' 
                   type="file" 
                   id="file"
                   accept='image/png' 
+                  ref={refInput}
                   onChange={(e) => {handleChange(e)}}/>
 
                 {preview &&
                   <div className={c.preview}>
-                    <img src={preview || `http://localhost:5005/${getValues('picture')}`} alt='your image'/>
+                    <img src={preview && `http://localhost:5005/${preview}`} alt='Product image'/>
                     <span className={c.cancel} onClick={clearImage}>&#10006;</span>
                   </div>
                 }

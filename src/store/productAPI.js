@@ -13,6 +13,28 @@ export const productApi = createApi({
         {type: 'Product', id:'EDIT-ITEM'},
       ],
     }),
+    uploadImage: build.mutation({
+      query: (body) => ({
+        url: 'upload',
+        method: 'POST',
+        body,
+        //headers: {
+          //  Authorization: `Bearer ${getAccessToken()}`
+          //}
+      }),
+      invalidatesTags:[{type: 'Product', id:'UPLOAD-PICTURE'}],
+      async onQueryStarted(
+        arg,
+        { dispatch, getState, queryFulfilled, requestId, extra, getCacheEntry }
+      ) {
+        try {
+          const {data} = await queryFulfilled
+          return data
+        } catch (error) {
+          console.log(error)
+        }
+      },
+    }),
     addProduct: build.mutation({
       query: (body) => ({
         url: 'create',
@@ -38,4 +60,4 @@ export const productApi = createApi({
   })
 })
 
-export const {useGetProductQuery, useAddProductMutation, useEditProductMutation} = productApi
+export const {useGetProductQuery, useAddProductMutation, useEditProductMutation, useUploadImageMutation} = productApi
