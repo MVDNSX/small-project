@@ -16,7 +16,11 @@ const Profile = () => {
 	}
 	return (
 		<div className={c.profile}>
-			<div className={c.user}></div>
+			<div className={c.user}>
+				<img src={avatar} alt="" />
+				<div className="name">Eren</div>
+				<div className="surname">Yeager</div>
+			</div>
 			<div className={c.most_order}></div>
 
 			{/*<div className="user-profile">
@@ -100,9 +104,9 @@ const Profile = () => {
 			</div>
 */}
 
-			<div className={c.order_wrapper}>
+			{/*<div className={c.order_wrapper}>
 				<OrderLayout/>
-			</div>
+			</div>*/}
 		</div>
 	)
 } 

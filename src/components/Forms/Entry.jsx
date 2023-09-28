@@ -1,112 +1,38 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { useForm } from "react-hook-form"
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 import { useLoginUserMutation, useRegUserMutation } from '../../store/authAPI'
 import './Entry.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { setUser } from '../../store/Slices/userSlice'
+import { FormReg } from './FormReg/FormReg'
+import { FormAuth } from './FormAuth/FormAuth'
 
-const Entry = (props) => {
-  const {side} = props
-  const dispatch = useDispatch()
-  const data = useSelector((state) => state.user)
+const Entry = ({side}) => {
   const [regUser] = useRegUserMutation()
   const [loginUser] = useLoginUserMutation()
 
-  const { register, handleSubmit,reset, watch, formState: { errors, isValid } } = useForm({mode: 'onBlur'});
-
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    if(side === 'login'){
-      await loginUser(data).unwrap();
-    
-    }else{
-      await regUser(data).unwrap();
-    }
-    reset();
-  }
   return (
     <>
       <AnimatePresence initial={false} mode='wait'>
-				{side !== 'login'
+				{side == 'login'
         ? (<motion.div 
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
-          exit={{opacity: 0}}
-          transition={{duration: 0.3}}
-          key="register"
-          className='register'>
-            <form onSubmit={handleSubmit(onSubmit)} className='register-form'>
-              <div className="register__title">Create Account</div>
-              {/*<input 
-              {...register('name', 
-              {required: 'Обязательное поле!', 
-              minLength: {
-                value: 3,
-                message: 'Введенное имя слишком короткое!'
-              },
-              maxLength: {
-                value: 12,
-                message: 'Введенное имя слишком длинное!'
-              }})} type="text"/>
-              {errors.name && <p className='input-error' role="alert">{errors.name?.message}</p>}*/}
-
-              <input {...register('email',
-              {required: 'Обязательное поле!', 
-              pattern: {
-                value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                message: 'Не валидный Email!'
-              }})} type="email" autoComplete='off'/>
-              {errors.email && <p className='input-error' role="alert">{errors.email?.message}</p>}
-
-              <input {...register('password', 
-              {required: 'Обязательное поле!', 
-              minLength: {
-                value: 8,
-                message: 'Пароль слишком короткий!'
-              },
-              maxLength: {
-                value: 12,
-                message: 'Пароль слишком длинный!'
-              }})} type="password"/>
-              {errors.password && <p className='input-error' role="alert">{errors.password?.message}</p>}
-
-              <button type='submit' className='register__btn'
-              disabled={!isValid}>Sign up</button>
-            </form>
-      </motion.div>)
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+            transition={{duration: 0.3}}
+            key="register"
+            className='register'>
+              <FormReg/>
+          </motion.div>)
         : (<motion.div 
-					initial={{opacity: 0}}
-					animate={{opacity: 1}}
-					exit={{ opacity: 0}}
-					transition={{duration: 0.3}}
-          key='login'
-					className='login'>
-						<form onSubmit={handleSubmit(onSubmit)} className='login-form'>
-              <div className="login__title">Sign in Account</div>
-
-              <input {...register('email',
-              {required: 'Обязательное поле!', 
-              pattern: {
-                value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                message: 'Не валидный Email!'
-              }})} type="email" autoComplete='off'/>
-              {errors.email && <p className='input-error' role="alert">{errors.email?.message}</p>}
-
-              <input {...register('password', 
-              {required: 'Обязательное поле!', 
-              minLength: {
-                value: 8,
-                message: 'Пароль слишком короткий!'
-              },
-              maxLength: {
-                value: 12,
-                message: 'Пароль слишком длинный!'
-              }})} type="password"/>
-              {errors.password && <p className='input-error' role="alert">{errors.password?.message}</p>}
-              
-              <button type='submit' className='login__btn'
-              disabled={!isValid}>Sign in</button>
-            </form>
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{ opacity: 0}}
+            transition={{duration: 0.3}}
+            key='login'
+            className='login'>
+						<FormAuth/>
 					</motion.div>
         )} 
 			</AnimatePresence>

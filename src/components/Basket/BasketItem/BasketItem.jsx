@@ -1,7 +1,7 @@
 
 import { SvgIcon } from '../../Svg/SvgIcon'
 import {CustomButtonNeon} from '../../UI/CustomButtonNeon/CustomButtonNeon'
-import CustomInput from '../../UI/CustomInput/CustomInput'
+import {CustomInput} from '../../UI/CustomInput/CustomInput'
 import c from './BasketItem.module.css'
 import {motion} from 'framer-motion'
 import { useBasketItem } from '../../../hooks/useBasket'

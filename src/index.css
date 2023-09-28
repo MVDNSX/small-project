@@ -127,3 +127,17 @@ label {
 legend {
 	display: block;
 }
+
+.entryForm {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.form__title {
+	font-weight: 600;
+	font-size: 36px;
+	line-height: 1.4;
+	color: #ea736d;
+	margin-bottom: 30px;
+}

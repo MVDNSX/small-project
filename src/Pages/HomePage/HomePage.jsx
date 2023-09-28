@@ -2,7 +2,7 @@ import {useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import {Category} from '../../components/Category/Category'
 import Dishes from '../../components/Dishes/Dishes'
-import CustomInput from '../../components/UI/CustomInput/CustomInput'
+import {CustomInput} from '../../components/UI/CustomInput/CustomInput'
 import CustomSelect from '../../components/UI/CustomSelect/CustomSelect'
 import PageHeader from '../../components/UI/PageHeader/PageHeader'
 import { useSortAndFilterDishes } from '../../hooks/useDishes'
@@ -29,6 +29,7 @@ const Home = () => {
 					
 					<PageHeader header={'Riverside Flamez'}>
 							<CustomInput 
+							register={null}
 							placeholder='Search for food, coffe, etc..'
 							style={{width: 164}} 
 							value={dishFilter.query}

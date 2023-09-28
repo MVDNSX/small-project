@@ -1,7 +1,7 @@
 
 import c from './CustomInput.module.css'
 
-const CustomInput = ({children, ...props}) => {
+export const CustomInput = ({children, ...props}) => {
   return (
     <div className={c.input__wrapper} >
       {children}
@@ -9,5 +9,3 @@ const CustomInput = ({children, ...props}) => {
     </div>
   )
 }
-
-export default CustomInput

@@ -1,6 +1,6 @@
 import { CustomButton } from '../../../../UI/CustomButton/CustomButton'
 import { GroupLayout } from '../../../../UI/CustomRadioGroup/GroupLayout'
-import { CustomInput } from '../../Modal/CustomInput/CustomInput'
+import { CustomInputForm } from '../../../../UI/CustomInputForm/CustomInputForm'
 import c from './ProductForm.module.scss'
 import { useModalForm } from '../../../../../hooks/useModal'
 import { CustomSelect } from '../CustomSelect/CustomSelect'
@@ -39,7 +39,7 @@ export const ProductForm = ({isOpenModal, product}) => {
                   : <p className={c.empty}></p>}
 
               <div className={c.inputs}>
-                <CustomInput
+                <CustomInputForm
                   register={register}
                   name={'name'}
                   errors={errors.name}
@@ -48,7 +48,7 @@ export const ProductForm = ({isOpenModal, product}) => {
                   autoComplete='off'
                 /> 
                 {isDataSuccess && <div>'Запрос успешно выполнен'</div>}
-                <CustomInput
+                <CustomInputForm
                   register={register}
                   name={'price'}
                   errors={errors.price}
@@ -59,7 +59,7 @@ export const ProductForm = ({isOpenModal, product}) => {
                   autoComplete='off'
                 /> 
 
-                <CustomInput
+                <CustomInputForm
                   register={register}
                   name={'discount'}
                   errors={errors.discount}
