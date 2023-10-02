@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CustomSelect from '../UI/CustomSelect/CustomSelect'
+import {CustomSelect} from '../UI/CustomSelect/CustomSelect'
 import c from './OrderLayout.module.scss'
 import Order from './Orders/Order'
 import { getOptionsSortOrder } from '../../utils/getOptionSort'

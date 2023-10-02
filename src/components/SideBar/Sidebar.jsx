@@ -5,7 +5,8 @@ import { SidebarItem } from "./SidebarItem/SidebarItem"
 import { SvgIcon } from '../Svg/SvgIcon'
 
 export const Sidebar = () => {
-	const menuLinks = ['home','discount','dashboard','notifications','orders','account','settings','logout'];
+	//const menuLinks = ['home','discount','dashboard','notifications','orders','account','settings','logout'];
+	const menuLinks = ['home','discount','dashboard','orders','account','settings','logout'];
 
 	const location = useLocation()
 	const [isActiveIndex, setActiveIndex] = useState()

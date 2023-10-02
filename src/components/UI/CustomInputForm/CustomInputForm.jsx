@@ -4,7 +4,7 @@ export const CustomInputForm = ({name, errors,register, ...props}) => {
   return (
     <>
       <input 
-        {...register(name) ? {...register(name)} : null}  
+        {...register(name)} 
         {...props}
         className={errors ? `${c.input} ${c.required}` : `${c.input}`}/>
         {errors?.message 

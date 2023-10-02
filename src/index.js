@@ -18,6 +18,7 @@ import Profile from './components/Profile/Profile'
 import Form from './components/Form/Form'
 import RequireAuth from './components/RequireAuth/RequireAuth'
 import { Management } from './components/components-settings/ProductManagement/Management'
+import { AboutUs } from './components/components-settings/AboutUs/AboutUs'
 
 let auth = false;
 const router = createBrowserRouter(createRoutesFromElements
@@ -38,7 +39,7 @@ const router = createBrowserRouter(createRoutesFromElements
 				<Route path='notification' element={<Management/>}/>
 				<Route path='management' element={<Management/>}/>
 				<Route path='security' element={<Management/>}/>
-				<Route path='about' element={<Management/>}/>
+				<Route path='about' element={<AboutUs/>}/>
 			</Route>
 			<Route path='logout' element={<Logout/>}/>
 		</Route>

@@ -1,0 +1,21 @@
+.about {
+	font-weight: 600;
+	line-height: 1.4;
+	color: #fff;
+	& .header {
+		font-size: 28px;
+		margin-bottom: 20px;
+	}
+	& .question {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+	& .answer {
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	& .question + .answer {
+		margin-bottom: 20px;
+	}
+}

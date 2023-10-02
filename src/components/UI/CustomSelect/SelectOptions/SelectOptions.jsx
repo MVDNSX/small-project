@@ -1,6 +1,6 @@
 import {motion, AnimatePresence} from 'framer-motion'
 import { useState } from 'react'
-import c from './SelectOptions.module.css'
+import c from './SelectOptions.module.scss'
 
 const SelectOptions = ({handlerClick, options, isVisible}) => {
 

@@ -1,9 +1,10 @@
 
 import { useState } from 'react'
-import c from './CustomSelect.module.css'
+import c from './CustomSelect.module.scss'
 import SelectOptions from './SelectOptions/SelectOptions'
+import { SvgIcon } from '../../Svg/SvgIcon'
 
-const CustomSelect = ({value, defaultValue, options, onChange}) => {
+export const CustomSelect = ({value, defaultValue, options, onChange}) => {
   
   const [isVisible, setVisible] = useState(false);
 
@@ -15,19 +16,21 @@ const CustomSelect = ({value, defaultValue, options, onChange}) => {
   }
   
   return (
-   <div className={c.sort}>
-    <div 
-    className={c.sort__current}
-    onClick={() => setVisible(!isVisible)}>
-      {!value ? defaultValue : value}
+    <div className={c.select}>
+      <div 
+        className={c.current}
+        onClick={() => setVisible(!isVisible)}>
+          <div className={isVisible ? `${c.rotate} ${c.arrow}` : `${c.arrow}`}>
+            <SvgIcon id='arrow-select'/>
+          </div>
+        {!value ? defaultValue : value}
+      </div>
+      <SelectOptions 
+        handlerClick={handlerClick}
+        options={options}
+        isVisible={isVisible}
+      />
     </div>
-    <SelectOptions 
-    handlerClick={handlerClick}
-    options={options}
-    isVisible={isVisible}
-    />
-   </div>
+
   )
 }
-
-export default CustomSelect

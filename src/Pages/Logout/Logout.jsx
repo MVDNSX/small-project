@@ -1,16 +1,22 @@
-import { useDispatch } from 'react-redux'
-import CustomButton from '../../components/UI/CustomButton/CustomButton'
-import { resetUser } from '../../store/Slices/userSlice'
 import './Logout.css'
-import {useForm, Controller} from 'react-hook-form'
-import { CustomSelect } from '../../components/components-settings/ProductManagement/Modal/CustomSelect/CustomSelect'
-import { FormReg } from '../../components/Forms/FormReg/FormReg'
+import { CustomSelect } from './../../components/UI/CustomSelect/CustomSelect'
+import { useState } from 'react'
 
 const Logout = () => {
+	const options = [
+		{value: 1, name:'Today'},
+    {value: 2, name:'Week'},
+    {value: 3, name:'Month'},
+	]
+	const [sort, setSort] = useState(options[0])
 	return (
-		<>
-		<FormReg/>
-		</>
+		<div>
+			<CustomSelect
+			value={sort.name}
+			options={options}
+			onChange={setSort}
+			/>
+		</div>
 	)
 }
 
