@@ -1,7 +1,7 @@
 import c from './CustomButtonNeon.module.css'
 
-export const CustomButtonNeon = ({children, ...props}) => {
+export const CustomButtonNeon = ({text, ...props}) => {
   return (
-    <button className={c.btn__neon} {...props}>{children}</button>
+    <button className={c.btn__neon} {...props}>{text}</button>
   )
 }

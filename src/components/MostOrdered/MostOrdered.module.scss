@@ -1,0 +1,11 @@
+.layout {
+	padding: 24px;
+	background-color: #1f1d2b;
+	border-radius: 8px;
+}
+.items {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-bottom: 20px;
+}

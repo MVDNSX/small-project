@@ -1,0 +1,32 @@
+.stat {
+	padding: 24px;
+	border-radius: 8px;
+	background-color: #1f1d2b;
+	border: 1px solid red;
+	display: flex;
+	flex-direction: column;
+}
+
+.heading {
+	display: flex;
+	gap: 30px;
+	align-items: center;
+	justify-content: space-between;
+
+	& .title {
+		color: #fff;
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 1.4;
+	}
+}
+
+.line {
+	height: 2px;
+	background-color: #393c49;
+	margin: 20px 0;
+}
+
+.content {
+	flex-grow: 1;
+}

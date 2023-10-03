@@ -1,4 +1,4 @@
-.layout {
+/*.layout {
   height: 100%;
   display: grid;
   grid-template-columns: 646px 372px;
@@ -15,4 +15,29 @@
   grid-template-columns: repeat(3, 1fr);
   column-gap: 24px;
   margin-bottom: 24px;
+}*/
+
+.dashboard {
+	padding: 24px;
+	overflow: hidden;
+	& .main {
+		display: grid;
+		grid-template-columns: 0.6fr 0.4fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+		column-gap: 24px;
+
+		.left {
+      .stat {
+        display: flex;
+        gap: 24px;
+      }
+		}
+
+		.right {
+      display: grid;
+      grid-template-rows: max-content;
+      gap: 24px;
+		}
+	}
 }
