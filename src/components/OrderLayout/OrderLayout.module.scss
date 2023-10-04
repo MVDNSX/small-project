@@ -1,5 +1,4 @@
 .orderLayout {
-	height: 100%;
 	display: grid;
 	grid-template-rows: 104px 1fr;
 	background-color: #1f1d2b;
@@ -21,7 +20,8 @@
 		}
 		.columns {
 			display: grid;
-			grid-template-columns: 250px 300px 70px 158px;
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			gap: 32px;
 			justify-content: space-between;
 			font-size: 14px;
 			.payment,

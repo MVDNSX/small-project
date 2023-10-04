@@ -29,7 +29,7 @@ const Dashboard = () => {
 						<SummaryCard stat={true} icon={'account'} body={'Total Customer'} changes={'+2.40%'} value={'1,234'}/>
 					</div>
 
-					{/*<OrderLayout/>*/}
+					<OrderLayout/>
 				</div>
 
 				<div className={c.right}>

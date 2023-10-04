@@ -23,21 +23,21 @@
 	& .main {
 		display: grid;
 		grid-template-columns: 0.6fr 0.4fr;
-    grid-template-rows: 1fr;
-    height: 100%;
+		grid-template-rows: 1fr;
+		height: 100%;
 		column-gap: 24px;
 
 		.left {
-      .stat {
-        display: flex;
-        gap: 24px;
-      }
+			 .stat {
+				display: flex;
+				gap: 24px;
+			}
 		}
 
 		.right {
-      display: grid;
-      grid-template-rows: max-content;
-      gap: 24px;
+			display: grid;
+			grid-template-rows: max-content;
+			gap: 24px;
 		}
 	}
 }
