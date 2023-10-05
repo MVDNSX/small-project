@@ -2,6 +2,9 @@
 	padding: 24px;
 	background-color: #1f1d2b;
 	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 .items {
 	display: flex;

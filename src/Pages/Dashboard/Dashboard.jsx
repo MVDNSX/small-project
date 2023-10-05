@@ -1,12 +1,9 @@
-import { useState } from 'react'
-import OrderLayout from '../../components/OrderLayout/OrderLayout'
-import BlockHeader from '../../components/UI/BlockHeader/BlockHeader'
-import { CustomSelect } from '../../components/UI/CustomSelect/CustomSelect'
+import { MostOrdered } from '../../components/MostOrdered/MostOrdered'
+import { MostType } from '../../components/MostType/MostType'
+import {Orders} from '../../components/Orders/Orders'
 import PageHeader from '../../components/UI/PageHeader/PageHeader'
 import SummaryCard from '../../components/UI/SummaryCard/SummaryCard'
 import c from './DashboardLayout.module.scss'
-import { MostOrdered } from '../../components/MostOrdered/MostOrdered'
-import { MostType } from '../../components/MostType/MostType'
 
 const Dashboard = () => {
 	
@@ -29,7 +26,7 @@ const Dashboard = () => {
 						<SummaryCard stat={true} icon={'account'} body={'Total Customer'} changes={'+2.40%'} value={'1,234'}/>
 					</div>
 
-					<OrderLayout/>
+					<Orders/>
 				</div>
 
 				<div className={c.right}>

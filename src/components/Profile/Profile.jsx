@@ -1,11 +1,6 @@
-import { useForm, SubmitHandler } from "react-hook-form"
-import avatar from '../../assets/avatar/user-avatar.png'
+import { useForm } from "react-hook-form"
+import { Orders } from '../Orders/Orders'
 import c from './Profile.module.scss'
-import { useEffect, useState } from 'react'
-import dishIMG from '../../assets/cards/Image 1.png'
-import dishIMG2 from '../../assets/cards/Image 2.png'
-import dishIMG3 from '../../assets/cards/Image 3.png'
-import OrderLayout from '../OrderLayout/OrderLayout'
 const Profile = () => {
 
 	const { register, handleSubmit, formState: { errors, isValid}} = useForm({mode: 'onChange'});
@@ -101,7 +96,7 @@ const Profile = () => {
 */}
 
 			<div className={c.order_wrapper}>
-				<OrderLayout/>
+				<Orders/>
 			</div>
 		</div>
 	)

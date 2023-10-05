@@ -64,7 +64,7 @@ export const MostType = () => {
           </svg>
             <div className={c.desc}>
               <div className={c.type}>Preparing</div>
-              <div className={c.count}>122 customers orders</div>
+              <div className={c.count}>122 customers</div>
             </div>
           </div>
 
