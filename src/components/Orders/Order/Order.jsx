@@ -7,24 +7,52 @@ import {OrderItem} from '../../UI/OrderItem/OrderItem'
 import c from './Order.module.scss'
 
 const Order = ({order}) => {
+  const statuses = {
+    Completed: `${c.completed}`,
+    Preparing: `${c.preparing}`,
+    Pending: `${c.pending}`,
+  }
   const {orderNumber, result, status, menu} = order;
   const [isOpen, setOpen] = useState(false)
   let [large, {height}] = useMeasure()
-
+  console.log(order)
   return (
-   <div>
-    <div className={c.small}>
-      <div className={c.number}>Orders #34562</div>
-      <div className="menu">Menu</div>
-      <div className="cost">$20.58</div>
-      <div className={`${c.status} ${c.completed}`}>Completed</div>
+   <>
+    <div className={c.small} onClick={()=>{setOpen(!isOpen)}}>
+      <div className={c.number}>Order #{orderNumber}</div>
+      <div className="menu">spicy soup</div>
+      <div className="cost">{result}</div>
+      {<div className={`${c.status} ${statuses[status]}`}>{status}</div>}
+
+        <motion.div 
+          className={c.large} 
+          animate={{height}} 
+          transition={{duration: 0.5}}>
+          <AnimatePresence>
+
+            {isOpen && 
+            <motion.div ref={large}
+              className={c.container}
+              initial={{opacity:0}}
+              animate={{opacity:1}}
+              exit={{opacity:0}}>
+                <div className={c.title}>The menu</div>
+                <div className={c.list}>
+                  {menu.map( item =>  <OrderItem key={item.dishesId} item={item}/>)}
+                </div>
+                 <div className={c.controls}>
+                <CustomButtonNeon text={'Close'} onClick={()=>setOpen(false)}/>
+                <CustomButton children={'Track Order'}/>
+                </div>
+            </motion.div>}
+          </AnimatePresence>
+        </motion.div>
     </div>
-   </div>
+   </>
   )
 }
 
 export default Order
-
 
 {/*<MotionConfig transition={{duration: 0.5}}>
 <motion.div className={c.order} animate={isOpen ? {height: 48 + height} : {height:50}}>

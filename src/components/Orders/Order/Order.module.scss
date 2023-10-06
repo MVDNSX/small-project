@@ -1,15 +1,18 @@
 .small {
-	display: flex;
-	justify-content: space-between;
-	gap: 24px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 20px;
+	grid-template-rows: repeat(auto-fit, minmax(25px, 1fr));
 	color: #E0E6E9;
 	font-size: 14px;
 	line-height: 1.4;
 	cursor: pointer;
-	padding: 10px;
+	padding: 10px 0;
+	align-items: center;
+	overflow: hidden;
 	.number {
 		color: #FFF;
-		font-size: 20px;
+		font-size: 18px;
 		font-weight: 600;
 		line-height: 1.4;
 	}
@@ -19,7 +22,6 @@
 		text-align: center;
 		padding: 4px 12px;
 		border-radius: 30px;
-		min-width: 133px;
 	}
 	.completed {
 		color: #50D1AA;
@@ -32,5 +34,33 @@
 	.preparing {
 		color: #FFB572;
 		background-color: rgba($color: #FFB572, $alpha: 0.2);
+	}
+}
+
+.large {
+	overflow: hidden;
+	grid-row: 2/3;
+	grid-column: 1/5;
+	.container{
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		.title{
+			margin-top: 16px;
+			color:#ABBBC2;
+			font-size: 16px;
+			font-weight: 500;
+			line-height: 1.4
+		}
+		.list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 16px;
+		}
+		.controls {
+			display: flex;
+			gap: 16px;
+			padding: 10px 0;
+		}
 	}
 }

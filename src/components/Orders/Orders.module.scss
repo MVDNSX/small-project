@@ -4,5 +4,25 @@
   flex-direction: column;
 	background:#1F1D2B;
 	border-radius: 8px;
-  padding: 24px 0;
+  padding: 24px;
+	overflow: hidden;
+}
+.columns{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	padding: 10px 24px;
+	color: #FFF;
+	font-weight: 600;
+	line-height: 1.4;
+	border-bottom: 2px solid #393C49;
+	padding: 16px 0;
+	margin-bottom: 16px;
+}
+.content{
+	overflow: scroll;
+}
+.content::-webkit-scrollbar{
+	width: 0;
+	height: 0;
 }

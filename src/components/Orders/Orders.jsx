@@ -23,7 +23,13 @@ export const Orders = () => {
                onChange={sort => {setOrderFilter({sort: sort.value, sortName: sort.name})}}
                options={options}/>
          </BlockHeader>
-         <div className="content">
+         <div className={c.columns}>
+           <div >Customer</div>
+           <div >Menu</div>
+           <div >Total cost</div>
+           <div >Status</div>
+         </div>
+         <div className={c.content}>
             {filterOrders.map( order => <Order key={order.orderNumber} order={order}/>)}
          </div>
      </div>
