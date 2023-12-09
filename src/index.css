@@ -133,11 +133,14 @@ legend {
 	flex-direction: column;
 	gap: 5px;
 }
+.entryForm:last-child button{
+	margin: 35px auto 0;
+}
 
 .form__title {
 	font-weight: 600;
 	font-size: 36px;
 	line-height: 1.4;
 	color: #ea736d;
-	margin-bottom: 30px;
+	margin: 0 auto 30px auto;
 }

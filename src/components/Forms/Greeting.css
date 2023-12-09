@@ -9,6 +9,9 @@
 .greeting {
 	text-align: center;
 }
+.greeting:last-child button{
+	margin-top: 35px;
+}
 
 .greeting__title {
 	font-weight: 600;

@@ -45,7 +45,7 @@ export const BasketItem = memo(({item}) => {
       </div>
 
       <div className={c.delete}>
-        <CustomButton mix={'neon'} onClick={handleDelete} icon='trash'/>
+        <CustomButton neon onClick={handleDelete} icon='trash'/>
       </div>
 
     </motion.div>

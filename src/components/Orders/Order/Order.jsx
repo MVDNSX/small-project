@@ -40,7 +40,7 @@ const Order = ({order}) => {
                   {menu.map( item =>  <OrderItem key={item.dishesId} item={item}/>)}
                 </div>
                  <div className={c.controls}>
-                <CustomButton mix={'neon'} text={'Close'} onClick={()=>setOpen(false)}/>
+                <CustomButton neon text={'Close'} onClick={()=>setOpen(false)}/>
                 <CustomButton text={'Track Order'}/>
                 </div>
             </motion.div>}

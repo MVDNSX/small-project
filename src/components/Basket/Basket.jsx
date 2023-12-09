@@ -38,7 +38,7 @@ export const Basket = memo(() => {
           <Total totalCostBasket={totalCostBasket} totalDiscountBasket={totalDiscountBasket}/>
         
           <div className={c.controls}>
-            <CustomButton text={'Go Back'} mix={'neon'} onClick={handleClose}/>
+            <CustomButton text={'Go Back'} neon onClick={handleClose}/>
             <CustomButton text={'Continue to Payment'}/>
           </div>
 

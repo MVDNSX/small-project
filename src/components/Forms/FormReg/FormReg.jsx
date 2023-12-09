@@ -5,6 +5,7 @@ import { userRegSchema } from '../../../Validation/userRegSchema'
 import { CustomInputForm } from '../../UI/CustomInputForm/CustomInputForm'
 import { FormBtn } from '../FormBtn/FormBtn'
 import { useRegUserMutation } from '../../../store/authAPI'
+import { ButtonForm } from '../../UI/ButtonForm/ButtonForm'
 
 
 export const FormReg = () => {
@@ -43,10 +44,7 @@ export const FormReg = () => {
         placeholder='Confirm password'
         autoComplete='off'
       />
-      <FormBtn 
-        text={'Sign up'}
-        type={'submit'}
-        />
+      <ButtonForm type='submit' text='Sign up' invers/>
     </form>
   )
 }

@@ -1,0 +1,23 @@
+.btn {
+	width: 150px;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 14px;
+	color: #ea746d;
+  background-color: #fff;
+	padding: 12px 20px;
+	border-radius: 20px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+.btn:hover {
+  box-shadow: 0px 8px 24px 0px rgba(255, 255, 255, 0.4);
+}
+
+.invers {
+  color:#fff;
+  background-color: #ea746d;
+}
+.invers:hover {
+  
+  box-shadow: 0px 8px 24px 0px rgba(234, 115, 109, 0.2);
+}

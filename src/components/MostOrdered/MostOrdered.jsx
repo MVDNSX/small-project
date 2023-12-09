@@ -28,7 +28,7 @@ export const MostOrdered = () => {
         {items.map( item => <OrderedItem item={item}/> )}
       </div>
 
-      <CustomButton mix={'neon'} text={'View All'}/>
+      <CustomButton neon text={'View All'}/>
     </div>
    )
 }
