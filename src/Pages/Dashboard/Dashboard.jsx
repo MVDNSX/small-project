@@ -1,15 +1,16 @@
+import { Layout } from '../../components/Layout/Layout'
 import { MostOrdered } from '../../components/MostOrdered/MostOrdered'
 import { MostType } from '../../components/MostType/MostType'
 import {Orders} from '../../components/Orders/Orders'
-import PageHeader from '../../components/UI/PageHeader/PageHeader'
+import {PageHeader} from '../../components/UI/PageHeader/PageHeader'
 import SummaryCard from '../../components/UI/SummaryCard/SummaryCard'
-import c from './DashboardLayout.module.scss'
+import c from './Dashboard.module.scss'
 
 const Dashboard = () => {
 	
 
 	return (
-		<div className={c.dashboard}>
+		<Layout>
 			
 			<div className={c.main}>
 
@@ -36,7 +37,7 @@ const Dashboard = () => {
 
 			</div>
 
-		</div>
+		</Layout>
 	)
 }
 

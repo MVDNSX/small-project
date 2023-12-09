@@ -95,9 +95,9 @@ const Profile = () => {
 			</div>
 */}
 
-			<div className={c.order_wrapper}>
+			{/*<div className={c.order_wrapper}>
 				<Orders/>
-			</div>
+			</div>*/}
 		</div>
 	)
 } 

@@ -14,6 +14,7 @@ export const FormAuth = () => {
   const [loginUser] = useLoginUserMutation()
   const onAuth = (data) => {
     loginUser(data)
+    
   }
   return (
     <form onSubmit={handleSubmit(onAuth)} className='entryForm'>

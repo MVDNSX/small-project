@@ -1,4 +1,4 @@
-
+import { memo } from 'react'
 import c from './Basket.module.css'
 import {motion, AnimatePresence} from 'framer-motion'
 import {BasketItem} from './BasketItem/BasketItem'
@@ -8,9 +8,8 @@ import {Total} from './Total/Total'
 import {BasketHeader} from './BasketHeader/BasketHeader'
 import { useBasket } from '../../hooks/useBasket'
 
-const Basket = () => {
+export const Basket = memo(() => {
   const {isOpen, products, totalDiscountBasket, totalCostBasket, handleOpen, handleClose} = useBasket();
-
   return (
     <AnimatePresence>
       <motion.div initial={false} animate={isOpen ? {width: 410} : { width: 80}} className={c.basket_container}>
@@ -40,7 +39,7 @@ const Basket = () => {
           <Total totalCostBasket={totalCostBasket} totalDiscountBasket={totalDiscountBasket}/>
         
           <div className={c.controls}>
-            <CustomButtonNeon children={'Go Back'} onClick={handleClose}/>
+            <CustomButtonNeon text={'Go Back'} onClick={handleClose}/>
             <CustomButton children={'Continue to Payment'}/>
           </div>
 
@@ -50,6 +49,4 @@ const Basket = () => {
       </motion.div>
     </AnimatePresence>
    )
-}
-
-export default Basket
+})

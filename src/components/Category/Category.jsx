@@ -1,4 +1,4 @@
-import {useState } from 'react'
+import {useState} from 'react'
 import c from './Category.module.css'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -9,7 +9,6 @@ export const Category = ({categories, onChange, layout}) => {
 		onChange(id)
 		setActive(id)
 	}
-
 	return (
 		<AnimatePresence>
 			<div className={c.category__list}>	

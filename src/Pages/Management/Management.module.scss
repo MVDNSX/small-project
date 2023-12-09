@@ -9,9 +9,10 @@
 
 .edits {
 	display: grid;
-	grid-template-columns: repeat(3, 215px);
+	//grid-template-columns: repeat(3, 215px);
+	grid-template-columns: repeat(auto-fit, minmax(215px, 215px));
 	height: 100%;
-	gap: 16px;
+	gap: 20px;
 	color: #fff;
 	overflow: scroll;
 }

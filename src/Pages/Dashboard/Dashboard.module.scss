@@ -17,15 +17,6 @@
 	margin-bottom: 24px
 }*/
 
-.dashboard {
-	width: 100%;
-	padding: 24px;
-	display: flex;
-	flex-direction: column;
-	row-gap: 24px;
-	flex: 0 0;
-	overflow: hidden;
-
 	.main {
 		flex: 1 0;
 		overflow: hidden;
@@ -48,5 +39,4 @@
 			gap: 24px;
 			flex-shrink: 0;
 		}
-	}
 	}

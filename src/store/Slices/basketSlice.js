@@ -59,11 +59,9 @@ export const basketSlice = createSlice({
 		},
 
 		changeComment: (state, action) => {
-			const {product_basket, totalCostBasket, totalDiscountBasket} = action.payload
+			const {product_basket} = action.payload
 			const productIndex = state.products.findIndex( item => item.productId === product_basket.productId)
 			state.products[productIndex].product_basket = {...state.products[productIndex].product_basket, ...product_basket}
-			state.totalCostBasket = totalCostBasket
-			state.totalDiscountBasket = totalDiscountBasket
 		}, 
 
 		delDish: (state, action) => {

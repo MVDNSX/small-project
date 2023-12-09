@@ -1,5 +1,16 @@
 import { useMemo } from 'react';
 
+export const useDiscountDishes = (dishes, discount) => {
+	const discountDishes = useMemo( ()=> {
+		if(discount){
+			return dishes.filter( dish => dish.discount)
+		}else{
+			return dishes
+		}
+	}, [discount, dishes])
+	return discountDishes
+}
+
 export const useCategoryDishes = (dishes, filterCategory) => {
 	const categoryDishes = useMemo( ()=> {
 		if(filterCategory !== 0){
@@ -11,7 +22,7 @@ export const useCategoryDishes = (dishes, filterCategory) => {
 	return categoryDishes
 }
 
-export const useSortDishes = (dishes, sortParam, category) => {
+export const useSortDishes = (dishes, category, sortParam) => {
 	const categoryDishes = useCategoryDishes(dishes, category)
 
   const sortedDishes = useMemo( () => {
@@ -27,8 +38,9 @@ export const useSortDishes = (dishes, sortParam, category) => {
   return sortedDishes
 }
 
-export const useSortAndFilterDishes = (dishes, sort, query, category) => {
-  const sortedDishes = useSortDishes(dishes, sort, category);
+export const useSortAndFilterDishes = (dishes, category, query, sort=undefined, discount=false) => {
+	const discountDishes = useDiscountDishes(dishes, discount)
+  const sortedDishes = useSortDishes(discountDishes, category, sort);
   const sortedAndSearchDishes = useMemo( ()=> {
 		if(sortedDishes){
 			return sortedDishes.filter( d => d.name.toLowerCase().includes(query.toLowerCase()))

@@ -1,4 +1,4 @@
-
+import {memo} from 'react'
 import { SvgIcon } from '../../Svg/SvgIcon'
 import {CustomButtonNeon} from '../../UI/CustomButtonNeon/CustomButtonNeon'
 import {CustomInput} from '../../UI/CustomInput/CustomInput'
@@ -6,7 +6,7 @@ import c from './BasketItem.module.css'
 import {motion} from 'framer-motion'
 import { useBasketItem } from '../../../hooks/useBasket'
 
-export const BasketItem = ({item}) => {
+export const BasketItem = memo(({item}) => {
   const {name, price, finalPrice, discount, picture, count, totalCostProduct, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete} = useBasketItem(item)
   return (
     <motion.div 
@@ -45,9 +45,9 @@ export const BasketItem = ({item}) => {
       </div>
 
       <div className={c.delete}>
-        <CustomButtonNeon onClick={handleDelete}><SvgIcon id='trash'/></CustomButtonNeon>
+        <CustomButtonNeon onClick={handleDelete} icon='trash'></CustomButtonNeon>
       </div>
 
     </motion.div>
   )
-}
+})

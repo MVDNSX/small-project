@@ -1,7 +1,7 @@
-
 import { getDateFormat } from '../../../utils/getDate'
-import c from './PageHaeder.module.css'
-const PageHeader = ({header, children, isDate, isBorder}) => {
+import c from './PageHeader.module.css'
+
+export const PageHeader = ({header, children, isDate, isBorder}) => {
   const date = getDateFormat()
    return (
     <>
@@ -18,5 +18,3 @@ const PageHeader = ({header, children, isDate, isBorder}) => {
     </>
    )
 }
-
-export default PageHeader

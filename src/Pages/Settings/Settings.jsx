@@ -1,11 +1,12 @@
-import PageHeader from '../../components/UI/PageHeader/PageHeader'
+import { Layout } from '../../components/Layout/Layout'
+import {PageHeader} from '../../components/UI/PageHeader/PageHeader'
 import Options from '../../components/components-settings/Options/Options'
 import c from './Settings.module.scss'
 import {Outlet} from 'react-router-dom'
 
 const Settings = () => {
 	return (
-		<div className={c.settings}>
+		<Layout>
 			<PageHeader header={'Settings'}/>
 			
 			<div className={c.content}>
@@ -14,7 +15,7 @@ const Settings = () => {
 					<Outlet/>
 				</div>
 			</div>
-		</div>
+		</Layout>
 	)
 }
 

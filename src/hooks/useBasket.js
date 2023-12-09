@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useChangeItemCommentMutation, useChangeItemCountMutation, useDeleteItemMutation, useGetBasketQuery } from '../store/basketApi'
 import { useSelector } from 'react-redux'
 
@@ -30,6 +30,7 @@ export const useBasketItem = (item) => {
   const [changeItemCount] = useChangeItemCountMutation()
   const [changeItemComment] = useChangeItemCommentMutation()
   const [localComment, setLocalComment] = useState(comment);
+
 
   const handleCount = (e) => {
     changeItemCount({productId, count: +e.target.value})

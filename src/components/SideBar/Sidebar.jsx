@@ -5,8 +5,13 @@ import { SidebarItem } from "./SidebarItem/SidebarItem"
 import { SvgIcon } from '../Svg/SvgIcon'
 
 export const Sidebar = () => {
-	//const menuLinks = ['home','discount','dashboard','notifications','orders','account','settings','logout'];
-	const menuLinks = ['home','discount','dashboard','orders','account','settings','logout'];
+	const role = 'root'
+	const links = {
+		root: ['home','discount','orders','statistics','management','settings','account'],
+		default: ['home','discount','orders','settings','account']
+	}
+	
+	let menuLinks = role ? links[role] : links['default'] 
 
 	const location = useLocation()
 	const [isActiveIndex, setActiveIndex] = useState()

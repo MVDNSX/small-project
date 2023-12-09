@@ -11,9 +11,9 @@ const Options = ( ) => {
   const options = [
     //{id:1, name: 'Orders', location:'orders', description: 'Your previous orders', icon: 'security'},
     {id:1, name: 'Notifications', location:'notification', description: 'Customize your notifications', icon: 'notifications'},
-    {id:2, name: 'Products Management', location:'management', description: 'Manage your product, pricing, etc', icon: 'discount'},
+    //{id:2, name: 'Products Management', location:'management', description: 'Manage your product, pricing, etc', icon: 'discount'},
     //{id:4, name: 'Security', location:'security', description: 'Configure Password, PIN, etc', icon: 'security'},
-    {id:3, name: 'About Us', location:'about', description: 'Find out more about Posly', icon: 'info'},
+    {id:2, name: 'About Us', location:'about', description: 'Find out more about Posly', icon: 'info'},
   ]
 
   return (

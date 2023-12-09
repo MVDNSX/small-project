@@ -3,6 +3,7 @@ import img from '../../../../assets/cards/Image 1.png'
 import { SvgIcon } from '../../../Svg/SvgIcon'
 import c from './EditDish.module.scss'
 import { ModalProduct } from '../Modal/ModalProduct'
+import {createPortal} from 'react-dom'
 
 export const EditDish = ({dish}) => {
 
@@ -11,7 +12,7 @@ export const EditDish = ({dish}) => {
 
   return (
     <>
-    {openModal && <ModalProduct isOpenModal={setOpenModal} product={dish}/>}
+    {openModal && createPortal(<ModalProduct isOpenModal={setOpenModal} product={dish}/>, document.body)}
       <div className={c.editing}>
         <div className={c.heading}>
           <div className={c.imgDish}>
