@@ -20,7 +20,7 @@ const DishItem = ({dish, selectedId, setSelectedId}) => {
             <div className={c.dish__price}>{discount !== 0 && <s className={c.dish__price_discount}>$ {price}</s>}$ {finalPrice}</div>
             <div className={c.dish__available}>{bowls} Bowls available</div>
           </div>
-          <CustomButton onClick={() => {addBasketItem(productId)}}>Order now</CustomButton>
+          <CustomButton text={'Order now'} onClick={() => {addBasketItem(productId)}}/>
         </div>
         <div className={c.dish__bg}></div>
       </div>

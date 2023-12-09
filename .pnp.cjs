@@ -34,6 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:13.5.0"],\
             ["axios", "npm:1.5.0"],\
+            ["classnames", "npm:2.3.2"],\
             ["framer-motion", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:10.16.4"],\
             ["install", "npm:0.13.0"],\
             ["node-sass", "npm:9.0.0"],\
@@ -7035,6 +7036,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/cjs-module-lexer-npm-1.2.3-9d788a3c14-5ea3cb867a.zip/node_modules/cjs-module-lexer/",\
           "packageDependencies": [\
             ["cjs-module-lexer", "npm:1.2.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["classnames", [\
+        ["npm:2.3.2", {\
+          "packageLocation": "./.yarn/cache/classnames-npm-2.3.2-d2fdae468d-2c62199789.zip/node_modules/classnames/",\
+          "packageDependencies": [\
+            ["classnames", "npm:2.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17099,6 +17109,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:13.5.0"],\
             ["axios", "npm:1.5.0"],\
+            ["classnames", "npm:2.3.2"],\
             ["framer-motion", "virtual:56867ee8da06e2e9b8a04ac35be7c9572094acb8bc8792d459296d9a58fddd4a64971530989fff08686ba50aa8acbf41043a730281a947465ae7bec29f8eba76#npm:10.16.4"],\
             ["install", "npm:0.13.0"],\
             ["node-sass", "npm:9.0.0"],\

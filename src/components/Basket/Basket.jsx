@@ -2,7 +2,6 @@ import { memo } from 'react'
 import c from './Basket.module.css'
 import {motion, AnimatePresence} from 'framer-motion'
 import {BasketItem} from './BasketItem/BasketItem'
-import {CustomButtonNeon} from '../UI/CustomButtonNeon/CustomButtonNeon'
 import {CustomButton} from '../UI/CustomButton/CustomButton'
 import {Total} from './Total/Total'
 import {BasketHeader} from './BasketHeader/BasketHeader'
@@ -39,8 +38,8 @@ export const Basket = memo(() => {
           <Total totalCostBasket={totalCostBasket} totalDiscountBasket={totalDiscountBasket}/>
         
           <div className={c.controls}>
-            <CustomButtonNeon text={'Go Back'} onClick={handleClose}/>
-            <CustomButton children={'Continue to Payment'}/>
+            <CustomButton text={'Go Back'} mix={'neon'} onClick={handleClose}/>
+            <CustomButton text={'Continue to Payment'}/>
           </div>
 
        </motion.div>}

@@ -2,7 +2,7 @@ import c from './MostOrdered.module.scss'
 import { useState } from 'react'
 import BlockHeader from '../UI/BlockHeader/BlockHeader'
 import { CustomSelect } from '../UI/CustomSelect/CustomSelect'
-import { CustomButtonNeon } from '../UI/CustomButtonNeon/CustomButtonNeon'
+import { CustomButton } from '../UI/CustomButton/CustomButton'
 import { OrderedItem } from './OrderedItem/OrderedItem'
 
 export const MostOrdered = () => {
@@ -28,7 +28,7 @@ export const MostOrdered = () => {
         {items.map( item => <OrderedItem item={item}/> )}
       </div>
 
-      <CustomButtonNeon text={'View All'}/>
+      <CustomButton mix={'neon'} text={'View All'}/>
     </div>
    )
 }

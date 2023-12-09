@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import { SvgIcon } from '../../Svg/SvgIcon'
-import {CustomButtonNeon} from '../../UI/CustomButtonNeon/CustomButtonNeon'
+import {CustomButton} from '../../UI/CustomButton/CustomButton'
 import {CustomInput} from '../../UI/CustomInput/CustomInput'
 import c from './BasketItem.module.css'
 import {motion} from 'framer-motion'
@@ -45,7 +45,7 @@ export const BasketItem = memo(({item}) => {
       </div>
 
       <div className={c.delete}>
-        <CustomButtonNeon onClick={handleDelete} icon='trash'></CustomButtonNeon>
+        <CustomButton mix={'neon'} onClick={handleDelete} icon='trash'/>
       </div>
 
     </motion.div>

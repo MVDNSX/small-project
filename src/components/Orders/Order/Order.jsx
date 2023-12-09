@@ -2,7 +2,6 @@ import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 import {CustomButton} from '../../UI/CustomButton/CustomButton'
-import {CustomButtonNeon} from '../../UI/CustomButtonNeon/CustomButtonNeon'
 import {OrderItem} from '../../UI/OrderItem/OrderItem'
 import c from './Order.module.scss'
 
@@ -41,8 +40,8 @@ const Order = ({order}) => {
                   {menu.map( item =>  <OrderItem key={item.dishesId} item={item}/>)}
                 </div>
                  <div className={c.controls}>
-                <CustomButtonNeon text={'Close'} onClick={()=>setOpen(false)}/>
-                <CustomButton children={'Track Order'}/>
+                <CustomButton mix={'neon'} text={'Close'} onClick={()=>setOpen(false)}/>
+                <CustomButton text={'Track Order'}/>
                 </div>
             </motion.div>}
           </AnimatePresence>
