@@ -3,7 +3,6 @@ import {useForm} from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { userRegSchema } from '../../../Validation/userRegSchema'
 import { CustomInputForm } from '../../UI/CustomInputForm/CustomInputForm'
-import { FormBtn } from '../FormBtn/FormBtn'
 import { useRegUserMutation } from '../../../store/authAPI'
 import { ButtonForm } from '../../UI/ButtonForm/ButtonForm'
 

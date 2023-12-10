@@ -13,7 +13,6 @@ export const Dishes = memo(({isDishesLoading, sortedAndSearchDishes}) => {
           <DishItem 
           key={d.productId}
           dish={d}
-          layoutId={d.productId}
           selectedId={selectedId}
           setSelectedId={setSelectedId}
           />)

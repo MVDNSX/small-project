@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react'
-import { BiSearch } from 'react-icons/bi'
 import { Basket } from '../../components/Basket/Basket'
 import { Category } from '../../components/Category/Category'
 import { Dishes } from '../../components/Dishes/Dishes'
@@ -27,8 +26,8 @@ export const DishesPage = ({isDiscount}) => {
               placeholder='Search for food, coffe, etc..'
               style={{width: 164}} 
               value={dishFilter.query}
-              onChange={(e) => setDishFilter({...dishFilter, query: e.target.value})}>
-                <BiSearch size='20' color='#fff'/>
+              onChange={(e) => setDishFilter({...dishFilter, query: e.target.value})}
+              icon='search'>
             </CustomInput>
           </PageHeader>
 

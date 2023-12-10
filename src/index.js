@@ -12,7 +12,7 @@ import Notifications from './Pages/Notifications/Notifications'
 import Orders from './Pages/Orders/Orders'
 import Settings from './Pages/Settings/Settings'
 import Form from './components/Form/Form'
-import Profile from './components/Profile/Profile'
+import {ProfilePage} from './components/Profile/ProfilePage'
 import RequireAuth from './components/RequireAuth/RequireAuth'
 import { AboutUs } from './components/components-settings/AboutUs/AboutUs'
 import './index.css'
@@ -28,7 +28,7 @@ const router = createBrowserRouter(createRoutesFromElements
 			<Route path='management' element={<Management/>}/>
 			<Route path='account' element={<AccountLayout/>}>
 				<Route path='profile' element={
-				<RequireAuth><Profile/></RequireAuth>}/> 
+				<RequireAuth><ProfilePage/></RequireAuth>}/> 
 				<Route path='auth' element={<Form/>}/> 
 			</Route>
 			<Route path='settings' element={<Settings/>}>

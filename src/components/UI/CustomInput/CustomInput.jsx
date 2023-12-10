@@ -1,11 +1,13 @@
-
-import c from './CustomInput.module.css'
-
-export const CustomInput = ({children, ...props}) => {
+import { SvgIcon } from '../../Svg/SvgIcon'
+import c from './CustomInput.module.scss'
+export const CustomInput = ({id, labelText,icon, ...props}) => {
   return (
-    <div className={c.input__wrapper} >
-      {children}
-      <input className={c.input} {...props}/>
+    <div>
+      <label className={c.label} htmlFor={id}>{labelText}</label>
+      <div className={c.inputGroup}>
+        {icon && <SvgIcon className={c.icon} id={icon}/>}
+        <input className={c.input} id={id} {...props}/>
+      </div>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const DishItem = ({dish, selectedId, setSelectedId}) => {
   const dishPicture = picture ? `http://localhost:5005/${picture}` : defaultImgDish
   return (
     <>
-      <div className={c.dish__item} layoutId={productId} onClick={()=>setSelectedId(productId)}>
+      <div className={c.dish__item} onClick={()=>setSelectedId(productId)}>
         <div className={c.dish__wrapper}>
           <div className={c.dish__info}>
             {discount !== 0 && <div className={c.discount__bg}><p className={c.discount__value}>{discount}% off</p></div>}
@@ -24,19 +24,6 @@ const DishItem = ({dish, selectedId, setSelectedId}) => {
         </div>
         <div className={c.dish__bg}></div>
       </div>
-        {/*<AnimatePresence >
-          {selectedId === productId && 
-          
-          <div className={c.container}>
-            <motion.div className={c.portal__dish} layoutId={selectedId} onClick={()=>setSelectedId(null)}>
-              <motion.div className="">{name}</motion.div>
-              <motion.div className="">Состав: ингридиент1, ингридиент2</motion.div>
-              <motion.div className="">{price}</motion.div>
-              <motion.button>закрыть</motion.button>
-            </motion.div>
-          </div>
-          }
-        </AnimatePresence>*/}
     </>
   )
 }

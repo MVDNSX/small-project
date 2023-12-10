@@ -1,0 +1,55 @@
+.user{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 24px;
+  border-radius: 8px;
+  background:#1F1D2B;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+.info{
+  display: grid;
+  justify-content: start;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 10px;
+  grid-template-areas: 
+  'a i'
+  'a i';
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  .registered{
+    color:#ABBBC2;
+    font-size: 14px;
+  }
+  .data {
+    grid-area: i;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.avatar{
+  grid-area: a;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.modify{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+

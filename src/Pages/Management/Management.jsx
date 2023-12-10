@@ -32,8 +32,8 @@ export const Management = () => {
 				placeholder='Search for food, coffe, etc..'
 				style={{width: 164}} 
 				value={dishFilter.query}
-				onChange={(e) => setDishFilter({...dishFilter, query: e.target.value})}>
-					<BiSearch size='20' color='#fff'/>
+				onChange={(e) => setDishFilter({...dishFilter, query: e.target.value})}
+        icon='search'>
 			</CustomInput>
     </PageHeader>
     <Category 
