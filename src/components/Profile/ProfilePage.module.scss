@@ -1,0 +1,23 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 17px;
+  overflow: hidden;
+}
+
+.dataContainer  {
+  display: flex;
+  gap: 24px;
+}
+.orderContainer {
+  grid-area: o;
+}
+
+.historyContainer {
+  border-radius: 8px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

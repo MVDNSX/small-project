@@ -4,7 +4,8 @@
 	border-radius: 8px;
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	flex-grow: 0;
+	flex-shrink: 0;
 }
 .items {
 	display: flex;

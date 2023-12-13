@@ -26,7 +26,7 @@ export const Management = () => {
       {modalOpen && <ModalProduct isOpenModal={setModalOpen}/>}
     </AnimatePresence>
 
-    <PageHeader header={'Product Management'}>
+    <PageHeader header={'Product Management'} isDate>
       <CustomInput 
 				register={null}
 				placeholder='Search for food, coffe, etc..'

@@ -27,10 +27,10 @@
 			flex-grow: 1;
 			display: flex;
 			flex-direction: column;
+			gap: 24px;
 			.stat {
 				display: flex;
 				gap: 24px;
-				margin-bottom: 24px;
 			}
 		}
 		.right{
