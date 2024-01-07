@@ -16,7 +16,7 @@ const OptionsItem = ({item, isActive, setActive, children}) => {
         className={isActive === id ? c.item_bg +' '+ c.active : c.item_bg }
         onClick={handleActive}>
         <div className={c.icon}>
-          <SvgIcon id={icon}/>
+          <SvgIcon icon={icon}/>
         </div>
         <div className={c.name}>{name}</div>
         <div className={c.description}>{description}</div>

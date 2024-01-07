@@ -16,7 +16,7 @@ export const Basket = memo(() => {
       <motion.div 
         className={c.open} 
         animate={isOpen ? {opacity: 0, pointerEvents: 'none'}: {opacity: 1}}>
-          <CustomButton onClick={handleOpen} id='basket'/>
+          <CustomButton onClick={handleOpen} icon='basket'/>
       </motion.div>
       
       <AnimatePresence>

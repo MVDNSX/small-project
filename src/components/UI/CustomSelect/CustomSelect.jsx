@@ -21,7 +21,7 @@ export const CustomSelect = ({value, defaultValue, options, onChange}) => {
         className={c.current}
         onClick={() => setVisible(!isVisible)}>
           <div className={isVisible ? `${c.rotate} ${c.arrow}` : `${c.arrow}`}>
-            <SvgIcon id='arrow-select'/>
+            <SvgIcon icon='arrow-select'/>
           </div>
         {!value ? defaultValue : value}
       </div>

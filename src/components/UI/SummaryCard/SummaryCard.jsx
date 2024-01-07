@@ -6,12 +6,12 @@ const SummaryCard = ({icon, value, body, changes, stat}) => {
     <div className={c.summary}>
       <div className={c.header}>
         <div className={c.icon}>
-          <SvgIcon id={icon}/>
+          <SvgIcon icon={icon}/>
         </div>
         <div className={stat ? `${c.status} ${c.status_up}` : `${c.status} ${c.status_down}`}>
           <div className={c.percents}>{changes}</div>
           <div className={c.arrow}>
-            <SvgIcon id={'arrow'}/>
+            <SvgIcon icon={'arrow'}/>
           </div>
         </div>
       </div>

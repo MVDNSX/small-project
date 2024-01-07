@@ -5,7 +5,7 @@ export const CustomInput = ({id, labelText,icon, ...props}) => {
     <div>
       <label className={c.label} htmlFor={id}>{labelText}</label>
       <div className={c.inputGroup}>
-        {icon && <SvgIcon className={c.icon} id={icon}/>}
+        {icon && <SvgIcon className={c.icon} icon={icon}/>}
         <input className={c.input} id={id} {...props}/>
       </div>
     </div>

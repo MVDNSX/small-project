@@ -10,13 +10,13 @@ export const SidebarItem = ({item, index, active}) => {
 			className={check ? `${c.link} ${c.active}` : c.link}
 			>
 				<Link to={`/${item}`}>
-					<SvgIcon id={item}/>
+					<SvgIcon icon={item}/>
 				{check && 
 				<>
 					<motion.div
 						className={c.link_bg}
 						layoutId='link_bg'>
-							<SvgIcon id={'layout'}/>
+							<SvgIcon icon={'layout'}/>
 					</motion.div>
 					<motion.div
 						className={c.top} 

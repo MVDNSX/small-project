@@ -4,6 +4,7 @@ import Entry from '../../components/Forms/Entry'
 import Greeting from '../../components/Forms/Greeting'
 import { useSelector } from 'react-redux'
 import {Navigate} from 'react-router-dom'
+import s from './Form.module.scss'
 
 
 const Form = () => {
@@ -17,7 +18,7 @@ const Form = () => {
 	return (
 		<div className="form__container">
 				<AnimatePresence>
-					<motion.div className={side !== 'login' ? 'main-form' : 'main-form form-reverse'}
+					<motion.div className={side !== 'login' ? `${s['main-form']}` : `${s['main-form']} ${s['form-reverse']}`}
 					initial={{height:0, opacity:0}}
 					animate={{height:500, opacity:1}}
 					transition={{duration: 0.4}}>

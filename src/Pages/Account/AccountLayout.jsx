@@ -1,8 +1,6 @@
 
 import {Outlet, useNavigate, Navigate} from 'react-router-dom'
 import {useEffect} from 'react'
-
-import {PageHeader} from '../../components/UI/PageHeader/PageHeader'
 import { Layout } from '../../components/Layout/Layout'
 
 

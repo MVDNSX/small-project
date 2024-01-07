@@ -28,7 +28,7 @@ export const Sidebar = () => {
 
 			<Link to={'/home'}>
 				<div className={c.logo_bg}>
-					<SvgIcon id={'logo'}/>
+					<SvgIcon icon={'logo'}/>
 				</div>
 			</Link>
 			

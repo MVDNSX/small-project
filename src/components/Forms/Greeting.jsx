@@ -17,14 +17,6 @@ const Greeting = ({side, handlerSide}) => {
         key='toLogin'>
           <div className="greeting__title">Welcome Back!</div>
           <div className="greeting__suptitle">To keep connected with us please login with your personal info</div>
-          {/*<motion.button onClick={() => handlerSide('reg')}
-            className='greeting__btn'
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{duration: 0.2}}
-            >Sign in
-          </motion.button>*/}
           <ButtonForm text='Sign in' onClick={() => handlerSide('reg')}/>
         </motion.div>)
         : (<motion.div className='greeting'
@@ -35,14 +27,6 @@ const Greeting = ({side, handlerSide}) => {
         key='toRegister'>
           <div className="greeting__title">Hello, Friend!</div>
           <div className="greeting__suptitle">Enter your personal details and start journey with us</div>
-          {/*<motion.button onClick={() => handlerSide('login')}
-            className='greeting__btn'
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{duration: 0.2}}
-            >Sign up
-          </motion.button>*/}
           <ButtonForm text='Sign up' onClick={() => handlerSide('login')}/>
       </motion.div>)}
       </AnimatePresence>
