@@ -14,7 +14,6 @@ const Order = ({order}) => {
   const {orderNumber, result, status, menu} = order;
   const [isOpen, setOpen] = useState(false)
   let [large, {height}] = useMeasure()
-  console.log(order)
   return (
    <>
     <div className={c.small} onClick={()=>{setOpen(!isOpen)}}>

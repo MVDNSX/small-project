@@ -24,7 +24,7 @@ export const EditDish = ({dish}) => {
           </div>
         </div>
         <button className={c.editBtn} onClick={()=>{setOpenModal(true)}}>
-          <SvgIcon id='edit'/>
+          <SvgIcon icon='edit'/>
           <span>Edit dish</span>
         </button>
       </div>

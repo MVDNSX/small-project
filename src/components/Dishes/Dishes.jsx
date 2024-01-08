@@ -1,4 +1,4 @@
-import SkeletonDishItem from '../UI/SkeletonDishItem/SkeletonDishItem'
+import SkeletonDishItem from '../UI/Skeletons/SkeletonDishItem'
 import {memo, useState} from 'react'
 import DishItem from '../UI/DishItem/DishItem'
 import c from './Dishes.module.css'

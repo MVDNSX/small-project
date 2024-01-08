@@ -1,23 +1,29 @@
 import c from './MostOrdered.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import BlockHeader from '../UI/BlockHeader/BlockHeader'
 import { CustomSelect } from '../UI/CustomSelect/CustomSelect'
 import { CustomButton } from '../UI/CustomButton/CustomButton'
 import { OrderedItem } from './OrderedItem/OrderedItem'
+import {mockMostOrdered} from '../../mock/mockData'
+import SkeletonMostOrdered from '../UI/Skeletons/SkeletonMostOrdered'
+
 
 export const MostOrdered = () => {
   const options = [
-		{value: 1, name:'Today'},
-    {value: 2, name:'Week'},
-    {value: 3, name:'Month'},
+    {value: 'today', name:'Today'},
+    {value: 'week', name:'Week'},
+    {value: 'month', name:'Month'},
 	]
-  const items = [
-    {name:'Fresh eggs', orders: 200, picture:'0abdc590-a267-44e7-96ff-29fb92f3d6e1.png'},
-    {name:'Pasta Carbonara', orders: 125, picture:'cc44093c-27ec-44c0-be9f-42b765ba6b7e.png'},
-    {name:'Hinkali', orders: 80, picture:'c20dc9f0-d129-4c3d-97dd-f523a444f7ae.png'},
-  ]
+  const [mostOrder, setMostOrder] = useState(options[0])
+  const [items, setItems] = useState()
+  useEffect(()=>{
+    setItems()
+    setTimeout(() => {
+      setItems([...mockMostOrdered[mostOrder.value]])
+    }, 1000);
+  },[mostOrder])
+  console.log('render')
 
-	const [mostOrder, setMostOrder] = useState(options[0])
    return (
     <div className={c.layout}>
       <BlockHeader header={'Most Ordered'} Border>
@@ -25,7 +31,9 @@ export const MostOrdered = () => {
 			</BlockHeader>
 
       <div className={c.items}>
-        {items.map( item => <OrderedItem item={item}/> )}
+        {items 
+        ? items.map( (item, index) => <OrderedItem key={index} item={item}/> ) 
+        :[...new Array(3)].map((_,index) => <SkeletonMostOrdered key={index}/>)}
       </div>
 
       <CustomButton neon text={'View All'}/>

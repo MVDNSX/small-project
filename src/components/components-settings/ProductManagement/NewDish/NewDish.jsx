@@ -6,7 +6,7 @@ export const NewDish = ({handleOpen}) => {
   return (
     <>
       <div className={c.adding} onClick={() => {handleOpen(true)}}>
-        <SvgIcon id='plus'/>
+        <SvgIcon icon='plus'/>
         <div>Add new dish</div>
       </div>
     </>
