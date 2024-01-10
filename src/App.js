@@ -11,7 +11,7 @@ function App() {
 		<div className="App">
 			<ToastContainer 
 				position="top-right"
-				autoClose={5000}
+				autoClose={4000}
 				hideProgressBar={false}
 				newestOnTop={false}
 				closeOnClick
@@ -19,7 +19,7 @@ function App() {
 				pauseOnFocusLoss
 				draggable
 				pauseOnHover
-				theme="light"
+				theme="dark"
 				/>
 			<div className="container">
 				<Sidebar />

@@ -1,6 +1,4 @@
-const mockDashboardData = {
 
-}
 export const mockMostOrdered = {
   today:[
     {name:'Fresh eggs', orders: 175, picture:'0abdc590-a267-44e7-96ff-29fb92f3d6e1.png'},
@@ -18,3 +16,4 @@ export const mockMostOrdered = {
     {name:'Tom yum', orders: 903, picture:'903c7f37-0f44-4294-b20f-825b71f2d435.png'},
   ]
 }
+

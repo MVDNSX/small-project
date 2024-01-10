@@ -3,11 +3,12 @@ import { useEffect, useState } from "react"
 import { useLocation, Link } from 'react-router-dom'
 import { SidebarItem } from "./SidebarItem/SidebarItem"
 import { SvgIcon } from '../Svg/SvgIcon'
+import { useSelector } from 'react-redux'
 
 export const Sidebar = () => {
-	const role = 'root'
+	const role = useSelector((state) => state.user.currentUser.role)
 	const links = {
-		root: ['home','discount','orders','statistics','management','settings','account'],
+		test: ['home','discount','orders','statistics','management','settings','account'],
 		default: ['home','discount','orders','settings','account']
 	}
 	

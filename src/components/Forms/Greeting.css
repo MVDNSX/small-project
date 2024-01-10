@@ -9,7 +9,7 @@
 .greeting {
 	text-align: center;
 }
-.greeting:last-child button{
+.greeting:last-child button {
 	margin-top: 35px;
 }
 
@@ -24,6 +24,7 @@
 .greeting__suptitle {
 	text-align: center;
 	padding: 0 10px;
+	color: #fff;
 }
 
 .greeting__btn {

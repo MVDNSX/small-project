@@ -18,11 +18,11 @@ export const MostOrdered = () => {
   const [items, setItems] = useState()
   useEffect(()=>{
     setItems()
-    setTimeout(() => {
+    const fakeLoad = setTimeout(() => {
       setItems([...mockMostOrdered[mostOrder.value]])
-    }, 1000);
+    }, 2000);
+    return clearTimeout(fakeLoad)
   },[mostOrder])
-  console.log('render')
 
    return (
     <div className={c.layout}>

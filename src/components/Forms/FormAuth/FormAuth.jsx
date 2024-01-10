@@ -24,7 +24,7 @@ export const FormAuth = () => {
         errors={errors.email}
         name='email'
         type='text'
-        placeholder='Email'
+        placeholder='use email: test@test.ru'
         autoComplete='off'
       />
       <CustomInputForm
@@ -32,7 +32,7 @@ export const FormAuth = () => {
         errors={errors.password}
         name='password'
         type='password'
-        placeholder='Password'
+        placeholder='use password: 12345678'
         autoComplete='off'
       />
       <ButtonForm text='Sign in' type='submit' invers/>

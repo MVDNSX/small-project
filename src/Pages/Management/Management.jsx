@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Category } from '../../components/Category/Category'
 import { Layout } from '../../components/Layout/Layout'
 import {PageHeader} from '../../components/UI/PageHeader/PageHeader'
-import SkeletonDishItem from '../../components/UI/Skeletons/SkeletonDishItem'
 import { EditDish } from '../../components/components-settings/ProductManagement/EditDish/EditDish'
 import { ModalProduct } from '../../components/components-settings/ProductManagement/Modal/ModalProduct'
 import { NewDish } from '../../components/components-settings/ProductManagement/NewDish/NewDish'
@@ -12,7 +11,7 @@ import { getCategories } from '../../utils/getCategories'
 import c from './Management.module.scss'
 import { useCategoryDishes, useSortAndFilterDishes } from '../../hooks/useDishes'
 import { CustomInput } from '../../components/UI/CustomInput/CustomInput'
-import { BiSearch } from 'react-icons/bi'
+import SkeletonManagement from '../../components/UI/Skeletons/SkeleronManagement'
 
 export const Management = () => {
   const categories = getCategories();
@@ -43,7 +42,11 @@ export const Management = () => {
 		/>
     <div className={c.edits}>
       <NewDish handleOpen={setModalOpen}/>
-      {!isLoading ? dishes.map( dish =>  <EditDish key={dish.productId} dish={dish}/>) : [...new Array(8)].map ((_, index) => <SkeletonDishItem key={index}/>)}
+      {!isLoading 
+      ? dishes.map( dish =>  
+        <EditDish key={dish.productId} dish={dish}/>) 
+        : [...new Array(7)].map ((_, index) => <SkeletonManagement key={index}/>)
+      }
     </div>
     </Layout>
   )

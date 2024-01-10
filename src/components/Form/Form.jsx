@@ -16,7 +16,7 @@ const Form = () => {
     to='/account/profile'/>)
 	}
 	return (
-		<div className="form__container">
+		<div className={s.formContainer}>
 				<AnimatePresence>
 					<motion.div className={side !== 'login' ? `${s['main-form']}` : `${s['main-form']} ${s['form-reverse']}`}
 					initial={{height:0, opacity:0}}
@@ -24,14 +24,14 @@ const Form = () => {
 					transition={{duration: 0.4}}>
 
 						<motion.div 
-						className="block-greeting" 
+						className={s.blockGreeting} 
 						layout
 						transition={{duration: 0.6}}>
 							<Greeting side={side} handlerSide={setSide}/>
 						</motion.div>
 
 						<motion.div 
-						className="block-forms"
+						className={s.blockForms}
 						layout
 						transition={{duration: 0.6}}>
 							<Entry side={side}/>

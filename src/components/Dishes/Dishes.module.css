@@ -1,6 +1,7 @@
 .dishes {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(192px, 192px));
+	grid-template-rows: minmax(293px, 293px);
 	gap: 17px 28px;
 	overflow: scroll;
 	padding-bottom: 24px;

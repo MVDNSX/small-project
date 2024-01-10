@@ -20,8 +20,8 @@ export const User = () => {
 
 				</div>
 				<div className={c.modify}>
-					<CustomInput id='name' labelText='Name' placeholder='Eren yeager'/>
-					<CustomInput id='email' labelText='Email' placeholder='Eren101@gmail.com'/>
+					<CustomInput id='name' labelText='Name' placeholder='Eren yeager' autoComplete='off'/>
+					<CustomInput id='email' labelText='Email' placeholder='Eren101@gmail.com' autoComplete='off'/>
 				</div>
 			</div>
 	)

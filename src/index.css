@@ -133,7 +133,7 @@ legend {
 	flex-direction: column;
 	gap: 5px;
 }
-.entryForm:last-child button{
+.entryForm:last-child button {
 	margin: 35px auto 0;
 }
 
@@ -143,4 +143,15 @@ legend {
 	line-height: 1.4;
 	color: #ea736d;
 	margin: 0 auto 30px auto;
+}
+
+:root {
+	--toastify-color-dark: #1f1d2b;
+	--toastify-color-error: #ea736d;
+	--toastify-color-success: #50d1aa;
+}
+
+.Toastify__toast {
+	border: 1px solid #393c49;
+	border-radius: 8px;
 }

@@ -42,18 +42,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
-
-
-{/*<div className={c.left}>
-				
-				<div className={c.stat}>
-					<SummaryCard stat={true} icon={'dollar'} body={'Total Revenue'} changes={'+32.40%'} value={'$10,243.00'}/>
-					<SummaryCard stat={false} icon={'orders'} body={'Total Dish Ordered'} changes={'-12.40%'} value={'23,456'}/>
-					<SummaryCard stat={true} icon={'account'} body={'Total Customer'} changes={'+2.40%'} value={'1,234'}/>
-				</div>
-				<OrderLayout/>
-			</div>
-			<div className="right">
-				
-			</div>*/}
