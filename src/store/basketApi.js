@@ -5,7 +5,7 @@ import { addDish, changeComment, changeCount, delDish, loadBasket } from './Slic
 
 export const basketApi = createApi({
   reducerPath: 'basketApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5005/api/basket'}),
+  baseQuery: fetchBaseQuery({baseUrl: 'https://server-project-production.up.railway.app/api/basket'}),
   tagTypes:['Basket'],
   endpoints: (build) => ({
 

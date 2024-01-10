@@ -4,7 +4,7 @@ import {toast} from 'react-toastify'
 
 export const productApi = createApi({
   reducerPath: 'productApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5005/api/product'}),
+  baseQuery: fetchBaseQuery({baseUrl: 'https://server-project-production.up.railway.app/api/product'}),
   tagTypes: ['Product'],
   endpoints: (build) => ({
     getProduct: build.query({
