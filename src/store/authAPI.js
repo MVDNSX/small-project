@@ -4,7 +4,7 @@ import { getAccessToken } from '../utils/getAccessToken'
 import {toast} from 'react-toastify'
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'https://server-project-production.up.railway.app/api/user'}),
+  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5005/api/user'}),
   endpoints: (build) => ({
     getAuth: build.query({
       query: () => ({

@@ -22,10 +22,9 @@ export const MostType = () => {
   const [stat, setStat] = useState([])
   useEffect(()=>{
     setStat()
-    const fakeLoad = setTimeout(() => {
+    setTimeout(() => {
       setStat([])
     }, 2000);
-    return clearTimeout(fakeLoad)
   },[typeOrder.value])
   
   return (

@@ -18,10 +18,9 @@ export const MostOrdered = () => {
   const [items, setItems] = useState()
   useEffect(()=>{
     setItems()
-    const fakeLoad = setTimeout(() => {
+    setTimeout(() => {
       setItems([...mockMostOrdered[mostOrder.value]])
     }, 2000);
-    return clearTimeout(fakeLoad)
   },[mostOrder])
 
    return (

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 export const Sidebar = () => {
 	const role = useSelector((state) => state.user.currentUser.role)
 	const links = {
+		admin: ['home','discount','orders','statistics','management','settings','account'],
 		test: ['home','discount','orders','statistics','management','settings','account'],
 		default: ['home','discount','orders','settings','account']
 	}
