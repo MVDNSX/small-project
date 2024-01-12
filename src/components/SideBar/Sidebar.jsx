@@ -7,13 +7,14 @@ import { useSelector } from 'react-redux'
 
 export const Sidebar = () => {
 	const role = useSelector((state) => state.user.currentUser.role)
+
 	const links = {
 		admin: ['home','discount','orders','statistics','management','settings','account'],
 		test: ['home','discount','orders','statistics','management','settings','account'],
 		user: ['home','discount','orders','settings','account']
 	}
 	
-	let menuLinks = role ? links[role] : links['default'] 
+	let menuLinks = role ? links[role] : links['user'] 
 
 	const location = useLocation()
 	const [isActiveIndex, setActiveIndex] = useState()
