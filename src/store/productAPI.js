@@ -21,9 +21,9 @@ export const productApi = createApi({
         url: 'upload',
         method: 'POST',
         body,
-        //headers: {
-          //  Authorization: `Bearer ${getAccessToken()}`
-          //}
+        headers: {
+            Authorization: `Bearer ${getAccessToken()}`
+          }
       }),
       invalidatesTags:[{type: 'Product', id:'UPLOAD-PICTURE'}],
       async onQueryStarted(

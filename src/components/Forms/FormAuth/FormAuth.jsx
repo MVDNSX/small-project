@@ -24,7 +24,7 @@ export const FormAuth = () => {
         errors={errors.email}
         name='email'
         type='text'
-        placeholder='use email: test@test.ru'
+        placeholder='use email: test@mail.ru'
         autoComplete='off'
       />
       <CustomInputForm

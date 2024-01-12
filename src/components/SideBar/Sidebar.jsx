@@ -10,7 +10,7 @@ export const Sidebar = () => {
 	const links = {
 		admin: ['home','discount','orders','statistics','management','settings','account'],
 		test: ['home','discount','orders','statistics','management','settings','account'],
-		default: ['home','discount','orders','settings','account']
+		user: ['home','discount','orders','settings','account']
 	}
 	
 	let menuLinks = role ? links[role] : links['default'] 
