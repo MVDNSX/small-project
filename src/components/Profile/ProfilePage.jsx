@@ -3,7 +3,6 @@ import { User } from '../User/User'
 import { Orders } from '../Orders/Orders'
 import { PageHeader } from '../UI/PageHeader/PageHeader'
 import { CustomButton } from '../UI/CustomButton/CustomButton'
-import {Navigate} from 'react-router-dom'
 import { resetUser } from '../../store/Slices/userSlice'
 import { useDispatch } from 'react-redux'
 

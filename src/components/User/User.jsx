@@ -14,14 +14,14 @@ export const User = () => {
 					</div>
 
 					<div className={c.data}>
-						<div className={c.name}>Eren Yeager</div>
+						<div className={c.name}>Test Test</div>
 						<div className={c.registered}>Member since 12 april 2023</div>
 					</div>
 
 				</div>
 				<div className={c.modify}>
-					<CustomInput id='name' labelText='Name' placeholder='Eren yeager' autoComplete='off'/>
-					<CustomInput id='email' labelText='Email' placeholder='Eren101@gmail.com' autoComplete='off'/>
+					<CustomInput id='name' labelText='Name' placeholder='Test' autoComplete='off'/>
+					<CustomInput id='email' labelText='Email' placeholder='test@mail.ru' autoComplete='off'/>
 				</div>
 			</div>
 	)

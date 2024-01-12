@@ -5,6 +5,7 @@ import c from './ProductForm.module.scss'
 import { useModalForm } from '../../../../../hooks/useModal'
 import { CustomSelect } from '../CustomSelect/CustomSelect'
 import { useUploadImageMutation } from '../../../../../store/productAPI'
+import { urlHostingImage } from '../../../../../utils/getBaseUrlHosting'
 
 export const ProductForm = ({isOpenModal, product}) => {
 
@@ -29,7 +30,7 @@ export const ProductForm = ({isOpenModal, product}) => {
 
                 {preview &&
                   <div className={c.preview}>
-                    <img src={preview && `http://localhost:5005/${preview}`} alt='Product image'/>
+                    <img src={preview && `${urlHostingImage}/${preview}`} alt='Product image'/>
                     <span className={c.cancel} onClick={clearImage}>&#10006;</span>
                   </div>
                 }

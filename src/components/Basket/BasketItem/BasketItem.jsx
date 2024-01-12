@@ -5,6 +5,7 @@ import {CustomInput} from '../../UI/CustomInput/CustomInput'
 import c from './BasketItem.module.css'
 import {motion} from 'framer-motion'
 import { useBasketItem } from '../../../hooks/useBasket'
+import { urlHostingImage } from '../../../utils/getBaseUrlHosting'
 
 export const BasketItem = memo(({item}) => {
   const {name, price, finalPrice, discount, picture, count, totalCostProduct, localComment, setLocalComment, handleCommentQuery, handleCount, handleDelete} = useBasketItem(item)
@@ -18,7 +19,7 @@ export const BasketItem = memo(({item}) => {
       >
       <div className={c.data}>
         <div className={c.img}>
-          <img src={`http://localhost:5005/${picture}`} alt="foto" />
+          <img src={`${urlHostingImage}/${picture}`} alt="foto" />
         </div>
         <div className={c.info}>
           <div className={c.name}>{name}</div>

@@ -1,4 +1,4 @@
-import { AnimatePresence, MotionConfig, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 import {CustomButton} from '../../UI/CustomButton/CustomButton'

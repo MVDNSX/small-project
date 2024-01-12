@@ -1,11 +1,12 @@
 import { createApi,fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { getAccessToken } from '../utils/getAccessToken'
+import { urlHostingApi } from '../utils/getBaseUrlHosting'
 import { addDish, changeComment, changeCount, delDish, loadBasket } from './Slices/basketSlice'
 
 
 export const basketApi = createApi({
   reducerPath: 'basketApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'https://server-project-production.up.railway.app/api/basket'}),
+  baseQuery: fetchBaseQuery({baseUrl: `${urlHostingApi}/basket`}),
   tagTypes:['Basket'],
   endpoints: (build) => ({
 

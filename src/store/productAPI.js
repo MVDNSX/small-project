@@ -1,10 +1,11 @@
 import { createApi,fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { getAccessToken } from '../utils/getAccessToken'
+import { urlHostingApi } from '../utils/getBaseUrlHosting'
 import {toast} from 'react-toastify'
 
 export const productApi = createApi({
   reducerPath: 'productApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'https://server-project-production.up.railway.app/api/product'}),
+  baseQuery: fetchBaseQuery({baseUrl: `${urlHostingApi}/product`}),
   tagTypes: ['Product'],
   endpoints: (build) => ({
     getProduct: build.query({

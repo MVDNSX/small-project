@@ -4,6 +4,7 @@ import { SvgIcon } from '../../../Svg/SvgIcon'
 import c from './EditDish.module.scss'
 import { ModalProduct } from '../Modal/ModalProduct'
 import {createPortal} from 'react-dom'
+import { urlHostingImage } from '../../../../utils/getBaseUrlHosting'
 
 export const EditDish = ({dish}) => {
 
@@ -16,7 +17,7 @@ export const EditDish = ({dish}) => {
       <div className={c.editing}>
         <div className={c.heading}>
           <div className={c.imgDish}>
-            <img src={`http://localhost:5005/${picture}`} alt="dish picture" />
+            <img src={`${urlHostingImage}/${picture}`} alt="dish picture" />
           </div>
           <div className={c.description}>
             <div>{name}</div>

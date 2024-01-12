@@ -2,9 +2,10 @@ import { createApi,fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setUser } from './Slices/userSlice'
 import { getAccessToken } from '../utils/getAccessToken'
 import {toast} from 'react-toastify'
+import { urlHostingApi } from '../utils/getBaseUrlHosting'
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'https://server-project-production.up.railway.app/api/user'}),
+  baseQuery: fetchBaseQuery({baseUrl: `${urlHostingApi}/user`}),
   endpoints: (build) => ({
     getAuth: build.query({
       query: () => ({

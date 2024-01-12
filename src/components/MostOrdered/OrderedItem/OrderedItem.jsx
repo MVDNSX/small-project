@@ -1,3 +1,4 @@
+import { urlHostingImage } from '../../../utils/getBaseUrlHosting'
 import c from './OrderedItem.module.scss'
 
 export const OrderedItem = ({item}) => {
@@ -5,7 +6,7 @@ export const OrderedItem = ({item}) => {
   return (
     <div className={c.item}>
 			<div className={c.img}>
-				<img src={`http://localhost:5005/${picture}`} alt="" />
+				<img src={`${urlHostingImage}/${picture}`} alt="order item image" />
 			</div>
 			<div className={c.info}>
 				<div className="dish_name">{name}</div>

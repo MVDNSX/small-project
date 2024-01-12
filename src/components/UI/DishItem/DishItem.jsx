@@ -2,11 +2,12 @@ import c from './DishItem.module.scss'
 import defaultImgDish from '../../../assets/cards/Image 1.png'
 import {CustomButton} from '../CustomButton/CustomButton'
 import { useAddItemBasketMutation } from '../../../store/basketApi'
+import { urlHostingImage } from '../../../utils/getBaseUrlHosting'
 
 const DishItem = ({dish, selectedId, setSelectedId}) => {
   const [addBasketItem] = useAddItemBasketMutation()
   const {name, price, finalPrice, bowls, discount, picture, productId} = dish;
-  const dishPicture = picture ? `http://localhost:5005/${picture}` : defaultImgDish
+  const dishPicture = picture ? `${urlHostingImage}/${picture}` : defaultImgDish
   return (
     <>
       <div className={c.dish__item} onClick={()=>setSelectedId(productId)}>
