@@ -51,6 +51,7 @@ export const productApi = createApi({
         try {
           const { data } = await queryFulfilled
           console.log(data)
+          toast.success('Данные успешно добавлены!')
         } catch ({error}) {
           console.log(error.data.message)
           toast.error(error.data.message)
@@ -70,6 +71,7 @@ export const productApi = createApi({
       async onQueryStarted(body, {dispatch, queryFulfilled}) {
         try {
           const { data } = await queryFulfilled
+          toast.success('Данные успешно добавлены!')
           console.log(data)
         } catch ({error}) {
           console.log(error.data.message)

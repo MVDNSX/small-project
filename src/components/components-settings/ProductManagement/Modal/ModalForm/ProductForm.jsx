@@ -4,16 +4,13 @@ import { CustomInputForm } from '../../../../UI/CustomInputForm/CustomInputForm'
 import c from './ProductForm.module.scss'
 import { useModalForm } from '../../../../../hooks/useModal'
 import { CustomSelect } from '../CustomSelect/CustomSelect'
-import { useUploadImageMutation } from '../../../../../store/productAPI'
 import { urlHostingImage } from '../../../../../utils/getBaseUrlHosting'
-import previeww from '../../../../../assets/cards/борщ.png'
 
 export const ProductForm = ({isOpenModal, product}) => {
 
 
   
   const {register, errors, handleSubmit, control, Controller, categories, handleModalForm, handleChange, clearImage, preview, isDataSuccess, refInput} = useModalForm(product)
-  console.log(preview)
 
   return (
     <form className={c.form} onSubmit={handleSubmit(handleModalForm)}>
@@ -32,7 +29,7 @@ export const ProductForm = ({isOpenModal, product}) => {
                 {preview &&
                   <div className={c.preview}>
                     <div className={c.imagePreview}>
-                      <img src={previeww} alt='Product image'/>
+                      <img src={`${urlHostingImage}/${preview}`} alt='Product image'/>
                     </div>
                     <span className={c.cancel} onClick={clearImage}>&#10006;</span>
                   </div>

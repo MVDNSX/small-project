@@ -6,7 +6,8 @@ import { SvgIcon } from '../Svg/SvgIcon'
 import { useSelector } from 'react-redux'
 
 export const Sidebar = () => {
-	const role = useSelector((state) => state.user.currentUser.role)
+	//const role = useSelector((state) => state.user.currentUser.role)
+	const role = 'admin'
 
 	const links = {
 		admin: ['home','discount','orders','statistics','management','settings','account'],

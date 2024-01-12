@@ -13,9 +13,6 @@
 	background-color: #ea736d;
 	border-radius: 8px;
 	transition: all 0.15s ease;
-	svg, path {
-		fill: #fafafa;
-	}
 	path {
 		stroke: #fafafa;
 	}
@@ -25,9 +22,7 @@
 	color: rgb(234, 115, 109);
 	background-color: #201d2b;
 	border: 1px solid #ea736d;
-	svg, path {
-		fill: #ea736d;
-	}
+	
  	path {
 		stroke: #ea736d;
 	}
